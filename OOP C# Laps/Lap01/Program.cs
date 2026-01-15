@@ -4,6 +4,13 @@
     {
         static void Main()
         {
+            //1- vs community setup
+            //2- calculate birthdate
+                // plz enter birth year  2000
+                // plz enter birth month  5
+                // plz enter birth day  22
+                // you're 26 years, 2months and 13 days
+
             Console.WriteLine("Enter birth year:");
             int year = int.Parse(Console.ReadLine());
 
