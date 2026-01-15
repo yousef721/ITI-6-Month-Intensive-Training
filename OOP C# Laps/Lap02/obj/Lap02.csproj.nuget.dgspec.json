@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yousefabdullah/Desktop/ITI Course/OOP C# Laps/Lap02/Lap02.csproj": {}
+    "/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap02/Lap02.csproj": {}
   },
   "projects": {
-    "/Users/yousefabdullah/Desktop/ITI Course/OOP C# Laps/Lap02/Lap02.csproj": {
+    "/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap02/Lap02.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yousefabdullah/Desktop/ITI Course/OOP C# Laps/Lap02/Lap02.csproj",
+        "projectUniqueName": "/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap02/Lap02.csproj",
         "projectName": "Lap02",
-        "projectPath": "/Users/yousefabdullah/Desktop/ITI Course/OOP C# Laps/Lap02/Lap02.csproj",
+        "projectPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap02/Lap02.csproj",
         "packagesPath": "/Users/yousefabdullah/.nuget/packages/",
-        "outputPath": "/Users/yousefabdullah/Desktop/ITI Course/OOP C# Laps/Lap02/obj/",
+        "outputPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap02/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/yousefabdullah/.nuget/NuGet/NuGet.Config"
