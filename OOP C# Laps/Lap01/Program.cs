@@ -4,8 +4,9 @@
     {
         static void Main()
         {
-            //1- vs community setup
-            //2- calculate birthdate
+            // 1- vs community setup (DONE)
+            
+            // 2- calculate birthdate
                 // plz enter birth year  2000
                 // plz enter birth month  5
                 // plz enter birth day  22
