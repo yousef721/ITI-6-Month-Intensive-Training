@@ -10,7 +10,6 @@ struct Employee
 
 class Program
 {
-
     static void Main()
     {
         /*
@@ -25,8 +24,8 @@ class Program
             #region Task01
 
                 // int[] array = [5,4,2,-1,-33,55,66,77,88,100];
-                // int max = -2147483648;
-                // int min = 2147483647;
+                // int max = array[0];
+                // int min = array[0];
                 // for (int i = 0; i < 10; i++)
                 // {
                 //     if(array[i] > max)
@@ -45,7 +44,7 @@ class Program
             // 2- array of 10 integers and sort it ascending without any built in function
             #region Task02
 
-            // int[] array = [5,4,2,-1,-33,55,66,77,88,100];
+            // int[] array = [5,4,2,-1,-33,55,66,77,88,100]; // Bubble sort
             // for (int i = 0; i < 10; i++)
             // {
             //     for (int j = 0; j < 10 - i - 1; j++)
@@ -73,7 +72,7 @@ class Program
             // {
             //     Console.WriteLine("Enter number to search");
             //     int numSearch = int.Parse(Console.ReadLine());
-            //     for (int i = 0; i < 10; i++)
+            //     for (int i = 0; i < 10; i++) // linear search
             //     {
             //         if (numSearch == array[i])
             //         {
@@ -121,7 +120,7 @@ class Program
             //     Console.WriteLine();
             // }
         #endregion
-    
+
         #region Calculate your birth date (My Code)
 
             //5- calculate your birth date
@@ -192,6 +191,7 @@ class Program
             // // ================= AGE CALCULATION =================
 
             // // Case 1: Birthday has NOT occurred yet this year
+            // // if birthMonth 7 and current month 1 or month is same month but my birth day not occurred
             // if (month > today.Month || (month == today.Month && day > today.Day))
             // {
             //     // Calculate full years excluding the current year
@@ -218,7 +218,7 @@ class Program
             //     // Total days lived
             //     float totalDays =
             //         daysCompleteYears +
-            //         (remindDaysOfLastYear - day) +
+            //         (remindDaysOfLastYear - day) + // start from my birth day
             //         daysPassedFromCurrentYear +
             //         today.Day;
 
@@ -227,9 +227,9 @@ class Program
             //     totalDays %= 365.25f;
 
             //     // Calculate remaining months
-            //     if (month == today.Month)
+            //     if (month == today.Month) // if birth day occurred in same current month
             //     {
-            //         for (int i = month; i < 12; i++)
+            //         for (int i = month; i < 12; i++)  // if my birthMonth = 1 => 11 month and minus days from total day
             //         {
             //             months++;
             //             totalDays -= monthsArr[i];
@@ -237,7 +237,7 @@ class Program
             //     }
             //     else
             //     {
-            //         for (int i = month - 1; i < 12; i++)
+            //         for (int i = month - 1; i < 12; i++) // increase 1 month and minus days from total day 
             //         {
             //             months++;
             //             totalDays -= monthsArr[i];
@@ -250,19 +250,19 @@ class Program
             // else
             // {
             //     // Case 2: Birthday has already occurred this year
-            //     years = today.Year - year;
+            //     years = today.Year - year; 
             //     months = today.Month - month;
 
             //     // Adjust days calculation
-            //     if (day > today.Day)
+            //     if (day > today.Day) // if day will occur in this month
             //     {
-            //         days = day - today.Day - 1;
+            //         days = day - today.Day - 1; // 20 - 16 = 4 days
             //     }
-            //     else
+            //     else 
             //     {
-            //         if (month == 1)
+            //         if (month == 1) // if birthday in month Jun 
             //         {
-            //             days = today.Day - day - 1;
+            //             days = today.Day - day - 1;// day is -> 17 - birth day -> 10 - minus 1 day -> because today isn't over yet
             //         }
             //         else
             //         {
@@ -275,19 +275,14 @@ class Program
             // Console.WriteLine($"You're {(int)years} years, {months} months, {days} days");
 
         #endregion
-
-        #region Calculate your birth date (GPT Code After Enhance My Code)
-
-            // // Reference for month days
-            // // Jan, Mar, May, Jul, Aug, Oct, Dec -> 31
-            // // Apr, Jun, Sep, Nov                -> 30
-            // // Feb                               -> 28 or 29
+        
+        #region Calculate your birth date (GPT after enhance my code)
 
             // DateTime today = DateTime.Now;
 
             // int year, month, day;
 
-            // // -------- YEAR --------
+            // // YEAR
             // do
             // {
             //     Console.WriteLine("Enter birth year (1980 - 2026):");
@@ -298,29 +293,23 @@ class Program
             // bool isLeapYear = year % 4 == 0;
 
             // // Days in months
-            // int[] monthsArr =
-            // [
-            //     31,
-            //     isLeapYear ? 29 : 28,
-            //     31, 30, 31, 30,
-            //     31, 31, 30, 31, 30, 31
-            // ];
+            // int[] monthsArr = [31, isLeapYear ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-            // // -------- MONTH --------
+            // // MONTH 
             // do
             // {
             //     Console.WriteLine("Enter birth month (1 - 12):");
             //     month = int.Parse(Console.ReadLine());
             // } while (month < 1 || month > 12);
 
-            // // -------- DAY --------
+            // // DAY
             // do
             // {
             //     Console.WriteLine($"Enter birth day (1 - {monthsArr[month - 1]}):");
             //     day = int.Parse(Console.ReadLine());
             // } while (day < 1 || day > monthsArr[month - 1]);
 
-            // // -------- AGE CALCULATION --------
+            // // AGE CALCULATION
 
             // // Start with direct difference
             // int years = today.Year - year;      // Difference between years
@@ -329,53 +318,36 @@ class Program
 
             // /*
             // Example:
-            // today = 16 Jan 2026
-            // birth = 20 Feb 2000
+            //     today = 17 1 2026
+            //     birth = 20 2 2000
 
-            // years  = 2026 - 2000 = 26
-            // months = 1 - 2 = -1    (negative because birthday month not reached)
-            // days   = 16 - 20 = -4   (negative because birthday day not reached)
+            //     years  = 2026 - 2000 = 26
+            //     months = 1 - 2 = -1    (negative because birthday month not reached)
+            //     days   = 16 - 20 = -5   (negative because birthday day not reached)
             // */
 
             // // ---------- ADJUST DAYS IF NEGATIVE ----------
             // if (days < 0)
             // {
-            //     months--;  // Subtract one month because we "borrowed" days from previous month // -2
+            //     months--;  // Subtract one month because we "Give" days from previous month // -2
 
             //     // Calculate index of the previous month in months array
             //     int previousMonthIndex = today.Month - 2;  // For January: 1-2 = -1
             //     if (previousMonthIndex < 0)               // If negative, use December (index 11)
             //         previousMonthIndex = 11;
 
-            //     days += monthsArr[previousMonthIndex];    // Add days of previous month // -4 + 31 = 27
+            //     days += monthsArr[previousMonthIndex];    // Add days of previous month // -5 + 31 = 26
             // }
 
-            // /*
-            // Continuing the example:
-            // days = -4
-            // months = -1 - 1 = -2
-            // previousMonthIndex = 11 (December)
-            // days += 31 → days = -4 + 31 = 27
-            // */
-
-            // // ---------- ADJUST MONTHS IF NEGATIVE ----------
+            // // MONTHS IF NEGATIVE
             // if (months < 0)
             // {
             //     years--;       // Subtract one year because months are negative // 25
             //     months += 12;  // Convert negative months to positive // -2 + 12 = 10
             // }
 
-            // /*
-            // Continuing the example:
-            // months = -2 → subtract 1 year → years = 26 - 1 = 25
-            // months += 12 → months = -2 + 12 = 10
 
-            // Final age:
-            // years = 25
-            // months = 10
-            // days = 27
-            // */
-            // // -------- RESULT --------
+            // // RESULT
             // Console.WriteLine($"You're {years} years, {months} months, {days} days");
 
         #endregion
@@ -451,68 +423,68 @@ class Program
 
         #endregion
     
-        #region Revision
+        #region Revision [struct]
             // 7- 10 Employees [struct] & choose index
 
             // Ask for number of employees
-            int count;
-            do
-            {
-                Console.WriteLine("Choose number of employees (1 - 9):");
-                count = int.Parse(Console.ReadLine());
-            } while (count < 1 || count > 9);
+            // int count;
+            // do
+            // {
+            //     Console.WriteLine("Choose number of employees (1 - 9):");
+            //     count = int.Parse(Console.ReadLine());
+            // } while (count < 1 || count > 9);
 
-            Employee[] employees = new Employee[count];
+            // Employee[] employees = new Employee[count];
 
-            // Input employee details
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine($"\nEnter details for employee #{i + 1}");
+            // // Input employee details
+            // for (int i = 0; i < count; i++)
+            // {
+            //     Console.WriteLine($"\nEnter details for employee #{i + 1}");
 
-                // ID with duplicate check
-                int id;
-                bool isDuplicate;
-                do
-                {
-                    isDuplicate = false;
-                    Console.Write($"Enter ID for employee #{i + 1}: ");
-                    id = int.Parse(Console.ReadLine());
+            //     // ID with duplicate check
+            //     int id;
+            //     bool isDuplicate;
+            //     do
+            //     {
+            //         isDuplicate = false;
+            //         Console.Write($"Enter ID for employee #{i + 1}: ");
+            //         id = int.Parse(Console.ReadLine());
 
-                    // Check duplicates only in previous employees
-                    for (int j = 0; j < i; j++)
-                    {
-                        if (employees[j].id == id)
-                        {
-                            Console.WriteLine("This ID already exists. Try again.");
-                            isDuplicate = true;
-                            break;
-                        }
-                    }
+            //         // Check duplicates only in previous employees
+            //         for (int j = 0; j < i; j++)
+            //         {
+            //             if (employees[j].id == id)
+            //             {
+            //                 Console.WriteLine("This ID already exists. Try again.");
+            //                 isDuplicate = true;
+            //                 break;
+            //             }
+            //         }
 
-                } while (isDuplicate);
+            //     } while (isDuplicate);
                 
-                // Id
-                employees[i].id = id;
+            //     // Id
+            //     employees[i].id = id;
 
-                // Name
-                Console.Write($"Enter name for employee #{i + 1}: ");
-                employees[i].name = Console.ReadLine();
+            //     // Name
+            //     Console.Write($"Enter name for employee #{i + 1}: ");
+            //     employees[i].name = Console.ReadLine();
 
-                // Age
-                Console.Write($"Enter age for employee #{i + 1}: ");
-                employees[i].age = int.Parse(Console.ReadLine());
+            //     // Age
+            //     Console.Write($"Enter age for employee #{i + 1}: ");
+            //     employees[i].age = int.Parse(Console.ReadLine());
 
-                // Salary
-                Console.Write($"Enter salary for employee #{i + 1}: ");
-                employees[i].salary = int.Parse(Console.ReadLine());
-            }
+            //     // Salary
+            //     Console.Write($"Enter salary for employee #{i + 1}: ");
+            //     employees[i].salary = int.Parse(Console.ReadLine());
+            // }
 
-            // Display all employees
-            Console.WriteLine("\nAll Employees:");
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine($"Employee #{i + 1}: ID={employees[i].id}, Name={employees[i].name}, Age={employees[i].age}, Salary={employees[i].salary}");
-            }
+            // // Display all employees
+            // Console.WriteLine("\nAll Employees:");
+            // for (int i = 0; i < count; i++)
+            // {
+            //     Console.WriteLine($"Employee #{i + 1}: ID={employees[i].id}, Name={employees[i].name}, Age={employees[i].age}, Salary={employees[i].salary}");
+            // }
         #endregion
     }
 }
