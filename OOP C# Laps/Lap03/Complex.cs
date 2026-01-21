@@ -68,43 +68,72 @@ public class Complex
 
     public string Print()
     {
-            // real = 0
-            if (real == 0)
-            {
-                if (imaginary == 1)
-                    return "i";
-                if (imaginary == -1)
-                    return "-i";
-                if(imaginary == 0)
-                    return "0";
-
-                return $"{imaginary}i";
-            }
-
-            // imaginary = 0
-            if (imaginary == 0)
-            {
-                return $"{real}";
-            }
-
-            // imaginary < 0
-            if (imaginary < 0)
-            {
-                if (imaginary == -1)
-                {
-                    return $"{real} - i";
-                }
-                return $"{real} - {imaginary * -1}i";
-            }
-
-            // imaginary > 0
+        // real = 0
+        if (real == 0)
+        {
             if (imaginary == 1)
-            {
-                return $"{real} + i";
-            }
+                return "i";
+            if (imaginary == -1)
+                return "-i";
+            if(imaginary == 0)
+                return "0";
 
-            return $"{real} + {imaginary}i";
+            return $"{imaginary}i";
         }
+
+        // imaginary = 0
+        if (imaginary == 0)
+        {
+            return $"{real}";
+        }
+
+        // imaginary < 0
+        if (imaginary < 0)
+        {
+            if (imaginary == -1)
+            {
+                return $"{real} - i";
+            }
+            return $"{real} - {imaginary * -1}i";
+        }
+
+        // imaginary > 0
+        if (imaginary == 1)
+        {
+            return $"{real} + i";
+        }
+
+        return $"{real} + {imaginary}i";
+    }
+
+    // c1+c2
+    public static Complex operator+(Complex left, Complex right)
+    {
+        return new Complex(left.real + right.real, left.imaginary + right.imaginary);
+    }
+    // c1+10
+    public static Complex operator+(Complex left, int num)
+    {
+        return new Complex(left.real + num, left.imaginary);
+    }
+    //10+c1
+    public static Complex operator+(int num, Complex right)
+    {
+        return new Complex(right.real + num, right.imaginary);
+    }
+
+    //c1==c2
+    public static bool operator==(Complex left, Complex right)
+    {
+        return left.real == right.real && left.imaginary == right.imaginary;
+    }
+
+    //c1!=c2
+    public static bool operator!=(Complex left, Complex right)
+    {
+        return left.real != right.real || left.imaginary != right.imaginary;
+    }
+
 
     // Destructor
     ~Complex()
