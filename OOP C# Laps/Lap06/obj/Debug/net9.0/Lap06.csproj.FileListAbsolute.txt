@@ -1,0 +1,15 @@
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/bin/Debug/net9.0/Lap06
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/bin/Debug/net9.0/Lap06.deps.json
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/bin/Debug/net9.0/Lap06.runtimeconfig.json
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/bin/Debug/net9.0/Lap06.dll
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/bin/Debug/net9.0/Lap06.pdb
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.AssemblyInfoInputs.cache
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.AssemblyInfo.cs
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.csproj.CoreCompileInputs.cache
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.sourcelink.json
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.dll
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/refint/Lap06.dll
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.pdb
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/Lap06.genruntimeconfig.cache
+/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/obj/Debug/net9.0/ref/Lap06.dll
