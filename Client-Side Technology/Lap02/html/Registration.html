@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/register.css" />
+    <title>Registration</title>
+  </head>
+  <body>
+    <form action="../../Lap01/html/page2.html" method="get">
+      <table>
+        <caption class="under-line">
+          Registration Form
+        </caption>
+        <tbody>
+          <tr>
+            <td>First Name</td>
+            <td>
+              <input
+                name="firstName"
+                type="text"
+                required
+                placeholder="Enter Your First Name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Last Name</td>
+            <td>
+              <input
+                name="lastName"
+                type="text"
+                required
+                placeholder="Enter Your Last Name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Email</td>
+            <td>
+              <input
+                name="email"
+                type="email"
+                required
+                placeholder="Enter Your Email"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>
+              <input
+                name="password"
+                type="password"
+                required
+                placeholder="Enter Your Password"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td rowspan="2">Gender</td>
+            <td>
+              <input
+                type="radio"
+                name="gender"
+                id="male"
+                value="Male"
+                required
+              />
+              <label for="male">Male</label>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="radio"
+                name="gender"
+                id="female"
+                value="Female"
+                required
+              />
+              <label for="female">Female</label>
+            </td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>
+              <select name="country" id="" required>
+                <option value="" disabled selected>Select Your Country</option>
+                <optgroup label="Africa">
+                  <option value="Egypt">Egypt</option>
+                  <option value="Sudan">Sudan</option>
+                  <option value="Libya">Libya</option>
+                  <option value="Tunis">Tunis</option>
+                  <option value="Morocco">Morocco</option>
+                </optgroup>
+                <hr />
+                <optgroup label="Europa" disabled>
+                  <option value="Italy">Italy</option>
+                  <option value="Sweden">Sweden</option>
+                  <option value="Spain">Spain</option>
+                </optgroup>
+                <hr />
+                <optgroup label="Asia">
+                  <option value="Palestine">Palestine</option>
+                  <option value="South Korea">South Korea</option>
+                  <option value="Indian">Indian</option>
+                </optgroup>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td>Birth Day</td>
+            <td>
+              <input type="date" required />
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td colspan="2" class="under-line">Interests</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="interests">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  id="sports"
+                  value="Sports"
+                />
+                <label for="sports">Sports</label>
+              </div>
+              <div class="interests">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  id="music"
+                  value="Music"
+                />
+                <label class="interests" for="music">Music</label>
+              </div>
+              <div class="interests">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  id="fashion"
+                  value="Fashion"
+                />
+                <label class="interests" for="fashion">Fashion</label>
+              </div>
+              <div class="interests">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  id="reading"
+                  value="Reading"
+                />
+                <label class="interests" for="reading">Reading</label>
+              </div>
+              <div class="interests">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  id="shopping"
+                  value="Shopping"
+                />
+                <label class="interests" for="shopping">Shopping</label>
+              </div>
+              <div class="interests">
+                <input
+                  type="checkbox"
+                  name="interests"
+                  id="movies"
+                  value="Movies"
+                />
+                <label class="interests" for="movies">Movies</label>
+              </div>
+            </td>
+          </tr>
+          <tr class="text-center">
+            <td colspan="2" class="under-line">Bio</td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <textarea name="bio" id="bio" rows="5"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" class="text-center">
+              <input type="submit" value="Register.." />
+              <input type="reset" value="Clear.." />
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </body>
+</html>

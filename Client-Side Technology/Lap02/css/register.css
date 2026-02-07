@@ -1,0 +1,39 @@
+@import "../../Lap01/css/main.css";
+
+caption {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px;
+}
+
+table {
+  width: 600px;
+  margin: auto;
+  border-spacing: 0px; /* default = 2px */
+  border: 2px solid #ddd;
+}
+
+td {
+  border: 2px solid #ddd;
+  padding: 10px 20px;
+}
+
+.interests {
+  display: inline-block;
+  width: 32%;
+  margin: 5px 0;
+}
+
+.interests > input {
+  margin: 0;
+}
+
+textarea {
+  resize: none;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  display: inline;
+  margin: 0px 50px;
+}

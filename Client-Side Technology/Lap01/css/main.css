@@ -1,11 +1,38 @@
 * {
-    background-color: darkgray;
+  background-color: aliceblue;
 }
 
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .under-line {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="checkbox"],
+input[type="submit"],
+input[type="reset"],
+input[type="radio"] {
+  width: fit-content;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  width: 80px;
+  color: crimson;
+  cursor: pointer;
+  display: block;
+  margin: auto;
 }
