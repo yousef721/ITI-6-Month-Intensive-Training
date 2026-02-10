@@ -1,16 +1,18 @@
 let n;
+// Validation Set Only Number
 do {
   n = Number(prompt("Enter Number Of Array"));
 } while (isNaN(n));
 
 let value;
-let i = 1;
+let i = 1; // index
 let arr = [];
 
 while (i <= n) {
   let value = Number(prompt(`Enter Value #${i}`));
+  // Validation Set Only Number
   if (!isNaN(value)) {
-    arr.push(value);
+    arr.push(value); // storage in array
     i++;
   }
 }

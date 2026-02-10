@@ -1,25 +1,24 @@
-// let win;
-// let direction = 1;
-// let y = 0;
+let win;
 
-// function openWin() {
-//   win = window.open(
-//     "child.html",
-//     "blank",
-//     "width=600,height=400,top=100,left=100",
-//   );
-//   win.addEventListener("load", function () {
-//     let maxY = win.document.body.scrollHeight - win.innerHeight; // maxHeight
+function openWin() {
+  win = window.open(
+    "child.html",
+    "blank",
+    "width=600,height=400,top=100,left=100",
+  );
 
-//     setInterval(function () {
-//       y += direction; // 0
+  //   win.addEventListener("load", function () {
+  //   let maxY = win.document.body.scrollHeight - win.innerHeight; // maxHeight
 
-//       if (y > maxY || y < 0) direction *= -1; // reverse
+  //   setInterval(function () {
+  //     y += direction; // 0
 
-//       win.scrollTo(0, y);
-//     }, 5);
-//   });
-// }
+  //     if (y > maxY || y < 0) direction *= -1; // reverse
+
+  //     win.scrollTo(0, y);
+  //   }, 5);
+  //   });
+}
 
 // ================= SetTimeOut =================
 
