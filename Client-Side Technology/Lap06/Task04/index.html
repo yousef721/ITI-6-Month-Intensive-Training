@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>2.1. Task</title>
+  </head>
+  <body>
+    <form class="card" action="./Information.html" method="get">
+      <h2>Registration Form</h2>
+
+      <!-- Name -->
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <!-- Email -->
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <!-- Password -->
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <!-- Job Title -->
+      <label for="job">Job Title:</label>
+      <input type="text" id="job" name="job" />
+
+      <!-- Mobile -->
+      <label for="mobile">Mobile:</label>
+      <input
+        type="tel"
+        id="mobile"
+        name="mobile"
+        pattern="^(010|011|012|015)\d{8}$"
+        placeholder="Enter your mobile number 11 digits"
+      />
+
+      <!-- Gender -->
+      <div class="gender-group">
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" />
+        <label for="female">Female</label>
+      </div>
+
+      <!-- Address -->
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" rows="3"></textarea>
+
+      <!-- Submit -->
+      <button type="submit">Register</button>
+    </form>
+    <script src="main.js"></script>
+  </body>
+</html>
