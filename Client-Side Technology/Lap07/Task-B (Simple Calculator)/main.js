@@ -23,7 +23,7 @@ function EnterOperator(val) {
 }
 
 function EnterEqual() {
-  answerInput.value = eval(answerInput.value);
+  // answerInput.value = eval(answerInput.value);
 }
 
 function EnterClear() {
