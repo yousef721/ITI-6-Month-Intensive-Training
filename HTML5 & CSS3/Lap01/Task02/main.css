@@ -1,0 +1,12 @@
+input {
+  display: block;
+  margin-bottom: 20px;
+  margin-left: 20px;
+}
+label {
+  margin-left: 20px;
+}
+p {
+  font-size: 40px;
+  margin-left: 20px;
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video Program</title>
+  </head>
+  <body>
+    <div>
+      <video
+        id="video"
+        poster="../Tasks/media/frozen_Poster.jpg"
+        src="../Tasks/media/frozen.mp4"
+        width="400"
+      ></video>
+
+      <div class="control">
+        <input
+          id="video-time"
+          style="display: block; width: 400px"
+          type="range"
+          min="0"
+          step="0.1"
+          value="0"
+        />
+        <input id="play" type="button" value="Play" />
+        <input id="stop" type="button" value="Stop" />
+        <input id="dec10" type="button" value="<<" />
+        <input id="dec5" type="button" value="<" />
+        <input id="inc5" type="button" value=">" />
+        <input id="inc10" type="button" value=">>" />
+        <input id="mute" type="button" value="Mute" />
+        <input id="volume" type="range" min="0" max="1" step="0.1" value="1" />
+        <div>
+          <label>Speed</label>
+          <input
+            id="speed"
+            type="range"
+            min="0.1"
+            max="16"
+            step="0.25"
+            value="1"
+          />
+        </div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
