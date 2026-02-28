@@ -1,0 +1,30 @@
+  h1 {
+    margin-bottom: 20px;
+  }
+
+input {
+    display: block;
+    width: 200px;
+    padding: 8px;
+    border: 2px solid rgb(168, 0, 0);
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+
+p {
+  display: none;
+  color: #555;
+}
+
+
+input:valid {
+    border-color: green;
+}
+
+input:invalid {
+    border-color: rgb(168, 0, 0);
+}
+
+input:invalid + p {
+  display: block;  
+}

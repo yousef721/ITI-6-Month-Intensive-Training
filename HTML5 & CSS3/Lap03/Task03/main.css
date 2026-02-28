@@ -1,0 +1,11 @@
+#pacman {
+  width: 0px;
+  border: 60px solid red;
+  border-right: 60px solid transparent;
+  border-radius: 50%;
+  transition: border-radius 0.3s;
+}
+
+#pacman:hover {
+  border-right: 60px solid red;
+}

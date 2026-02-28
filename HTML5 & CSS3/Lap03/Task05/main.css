@@ -1,0 +1,31 @@
+.card {
+  width: 300px;
+  height: 450px;
+  background: white;
+  border: 8px solid red;
+  border-radius: 30px;
+  position: relative;
+  font-family: Georgia, serif;
+}
+
+.top {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 28px;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 120px;
+  transform: translate(-50%, -50%);
+}

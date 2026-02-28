@@ -1,0 +1,17 @@
+body {
+    text-align: center;
+}
+
+button {
+    width: 200px;
+    background-color: rgba(0, 0, 255, 0.212);
+    padding: 2px;
+    border: 1.5px solid blue;
+    border-radius: 10px;
+    margin: 100px auto;
+}
+
+button:hover {
+    background-color: rgb(252 221 238);
+    box-shadow: 0px 0px 10px 5px #aacbf8;
+}
