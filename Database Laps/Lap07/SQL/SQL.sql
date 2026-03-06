@@ -12,6 +12,7 @@ GO
 
 EXEC P_No_Stud_Dept
 GO
+
 -- 2) Create a stored procedure takes 2 integers and returns the Even values between them.
  CREATE PROCEDURE Who_Even(@a INT, @b INT)
  AS
@@ -122,7 +123,7 @@ BEGIN
 END
 
 EXEC Update_Info_Emp 2, 4, 5
-EXEC Update_Info_Emp 512463, 112233, 600 
+EXEC Update_Info_Emp 669955, 102033, 300	
 GO
 
 -- 6) add column budget in project table and insert any draft values in it. 
@@ -134,6 +135,35 @@ GO
 -- user name that made that update, the date of the modification 
 -- and the value of the old and the new budget will be inserted into the Audit table
 -- Note: This process will take place only if the user updated the budget column
+
+USE Company_SD
+GO
+
+CREATE TABLE Audit_History (
+    ProjectNo INT,
+    UserName VARCHAR(50),
+    Budget_New INT,
+    Budget_Old INT,
+    ModifiedDate DATETIME
+)
+GO
+
+CREATE TRIGGER Audit_Table ON Project AFTER UPDATE
+AS
+BEGIN
+    IF UPDATE(Budget)
+    INSERT INTO Audit_History 
+    SELECT i.Pnumber, SUSER_SNAME(), i.Budget, d.Budget, GETDATE()
+    FROM inserted i INNER JOIN deleted d
+    ON i.Pnumber = d.Pnumber
+END
+GO
+
+UPDATE Project
+SET Budget = 3000
+WHERE Pnumber = 800
+
+SELECT * FROM Audit_History
 
 
 -- 7) Create a trigger to prevent anyone from inserting a new record in the Department table [ITI DB]
@@ -169,6 +199,55 @@ END
 INSERT INTO Employee (Fname, Lname, SSN, Address, Sex, Salary)
 VALUES ('Yousef', 'Abdullah', 101099, 'Cairo', 'M', 50000)
 
--- 9) Create a trigger on student table after insert to 
--- add Row in Student Audit table (Server User Name , Date, Note) 
+GO
+-- 9) Create a trigger on student table after insert 
+-- to add Row in Student Audit table (Server User Name , Date, Note) 
 -- where note will be “[username] Insert New Row with Key=[Key Value] in table [table name]”
+USE ITI
+GO
+
+CREATE TABLE Student_Audit_Table (
+    USER_NAME VARCHAR(50),
+    Date DATETIME,
+    NOTE VARCHAR(200)
+)
+GO
+
+CREATE TRIGGER std_tri ON Student AFTER INSERT
+AS 
+BEGIN
+    INSERT INTO Student_Audit_Table
+    SELECT 
+        SUSER_SNAME(), 
+        GETDATE(), 
+        CONCAT('UserName = ', SUSER_NAME(), ' Insert New Row with Key=', St_Id, ' in table student') AS Note
+    FROM inserted i
+END
+
+INSERT INTO Student (St_Id, St_Fname, St_Lname, St_Address, St_Age)
+VALUES (10255, 'Abdullah', 'Ahmed', 'Cairo', 24)
+
+SELECT * FROM Student_Audit_Table
+
+GO
+
+-- 10) Create a trigger on student table instead of delete 
+-- to add Row in Student Audit table (Server User Name, Date, Note) 
+-- where note will be“ try to delete Row with Key=[Key Value]”
+
+CREATE TRIGGER std_del_tri ON Student INSTEAD OF DELETE
+AS 
+BEGIN
+    INSERT INTO Student_Audit_Table
+    SELECT 
+        SUSER_SNAME(), 
+        GETDATE(), 
+        CONCAT('UserName = ', SUSER_NAME(), ' Delete New Row with Key=', St_Id, ' in table student') AS Note
+    FROM deleted i
+END
+
+DELETE FROM Student
+WHERE St_Id = 102
+
+SELECT * FROM Student
+SELECT * FROM Student_Audit_Table
