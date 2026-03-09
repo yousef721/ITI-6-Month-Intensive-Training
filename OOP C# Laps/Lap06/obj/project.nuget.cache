@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UdJGQM4teoY=",
+  "dgSpecHash": "ijv6nD9ZQc4=",
   "success": true,
   "projectFilePath": "/Users/yousefabdullah/Desktop/ITI 6 Month /OOP C# Laps/Lap06/Lap06.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/yousefabdullah/.nuget/packages/microsoft.netcore.app.ref/9.0.13/microsoft.netcore.app.ref.9.0.13.nupkg.sha512",
+    "/Users/yousefabdullah/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.13/microsoft.aspnetcore.app.ref.9.0.13.nupkg.sha512",
+    "/Users/yousefabdullah/.nuget/packages/microsoft.netcore.app.host.osx-arm64/9.0.13/microsoft.netcore.app.host.osx-arm64.9.0.13.nupkg.sha512"
+  ],
   "logs": []
 }
