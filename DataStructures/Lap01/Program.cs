@@ -37,7 +37,7 @@ class Program
 
         // Get by index
         Console.WriteLine("\nEmployee at index 2:");
-        Employee emp = list.getDataByIndex(2);
+        Employee emp = list.GetDataByIndex(2);
 
         if (emp != null)
             Console.WriteLine(emp.ToString());

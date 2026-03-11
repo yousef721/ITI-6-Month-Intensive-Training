@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net10.0": {}
+    "net10.0": {
+      "Lap01/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/Lap01.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Lap01.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Lap01/1.0.0": {
+      "type": "project",
+      "path": "../Lap01/Lap01.csproj",
+      "msbuildProject": "../Lap01/Lap01.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net10.0": []
+    "net10.0": [
+      "Lap01 >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "/Users/yousefabdullah/.nuget/packages/": {}
@@ -32,7 +51,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap01/Lap01.csproj": {
+              "projectPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap01/Lap01.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

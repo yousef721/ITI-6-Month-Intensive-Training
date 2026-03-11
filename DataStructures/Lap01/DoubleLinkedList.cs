@@ -108,7 +108,7 @@ public class DoubleLinkedList
         }
     }
 
-    public Employee getDataByIndex(int index) // O(n)
+    public Employee GetDataByIndex(int index) // O(n)
     {
         if (index < 0 || index >= count)
             return null;
@@ -134,8 +134,22 @@ public class DoubleLinkedList
         }
     }
 
+    public Employee Peek() // O(1)
+    {
+        if (head != null)
+        {
+            return head.data;
+        }
+        return null;
+    }
+
     public int Count() // O(1)
     {
         return count;
+    }
+
+    public bool IsEmpty() // O(1)
+    {
+        return Count() == 0;
     }
 }
