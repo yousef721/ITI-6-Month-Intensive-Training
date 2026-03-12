@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yousefabdullah/Desktop/ITI 6 Month /Lap03/Lap03.csproj",
+      "projectUniqueName": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/Lap03.csproj",
       "projectName": "Lap03",
-      "projectPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /Lap03/Lap03.csproj",
+      "projectPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/Lap03.csproj",
       "packagesPath": "/Users/yousefabdullah/.nuget/packages/",
-      "outputPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /Lap03/obj/",
+      "outputPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/yousefabdullah/.nuget/NuGet/NuGet.Config"
