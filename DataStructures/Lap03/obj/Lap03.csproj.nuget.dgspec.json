@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/Lap03.csproj": {}
+    "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap03/Lap03.csproj": {}
   },
   "projects": {
-    "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/Lap03.csproj": {
+    "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap03/Lap03.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/Lap03.csproj",
+        "projectUniqueName": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap03/Lap03.csproj",
         "projectName": "Lap03",
-        "projectPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/Lap03.csproj",
+        "projectPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap03/Lap03.csproj",
         "packagesPath": "/Users/yousefabdullah/.nuget/packages/",
-        "outputPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap3/obj/",
+        "outputPath": "/Users/yousefabdullah/Desktop/ITI 6 Month /DataStructures/Lap03/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/yousefabdullah/.nuget/NuGet/NuGet.Config"

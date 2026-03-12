@@ -1,4 +1,4 @@
-﻿namespace Lap3;
+﻿namespace Lap03;
 
 class Program
 {
