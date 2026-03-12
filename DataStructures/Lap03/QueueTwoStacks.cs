@@ -7,7 +7,6 @@ public class QueueTwoStacks : Queue
     Stack stack1;
     Stack stack2;
 
-
     public QueueTwoStacks(int _size) : base(_size)
     {
         stack1 = new Stack(_size);

@@ -7,6 +7,7 @@ public abstract class DataStructure
     protected int[] arr;
     protected int size;
 
+
     public DataStructure()
     {
         size = 0;

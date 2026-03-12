@@ -27,7 +27,7 @@ public class Queue : DataStructure
         if (!IsFull())
         {
             arr[end] = number;
-            end = (end + 1) % size;
+            end = (end + 1) % size; 
             count++;
             return true;
         }
@@ -40,7 +40,7 @@ public class Queue : DataStructure
         if (!IsEmpty())
         {
             int value = arr[front];
-            front = (front + 1) % size;
+            front = (front + 1) % size; 
             count--;
             return value;
         }
