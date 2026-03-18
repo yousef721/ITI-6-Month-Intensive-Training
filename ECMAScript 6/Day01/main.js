@@ -19,9 +19,9 @@ console.log(b);
 // #endregion
 
 //#region Task 2
-import { Rectangle } from "./rectangle.js";
-import { Square } from "./square.js";
-import { Circle } from "./circle.js";
+import Rectangle from "./Class/rectangle.js";
+import Square from "./Class/square.js";
+import Circle from "./Class/circle.js";
 
 let r = new Rectangle(10, 5);
 let s = new Square(4);

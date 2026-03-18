@@ -6,11 +6,11 @@ export default class Square extends Shape {
   }
 
   area() {
-    return this.dim1 * this.dim1;
+    return this.dim1 * this.dim1; // s * s
   }
 
   perimeter() {
-    return 4 * this.dim1;
+    return 4 * this.dim1; // 4 * s
   }
 
   toString() {

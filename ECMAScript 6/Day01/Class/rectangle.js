@@ -6,11 +6,11 @@ export default class Rectangle extends Shape {
   }
 
   area() {
-    return this.dim1 * this.dim2;
+    return this.dim1 * this.dim2; // w * h
   }
 
   perimeter() {
-    return 2 * (this.dim1 + this.dim2);
+    return 2 * (this.dim1 + this.dim2); //2 * w * h
   }
 
   toString() {
