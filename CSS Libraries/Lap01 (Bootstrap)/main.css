@@ -1,0 +1,28 @@
+.text-custom-navy {
+  color: #1c1e53;
+}
+.bg-custom-navy {
+  background-color: #1c1e53;
+}
+.btn-custom-bg {
+  background: #fcd980;
+}
+.text-custom-color {
+  color: #2405f2;
+}
+.bg-custom-features {
+  background-color: #f4f6fc;
+}
+.bg-custom-About-us {
+  background-color: #f4f6fc;
+}
+.project-overlay-bg {
+  background-color: linear-gradient(45deg, #1c1e53, #1c1e536b);
+}
+.card-img-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(28, 30, 83, 1),
+    rgba(28, 30, 83, 0.42)
+  );
+}
