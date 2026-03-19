@@ -13,7 +13,4 @@ export default class Rectangle extends Shape {
     return 2 * (this.dim1 + this.dim2); //2 * w * h
   }
 
-  toString() {
-    return `Rectangle -> Area: ${this.area()} , Perimeter: ${this.perimeter()}`;
-  }
 }

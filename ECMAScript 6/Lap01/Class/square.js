@@ -13,7 +13,4 @@ export default class Square extends Shape {
     return 4 * this.dim1; // 4 * s
   }
 
-  toString() {
-    return `Square -> Area: ${this.area()} , Perimeter: ${this.perimeter()}`;
-  }
 }

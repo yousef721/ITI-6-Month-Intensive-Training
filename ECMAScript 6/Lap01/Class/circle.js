@@ -12,8 +12,4 @@ export default class Circle extends Shape {
   perimeter() {
     return 2 * Math.PI * this.dim1; // 2πr
   }
-
-  toString() {
-    return `Circle -> Area: ${this.area().toFixed(2)} , Perimeter: ${this.perimeter().toFixed(2)}`;
-  }
 }

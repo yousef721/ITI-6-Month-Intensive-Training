@@ -27,7 +27,7 @@ let r = new Rectangle(10, 5);
 let s = new Square(4);
 let c = new Circle(3);
 
-console.log(r.toString());
-console.log(s.toString());
-console.log(c.toString());
+console.log("Rectangle: ", r.toString());
+console.log("Square: ", s.toString());
+console.log("Circle: ", c.toString());
 //#endregion
