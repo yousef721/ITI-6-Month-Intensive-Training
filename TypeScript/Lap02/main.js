@@ -18,7 +18,7 @@ console.log("Right:", Direction.Right); // 2
 console.log("Down:", Direction.Down); // 6
 console.log("Left:", Direction.Left); // 7
 //#endregion
-console.log("========================Generics========================");
+console.log("========================Generics====================");
 //#region Task Generics
 class GenericsData {
     constructor(d) {
@@ -35,13 +35,13 @@ console.log("First Number:", NumberData.getFirst());
 console.log("String Data:", StringData.data);
 console.log("First String:", StringData.getFirst());
 //#endregion
-console.log("========================Modules========================");
+console.log("========================Modules=====================");
 //#region Task Modules
 import sum from "./sum.js";
 let res = sum(10, 20);
 console.log("Sum Result:", res);
 //#endregion
-console.log("========================Decorator========================");
+console.log("========================Decorator===================");
 //#region Task Decorator
 function Logger(constructor) {
     console.log("Class created:", constructor.name);
