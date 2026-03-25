@@ -1,3 +1,4 @@
+console.log("========================Enum========================");
 //#region Task Enum
 enum Direction {
   Up = 1,
@@ -6,13 +7,12 @@ enum Direction {
   Left,
 }
 
-console.log("Enum Values:");
 console.log("Up:", Direction.Up); // 1
 console.log("Right:", Direction.Right); // 2
 console.log("Down:", Direction.Down); // 6
 console.log("Left:", Direction.Left); // 7
 //#endregion
-console.log("===================================================");
+console.log("========================Generics========================");
 //#region Task Generics
 class GenericsData<T> {
   data: T[];
@@ -27,25 +27,22 @@ class GenericsData<T> {
 let NumberData = new GenericsData<number>([1, 2, 3, 4]);
 let StringData = new GenericsData<string>(["A", "b", "c", "d"]);
 
-console.log("Generics:");
 console.log("Number Data:", NumberData.data);
 console.log("First Number:", NumberData.getFirst());
 
 console.log("String Data:", StringData.data);
 console.log("First String:", StringData.getFirst());
 //#endregion
-console.log("===================================================");
+console.log("========================Modules========================");
 //#region Task Modules
 import sum from "./sum.js";
 
-console.log("Modules:");
 let res = sum(10, 20);
-console.log("Sum Result:", res); // 30
+console.log("Sum Result:", res);
 //#endregion
-console.log("===================================================");
+console.log("========================Decorator========================");
 //#region Task Decorator
 function Logger(constructor: Function) {
-  console.log("Decorator:");
   console.log("Class created:", constructor.name);
 }
 
