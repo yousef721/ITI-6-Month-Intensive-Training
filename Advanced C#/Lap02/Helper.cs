@@ -1,5 +1,5 @@
 using System;
-using Lap02.Exceptions;
+using Lap02;
 
 namespace Lap02;
 
@@ -126,10 +126,6 @@ public class Helper
             Console.WriteLine("- " + page);
         }
     }
-
-    #endregion
-
-    #region Bonus
 
     #endregion
 

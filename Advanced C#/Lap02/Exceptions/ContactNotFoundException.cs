@@ -1,6 +1,6 @@
 using System;
 
-namespace Lap02.Exceptions;
+namespace Lap02;
 
 public class ContactNotFoundException : Exception
 {

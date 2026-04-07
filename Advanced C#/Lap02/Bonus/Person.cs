@@ -1,6 +1,6 @@
 using System;
 
-namespace Lap02.Bonus;
+namespace Lap02;
 
 public class Person
 {

@@ -1,5 +1,4 @@
-﻿using Lap02.Bonus;
-
+﻿
 namespace Lap02;
 
 class Program
@@ -7,19 +6,19 @@ class Program
     static void Main(string[] args)
     {
         #region Task 1
-        // Cage<Lion> lionCage = new Cage<Lion>();
+        Cage<Lion> lionCage = new Cage<Lion>();
 
-        // Lion lion = new Lion("Simba", 5);
-        // lionCage.Arrive(lion);
+        Lion lion = new Lion("Simba", 5);
+        lionCage.Arrive(lion);
 
-        // // Lion lion2 = new Lion("Simba2", 9); // Age must be less than 8
-        // // lionCage.Arrive(lion2); 
+        // Lion lion2 = new Lion("Simba2", 9); // Age must be less than 8
+        // lionCage.Arrive(lion2); 
 
-        // // Sparrow sparrow = new Sparrow("bird", 5);
-        // // lionCage.Arrive(sparrow); // Error
+        // Sparrow sparrow = new Sparrow("bird", 5);
+        // lionCage.Arrive(sparrow); // Error
 
-        // Console.WriteLine($"Name is {lionCage?.AnimalInCage?.Name}, age is {lionCage?.AnimalInCage?.Age}");
-        // lionCage?.AnimalInCage?.Roar();
+        Console.WriteLine($"Name is {lionCage?.AnimalInCage?.Name}, age is {lionCage?.AnimalInCage?.Age}");
+        lionCage?.AnimalInCage?.Roar();
         #endregion
 
         #region Task 2
