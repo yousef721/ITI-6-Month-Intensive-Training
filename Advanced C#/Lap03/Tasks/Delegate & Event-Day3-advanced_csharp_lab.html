@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced C# Lab - Delegates and Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 0;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .lab-header {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .lab-header h1 {
+            color: #667eea;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .lab-header .subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+        }
+
+        .exercise-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .exercise-title {
+            color: #764ba2;
+            font-weight: bold;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .exercise-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .requirement {
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .requirement strong {
+            color: #764ba2;
+        }
+
+        .code-section {
+            background: #2d2d2d;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+        }
+
+        .code-section::before {
+            content: 'C# Code';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            padding: 2px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        .code-section pre {
+            margin: 0;
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+        }
+
+        .code-section code {
+            user-select: text !important;
+            -webkit-user-select: text !important;
+            -moz-user-select: text !important;
+            -ms-user-select: text !important;
+        }
+
+        .badge-custom {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .task-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .task-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .task-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .sub-task {
+            background: #e9ecef;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border-left: 3px solid #764ba2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="lab-header">
+            <h1><i class="bi bi-code-square"></i> Advanced C# Lab</h1>
+            <p class="subtitle">Delegates and Events - Visual Programming</p>
+            <div class="mt-3">
+                <span class="badge-custom">Events</span>
+                <span class="badge-custom">Delegates</span>
+                <span class="badge-custom">Lambda Expressions</span>
+                <span class="badge-custom">Anonymous Methods</span>
+            </div>
+        </div>
+
+        <!-- Exercise 1: Events -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">
+                <span class="exercise-number">1</span>
+                Events Exercise - Company & Employee System
+            </h2>
+            
+            <div class="requirement">
+                <strong>Scenario:</strong> Design a company management system where salary increases trigger budget updates through events.
+            </div>
+
+            <ul class="task-list">
+                <li>Use the previous designed class <code>Employee</code> (at least has Name & Salary)</li>
+                <li>Design a new class <code>Company</code>. Each company has a Name, Budget and a list of working employees.</li>
+                <li>Add function <code>IncreaseSalary(float amount)</code> to class Employee that increases employee salary by the given amount. When this happens, the company must be notified by that increase so it decreases this amount from its budget.</li>
+            </ul>
+
+            <div class="alert alert-info mt-3">
+                <strong>Key Concept:</strong> Use <strong>events</strong> to notify the Company when an Employee's salary increases.
+            </div>
+        </div>
+
+        <!-- Exercise 2: Delegates -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">
+                <span class="exercise-number">2</span>
+                Delegates Exercise - Employee Filtering
+            </h2>
+            
+            <div class="requirement">
+                <strong>Task:</strong> In class Company, write a function that filters the employee list using a delegate.
+            </div>
+
+            <div class="sub-task">
+                <strong>Function Signature:</strong><br>
+                <code>List&lt;Employee&gt; FilterEmployees(filter)</code>
+                <br><br>
+                where <code>filter</code> is a delegate of your choice
+            </div>
+
+            <div class="alert alert-info mt-3">
+                <strong>Key Concept:</strong> Use <strong>delegates</strong> to create flexible filtering logic for the employee list.
+            </div>
+        </div>
+
+        <!-- Exercise 3: Comprehensive Delegates -->
+        <div class="exercise-card">
+            <h2 class="exercise-title">
+                <span class="exercise-number">3</span>
+                Comprehensive Delegates Exercise - Book Library System
+            </h2>
+            
+            <div class="requirement">
+                <strong>Instructions:</strong> Considering the code below, write down the body of all listed methods and properties. You need to define <code>fPtr</code> using the following approaches:
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <div class="sub-task">
+                        <strong>a.</strong> User Defined Delegate Datatype
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="sub-task">
+                        <strong>b.</strong> BCL Delegates
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-md-6">
+                    <div class="sub-task">
+                        <strong>c.</strong> Anonymous Method (GetISBN)
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="sub-task">
+                        <strong>d.</strong> Lambda Expression (GetPublicationDate)
+                    </div>
+                </div>
+            </div>
+
+            <h5 class="mt-4 mb-3" style="color: #764ba2;">Starting Code:</h5>
+
+            <div class="code-section">
+                <pre><code class="language-csharp">public class Book 
+{ 
+    public string ISBN { get; set; } 
+    public string Title { get; set; } 
+    public string[] Authors { get; set; } 
+    public DateTime PublicationDate { get; set; } 
+    public decimal Price { get; set; } 
+    
+    public Book(string _ISBN, string _Title, string[] _Authors, DateTime _PublicationDate, decimal _Price) 
+    { 
+        throw new NotImplementedException(); 
+    } 
+    
+    public override string ToString() 
+    { 
+        throw new NotImplementedException(); 
+    } 
+} 
+
+public class BookFunctions 
+{ 
+    public static string GetTitle(Book B) 
+    { 
+        throw new NotImplementedException(); 
+    } 
+    
+    public static string GetAuthors(Book B) 
+    { 
+        throw new NotImplementedException(); 
+    } 
+    
+    public static string GetPrice(Book B) 
+    { 
+        throw new NotImplementedException(); 
+    } 
+} 
+
+public class LibraryEngine 
+{ 
+    public static void ProcessBooks(List<Book> bList, /*Pointer To BookFunction*/ fPtr) 
+    { 
+        foreach (Book B in bList) 
+        { 
+            Console.WriteLine(fPtr(B)); 
+        }
+    } 
+}</code></pre>
+            </div>
+
+            <div class="alert alert-warning mt-3">
+                <strong>Note:</strong> Complete the implementation of all methods and demonstrate each delegate approach (a, b, c, d) with the ProcessBooks method.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="text-center text-white mt-5 pb-4">
+            <p>&copy; 2026 Advanced C# Programming Lab | Mostafa Rasheedy</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    
+    <script>
+        // Prevent copying except for code sections
+        document.addEventListener('copy', function(e) {
+            const selection = window.getSelection();
+            const selectedText = selection.toString();
+            
+            // Check if selection is within a code section
+            let node = selection.anchorNode;
+            let isInCodeSection = false;
+            
+            while (node && node !== document.body) {
+                if (node.classList && node.classList.contains('code-section')) {
+                    isInCodeSection = true;
+                    break;
+                }
+                node = node.parentNode;
+            }
+            
+            // If not in code section, prevent copy
+            if (!isInCodeSection) {
+                e.preventDefault();
+                alert('Copying is only allowed for code snippets!');
+            }
+        });
+    </script>
+</body>
+</html>
