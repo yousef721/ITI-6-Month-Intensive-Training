@@ -1,0 +1,15 @@
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/bin/Debug/net10.0/Design Patterns
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/bin/Debug/net10.0/Design Patterns.deps.json
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/bin/Debug/net10.0/Design Patterns.runtimeconfig.json
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/bin/Debug/net10.0/Design Patterns.dll
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/bin/Debug/net10.0/Design Patterns.pdb
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.GeneratedMSBuildEditorConfig.editorconfig
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.AssemblyInfoInputs.cache
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.AssemblyInfo.cs
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.csproj.CoreCompileInputs.cache
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.sourcelink.json
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.dll
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/refint/Design Patterns.dll
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.pdb
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/Design Patterns.genruntimeconfig.cache
+/Users/yousefabdullah/Desktop/ITI 6 Month /Design Patterns/Design Patterns/obj/Debug/net10.0/ref/Design Patterns.dll
