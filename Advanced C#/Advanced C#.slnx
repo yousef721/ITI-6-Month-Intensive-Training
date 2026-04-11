@@ -1,4 +1,9 @@
 <Solution>
+  <Folder Name="/Lap04/">
+    <Project Path="Lap04/BLL/BLL.csproj" />
+    <Project Path="Lap04/DAL/DAL.csproj" />
+    <Project Path="Lap04/PresentationLayer/PresentationLayer.csproj" />
+  </Folder>
   <Project Path="Lap 01/Lap01.csproj" />
   <Project Path="Lap02/Lap02.csproj" />
   <Project Path="Lap03/Lap03.csproj" />
