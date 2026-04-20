@@ -35,18 +35,18 @@ class Program
         #endregion
     
         #region Task 2
-        // var email = "test@gmail.com";
+        // var email = "yousef@gmail.com";
         // Console.WriteLine(email.IsValidEmail());    
 
         // Console.WriteLine("-----------------------------");    
 
-        // var numbers = new List<int> { 10, 20, 30, 40 };
+        // var numbers = new List<int> { 100, 200, 300, 400 };
 
         // var result = numbers.GetAboveAverage();
 
         // foreach (var n in result)
         // {
-        //     Console.WriteLine(n); // 30, 40
+        //     Console.WriteLine(n);
         // }
 
         // Console.WriteLine("-----------------------------");  
@@ -54,7 +54,7 @@ class Program
         // Console.WriteLine(DateTime.Today.ToFriendlyDate());        // Today
         // Console.WriteLine(DateTime.Today.AddDays(-1).ToFriendlyDate()); // Yesterday
         // Console.WriteLine(DateTime.Today.AddDays(1).ToFriendlyDate());  // Tomorrow
-        // Console.WriteLine(new DateTime(2023, 5, 1).ToFriendlyDate());   // 01/05/2023 
+        // Console.WriteLine(new DateTime(2026, 1, 1).ToFriendlyDate());   // 01/01/2026 
 
         #endregion
         
@@ -62,9 +62,8 @@ class Program
 
         // var zoo = new Zoo();
 
-        // zoo.AddAnimal(new Animal("Lion"));
-        // zoo.AddAnimal(new Animal("Tiger"));
-        // zoo.AddAnimal(new Animal("Elephant"));
+        // zoo.AddAnimal(new Animal("Animal1"));
+        // zoo.AddAnimal(new Animal("Animal2"));
 
         // foreach (var animal in zoo)
         // {

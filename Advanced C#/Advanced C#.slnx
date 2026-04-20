@@ -9,4 +9,5 @@
   <Project Path="Lap03/Lap03.csproj" />
   <Project Path="Lap05/Lap05.csproj" />
   <Project Path="Lap06/Lap06.csproj" />
+  <Project Path="Lap07/Lap07.csproj" />
 </Solution>

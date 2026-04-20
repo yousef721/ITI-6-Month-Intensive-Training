@@ -5,9 +5,9 @@ namespace Lap06;
 
 public class CLSAttribute
 {
-    public static uint GetNumber()
+    public static int GetNumber()
     {
-        uint x = 10;
+        int x = 10;
         return x;
     }
 }
@@ -109,6 +109,17 @@ class Program
         #endregion
         
         #region Task 3
+        // Person person = new Person("Ahmed", 32);
+        // if(person.IsValidAge())
+        // {
+        //     Console.WriteLine("Valid Age");
+        // } else
+        // {
+        //     throw new NotValidAge("Not Valid Age");
+        // }
+        #endregion
+
+        #region Task 4
         // User.PrintCount();
 
         // var u1 = new User();

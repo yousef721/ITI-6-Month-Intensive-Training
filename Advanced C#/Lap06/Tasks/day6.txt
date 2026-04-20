@@ -1,0 +1,31 @@
+
+1.	Try the pre-defined Attributes:
+a.	CLSAttribute.
+b.	ObsoleteAttribute (in both cases true and false).
+c.	FlagAttribute (with TextStyling Enum).
+2.	Try to make Custom attribute “StereoType” that has the following attributes:
+a.	Type (Accessor, Modifier, Class …).
+b.	Description.
+I.	Apply this Attribute to class person.
+II.	Query this attribute with reflections and display its data.
+3.	Try to view the metadata of any primitive type of your choice.
+4.	Try to view the metadata of class person (User define class).
+5.	Create object from Student class at run time.
+a.	Name.
+b.	Age.
+c.	Grade.(apply Enum A,B,C,D) and try to use it and print
+d.	Address.
+-------------------------------------------------
+Write a C# console program that uses StringBuilder to do the following:
+
+Create a StringBuilder object
+Add the text "Hello" using Append()
+Add " Students" using AppendLine()
+Insert the word "Amazing " after "Hello" using Insert()
+Replace "Students" with your name using Replace()
+Remove the word "Amazing " using Remove()
+Print the final result using ToString()
+----------------------------------------------------------
+Create custom Exception and use it in your own logic 
+------------------------------------------------------
+give me example for using static constructor and static method

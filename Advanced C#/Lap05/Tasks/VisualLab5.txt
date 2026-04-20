@@ -1,0 +1,9 @@
+Task 1 (Practice var Keyword)
+	Create a method that returns different complex types (like List<Dictionary<string, object>>) and use var to declare variables
+	 when receiving these returns. (is it more readable ?)
+Task 2 (Practice Extension Methods)
+	Create an extension method for the string class called IsValidEmail that checks if a string is a valid email format.
+	Create an extension method for IEnumerable<int> called GetAboveAverage that returns all numbers above the average of the collection.
+	Create an extension method for DateTime called ToFriendlyDate that returns strings like "Today", "Yesterday", "Tomorrow", or the date in "dd/MM/yyyy" format for other dates.
+Task 3 (Practice foreach)
+	Implement foreach logic on previously created class Zoo with private animal list inside.
