@@ -1,6 +1,14 @@
+# Build folders
 bin/
 obj/
+
+# Visual Studio
 .vs/
-.DS_Store
 *.user
 *.suo
+
+# NuGet packages
+packages/
+
+# macOS
+.DS_Store

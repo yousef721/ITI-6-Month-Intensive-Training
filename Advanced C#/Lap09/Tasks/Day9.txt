@@ -1,0 +1,15 @@
+-detected data to list box 
+-Try to complete Local Transaction 
+-try to Complete async and await windows form 
+
+--Tuple--
+-Write a method that returns:
+Student name
+Total marks
+Average grade
+Call the method and print the result.
+---Choose any database from your sql server and Create windows form to 
+   -insert 
+   -update  
+   -delete
+   -display data using datagridview (Bonus list box)
