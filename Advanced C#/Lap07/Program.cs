@@ -6,7 +6,7 @@ class Program
     static void Main(string[] args)
     {
         #region Task 1
-        // // Try to add the two functions to the same thread.
+        // Try to add the two functions to the same thread.
         // ThreadStart threadStart = Number.Factorial;
         // threadStart += Number.Sum;
         // Thread thread = new Thread(threadStart);
@@ -20,57 +20,57 @@ class Program
         #endregion
 
         #region Task 2
-        // string path = Path.Combine(
-        //     "/Users/yousefabdullah/Desktop",
-        //     "ITI 6 Month",
-        //     "Advanced C#",
-        //     "Lap07",
-        //     "Data",
-        //     "students.txt"
-        // );
+        string path = Path.Combine(
+            "/Users/yousefabdullah/Desktop",
+            "ITI 6 Month",
+            "Advanced C#",
+            "Lap07",
+            "Data",
+            "students.txt"
+        );
 
-        // path.EnsureFile();
+        path.EnsureFile();
 
-        // bool isExit = false;
+        bool isExit = false;
 
-        // while (!isExit)
-        // {
-        //     Console.WriteLine("\nMenu:");
-        //     Console.WriteLine("1. Add Student");
-        //     Console.WriteLine("2. View Students");
-        //     Console.WriteLine("3. Search Student");
-        //     Console.WriteLine("4. Exit");
+        while (!isExit)
+        {
+            Console.WriteLine("\nMenu:");
+            Console.WriteLine("1. Add Student");
+            Console.WriteLine("2. View Students");
+            Console.WriteLine("3. Search Student");
+            Console.WriteLine("4. Exit");
 
-        //     Console.Write("Choose: ");
-        //     if (!int.TryParse(Console.ReadLine(), out int choose))
-        //     {
-        //         Console.WriteLine("Invalid input!");
-        //         continue;
-        //     }
+            Console.Write("Choose: ");
+            if (!int.TryParse(Console.ReadLine(), out int choose))
+            {
+                Console.WriteLine("Invalid input!");
+                continue;
+            }
 
-        //     switch (choose)
-        //     {
-        //         case 1:
-        //             path.AddStudents();
-        //             break;
+            switch (choose)
+            {
+                case 1:
+                    path.AddStudents();
+                    break;
 
-        //         case 2:
-        //             path.ViewStudents();
-        //             break;
+                case 2:
+                    path.ViewStudents();
+                    break;
 
-        //         case 3:
-        //             path.SearchStudent();
-        //             break;
+                case 3:
+                    path.SearchStudent();
+                    break;
 
-        //         case 4:
-        //             isExit = true;
-        //             break;
+                case 4:
+                    isExit = true;
+                    break;
 
-        //         default:
-        //             Console.WriteLine("Invalid choice!");
-        //             break;
-        //     }
-        // }
+                default:
+                    Console.WriteLine("Invalid choice!");
+                    break;
+            }
+        }
         #endregion
     }
 }
