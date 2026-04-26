@@ -78,9 +78,15 @@ namespace L2O___D09
         static  ListGenerators()
         {
             #region CustomerList
+            string filePath = Path.Combine(
+                AppContext.BaseDirectory,
+                "Tasks",
+                "Assignment Files",
+                "Customers.xml"
+            );
+
             CustomerList = (
-                from e in XDocument.Load("customers.xml").
-                          Root.Elements("customer")
+                from e in XDocument.Load(filePath).Root.Elements("customer")
                 select new Customer
                 {
                     CustomerID = (string)e.Element("id"),
