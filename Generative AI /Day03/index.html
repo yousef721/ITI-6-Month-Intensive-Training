@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus AI • Chat + Image Generation</title>
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <div class="logo-icon"><i class="fa-solid fa-bolt"></i></div>
+          <span>JoO AI</span>
+        </div>
+        <button
+          class="btn-new-chat"
+          id="btnNewChat"
+          title="Start a new conversation"
+        >
+          <i class="fa-solid fa-plus"></i> New Chat
+        </button>
+      </div>
+
+      <div class="chat-history" id="chatHistory">
+        <div class="chat-history-label">Recent Conversations</div>
+      </div>
+
+      <div class="sidebar-footer">JoO AI • Chat + Image System</div>
+    </aside>
+
+    <!-- MAIN -->
+    <div class="main-container">
+      <!-- TOP BAR -->
+      <div class="top-bar">
+        <button
+          class="btn-toggle-sidebar"
+          id="btnToggleSidebar"
+          aria-label="Toggle sidebar"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <span class="online-dot" title="Online"></span>
+
+        <span class="top-bar-title">JoO AI</span>
+        <span class="top-bar-subtitle">• Online</span>
+
+        <!-- MODE SWITCH -->
+        <div class="mode-switch">
+          <button
+            id="chatModeBtn"
+            class="mode-btn active"
+            title="Switch to Chat mode"
+          >
+            💬 Chat
+          </button>
+
+          <button
+            id="imageModeBtn"
+            class="mode-btn"
+            title="Switch to Image Generation mode"
+          >
+            🎨 Image
+          </button>
+        </div>
+      </div>
+
+      <!-- MESSAGES -->
+      <div class="messages-container" id="messagesContainer">
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="welcome-icon">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+
+          <h1 class="welcome-title">Hello, I'm JoO AI</h1>
+
+          <p class="welcome-subtitle">
+            Switch between <b>Chat</b> and <b>Image Generation</b> modes
+          </p>
+
+          <div class="welcome-suggestions" id="welcomeSuggestions">
+            <!-- Suggestions will be populated based on mode -->
+          </div>
+        </div>
+      </div>
+
+      <!-- INPUT -->
+      <div class="input-area">
+        <div class="input-wrapper">
+          <input
+            type="text"
+            id="chatInput"
+            placeholder="Type message..."
+            aria-label="Chat input"
+          />
+
+          <button class="btn-send" id="btnSend" title="Send message (Enter)">
+            <i class="fa-solid fa-arrow-up"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="input-footer">
+        Mode: <span id="modeLabel">Chat</span> • Press Enter to send •
+        <span id="apiStatus">Ready</span>
+      </div>
+    </div>
+
+    <!-- API Key Modal -->
+    <div class="modal" id="apiKeyModal">
+      <div class="modal-content">
+        <h2>API Configuration</h2>
+        <p>Enter your Fireworks AI API Key to get started</p>
+        <input
+          type="password"
+          id="apiKeyInput"
+          placeholder="Enter your API key..."
+          class="api-input"
+        />
+        <div class="modal-buttons">
+          <button class="btn-modal" id="btnSaveApiKey">Save Key</button>
+          <button class="btn-modal secondary" id="btnSkipApiKey">
+            Continue without key
+          </button>
+        </div>
+        <p class="modal-hint">
+          Get your free API key from
+          <a href="https://fireworks.ai" target="_blank">fireworks.ai</a>
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
