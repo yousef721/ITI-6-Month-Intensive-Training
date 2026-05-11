@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚀 Advanced Sorting Algorithm Visualizer</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container">
+
+    <h1>🚀 Advanced Sorting Algorithm Visualizer</h1>
+
+    <div class="controls">
+
+      <div class="input-section">
+        <label for="arrayInput">Array Input:</label>
+        <textarea id="arrayInput" placeholder="Enter numbers separated by commas (e.g., 5,2,8,1,9,3,7)">5,2,8,1,9,3,7</textarea>
+      </div>
+
+      <div class="control-row">
+        <div class="control-group">
+          <label for="algorithmSelect">Algorithm:</label>
+          <select id="algorithmSelect">
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="quick">Quick Sort</option>
+            <option value="heap">Heap Sort</option>
+            <option value="shell">Shell Sort</option>
+            <option value="counting">Counting Sort</option>
+            <option value="radix">Radix Sort</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="patternSelect">Array Pattern:</label>
+          <select id="patternSelect">
+            <option value="random">Random</option>
+            <option value="nearly-sorted">Nearly Sorted</option>
+            <option value="reverse">Reverse Sorted</option>
+            <option value="few-unique">Few Unique Values</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="control-row">
+        <div class="control-group">
+          <label for="arraySizeSlider">Array Size: <span id="arraySizeValue">20</span></label>
+          <input type="range" id="arraySizeSlider" min="5" max="200" value="20">
+        </div>
+
+        <div class="control-group">
+          <label for="speedSlider">Animation Speed: <span id="speedValue">50</span></label>
+          <input type="range" id="speedSlider" min="1" max="100" value="50">
+        </div>
+      </div>
+
+      <div class="button-row">
+        <button id="sortBtn">▶️ Sort</button>
+        <button id="pauseBtn" disabled>⏸️ Pause</button>
+        <button id="resetBtn">🔄 Reset</button>
+        <button id="randomBtn">🎲 Generate</button>
+        <button id="parallelBtn">⚡ Parallel QuickSort</button>
+        <button id="soundToggle">🔊 Sound On</button>
+        <button id="themeToggle">🌙 Dark</button>
+      </div>
+
+    </div>
+
+    <canvas id="canvas"></canvas>
+
+    <div class="info-section">
+      <div id="algorithmInfo" class="algorithm-info">
+        <h3>Bubble Sort</h3>
+        <p><strong>Time Complexity:</strong> O(n²)</p>
+        <p>Simple comparison sort that repeatedly steps through the list, compares adjacent elements and swaps them if they are in the wrong order.</p>
+      </div>
+    </div>
+
+    <div class="stats">
+
+      <div class="box">
+        <h3>Comparisons</h3>
+        <p id="comparisons">0</p>
+      </div>
+
+      <div class="box">
+        <h3>Swaps</h3>
+        <p id="swaps">0</p>
+      </div>
+
+      <div class="box">
+        <h3>Time</h3>
+        <p id="time">0.00 ms</p>
+      </div>
+
+      <div class="box">
+        <h3>Array Size</h3>
+        <p id="arraySize">7</p>
+      </div>
+
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
