@@ -1,7 +1,8 @@
 
-using Lap01.Database;
+using Lap02.Database;
+using Lap02.Mapping;
 
-namespace Lap01;
+namespace Lap02;
 
 public class Program
 {
@@ -11,11 +12,23 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllers();
-        
+
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
-        
-        builder.Services.AddDbContext<ApplicationDbContext>();
+
+        builder.Services.AddDbContext<ITIDbContext>();
+        builder.Services.AddAutoMapper(op => op.AddProfile<MappingProfile>());
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll",
+                policy =>
+                {
+                    policy.AllowAnyOrigin()
+                          .AllowAnyHeader()
+                          .AllowAnyMethod();
+                });
+        });
 
         var app = builder.Build();
 
@@ -28,11 +41,12 @@ public class Program
 
         app.UseHttpsRedirection();
 
+        app.UseCors("AllowAll");
+
         app.UseAuthorization();
 
-
         app.MapControllers();
-
+        
         app.Run();
     }
 }

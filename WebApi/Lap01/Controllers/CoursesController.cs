@@ -15,6 +15,7 @@ public class CoursesController : ControllerBase
         _context = context;
     }
 
+
     [HttpGet]
     public IActionResult Get()
     {
