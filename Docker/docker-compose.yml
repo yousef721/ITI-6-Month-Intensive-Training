@@ -1,0 +1,30 @@
+version: '3.8'
+name: docker-lap
+
+services:
+  #database
+  db: 
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "reallyStrong123"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+  #backend
+  api:
+    build: .
+    container_name: api
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=db,1433;User ID=SA;Password=reallyStrong123;Initial Catalog=ITIWebAPI;TrustServerCertificate=True"
+  
+    ports:
+      - "8080:8080"
+
+    depends_on:
+      - db
+
+volumes:
+  mssql_data:
+
