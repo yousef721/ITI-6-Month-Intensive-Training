@@ -1,0 +1,99 @@
+:root {
+  /* Base colors */
+  --bg: #f4f5f8;
+  --surface: #ffffff;
+  --surface2: #f0f2f7;
+  --border: #e2e6f0;
+  --border-light: #eef2f6;
+  
+  /* Accent gradients */
+  --accent: #7c3aed;
+  --accent2: #3d73ff;
+  --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
+  --accent-subtle: #ede9fe;
+  --accent-soft: #f5f3ff;
+  
+  /* Text colors (unified) */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-muted-light: #9ca3af;
+  
+  /* Surface layers */
+  --bg-card: #ffffff;
+  --bg-input: #f9fafb;
+  --bg-hover: #f3f4f6;
+  --bg-active: #e5e7eb;
+  
+  /* Spacing & radius */
+  --r-sm: 6px;
+  --r: 10px;
+  --r-lg: 16px;
+  --r-xl: 20px;
+  --f: 'Inter', sans-serif;
+  
+  /* Shadows (layered) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-focus: 0 0 0 3px rgba(124, 58, 237, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.12s ease;
+  --transition-base: 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --transition-smooth: 0.25s cubic-bezier(0.2, 0.95, 0.4, 1.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: var(--f);
+  background: var(--bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar (modern & subtle) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted-light);
+}
+
+/* Focus outlines (accessible & beautiful) */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

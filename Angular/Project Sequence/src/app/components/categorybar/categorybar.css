@@ -1,0 +1,43 @@
+.cat-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.5rem 0 0.9rem 0;
+  border-bottom: 1.5px solid var(--border-light);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scroll-snap-type: x mandatory;
+  flex-wrap: nowrap;
+}
+
+.cat-bar::-webkit-scrollbar {
+  height: 3px;
+}
+
+.cat-tab {
+  padding: 0.45rem 1.1rem;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-base);
+  background: transparent;
+  border: 1px solid transparent;
+  scroll-snap-align: start;
+}
+
+.cat-tab:hover {
+
+  color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+.cat-tab.active {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent-subtle);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}

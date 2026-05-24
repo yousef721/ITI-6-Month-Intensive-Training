@@ -1,0 +1,14 @@
+<div class="main-feed">
+  <app-categorybar></app-categorybar>
+
+  <app-form (postCreated)="addPost($event)"></app-form>
+
+  <app-feed-header></app-feed-header>
+
+  <div class="posts-list mt-2">
+    @for(post of posts; track $index) {
+      <app-post-card [post]="post"></app-post-card>
+    }
+  </div>
+
+</div>

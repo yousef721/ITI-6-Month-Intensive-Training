@@ -1,0 +1,53 @@
+<div class="post-form-wrap py-3">
+  <div class="post-form-box">
+    <!-- Collapsed trigger row -->
+    <div class="form-header d-flex align-items-center gap-3">
+      <div class="user-avatar">D</div>
+      <input
+        class="form-trigger flex-grow-1"
+        type="text"
+        placeholder="Share an article, tutorial, or project…"
+        (focus)="onTriggerFocus()"
+      />
+    </div>
+
+    <!-- Expanded fields -->
+    <div class="form-fields" [class.open]="expanded">
+      <input
+        class="form-control-light"
+        type="text"
+        placeholder="Post title *"
+        [(ngModel)]="formData.title"
+      />
+      <input
+        class="form-control-light"
+        type="url"
+        placeholder="Link URL (optional)"
+        [(ngModel)]="formData.url"
+      />
+      <textarea
+        class="form-control-light"
+        rows="3"
+        placeholder="Write a description — what's this about? Why should developers read it?"
+        [(ngModel)]="formData.description"
+      ></textarea>
+
+      <div class="form-row d-flex gap-2">
+        <select class="form-control-light flex-grow-1" [(ngModel)]="formData.category">
+          <option value="" disabled>Select category</option>
+          @for (category of categories; track $index) {
+            <option [value]="category">
+              {{ category }}
+            </option>
+          }
+        </select>
+        <input class="form-control-light" type="file" accept="image/*" title="Cover image" />
+      </div>
+
+      <div class="form-footer-row d-flex justify-content-between align-items-center mt-2">
+        <button class="btn-cancel" (click)="cancel()">Cancel</button>
+        <button class="btn-submit" (click)="publish()">Publish Post</button>
+      </div>
+    </div>
+  </div>
+</div>

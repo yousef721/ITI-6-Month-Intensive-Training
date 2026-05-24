@@ -1,0 +1,13 @@
+<div class="cat-bar">
+  @for(tab of tabs; track $index)
+  {
+    <div
+      class="cat-tab"
+      [class.active]="tab.active"
+      (click)="selectTab(tab)"
+    >
+      {{ tab.label }}
+    </div>
+  }
+</div>
+ 
