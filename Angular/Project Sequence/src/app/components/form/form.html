@@ -1,53 +1,113 @@
-<div class="post-form-wrap py-3">
-  <div class="post-form-box">
+<form (ngSubmit)="publish()" [formGroup]="postForm" class="post-form-wrap pb-3 py-3">
+  <div class="post-form-box p-3">
     <!-- Collapsed trigger row -->
-    <div class="form-header d-flex align-items-center gap-3">
-      <div class="user-avatar">D</div>
-      <input
-        class="form-trigger flex-grow-1"
-        type="text"
-        placeholder="Share an article, tutorial, or project…"
-        (focus)="onTriggerFocus()"
-      />
+    <div class="form-header d-flex gap-3">
+      <div
+        class="user-avatar rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0"
+      >
+        D
+      </div>
+      <div class="d-flex flex-column gap-1 w-100">
+        <input
+          class="form-trigger w-100"
+          type="text"
+          placeholder="Share an article, tutorial, or project…"
+          formControlName="sourceName"
+          (focus)="onTriggerFocus()"
+        />
+        @if (f['sourceName'].touched && !f['sourceName'].valid) {
+          <small class="text-danger">
+            @if (f['sourceName'].errors?.['required']) {
+              Source name is required.
+            } @else if (f['sourceName'].errors?.['minlength']) {
+              Source name must be at least 3 characters.
+            } @else if (f['sourceName'].errors?.['maxlength']) {
+              Source name cannot exceed 50 characters.
+            }
+          </small>
+        }
+      </div>
     </div>
 
     <!-- Expanded fields -->
-    <div class="form-fields" [class.open]="expanded">
-      <input
-        class="form-control-light"
-        type="text"
-        placeholder="Post title *"
-        [(ngModel)]="formData.title"
-      />
-      <input
-        class="form-control-light"
-        type="url"
-        placeholder="Link URL (optional)"
-        [(ngModel)]="formData.url"
-      />
-      <textarea
-        class="form-control-light"
-        rows="3"
-        placeholder="Write a description — what's this about? Why should developers read it?"
-        [(ngModel)]="formData.description"
-      ></textarea>
-
-      <div class="form-row d-flex gap-2">
-        <select class="form-control-light flex-grow-1" [(ngModel)]="formData.category">
-          <option value="" disabled>Select category</option>
-          @for (category of categories; track $index) {
-            <option [value]="category">
-              {{ category }}
-            </option>
+    <div class="form-fields d-flex flex-column gap-3" [class.open]="expanded">
+      <div class="d-flex flex-column gap-1 w-100">
+        <input
+          class="form-control-light w-100"
+          type="text"
+          placeholder="Post title *"
+          formControlName="title"
+        />
+        @if (f['title'].touched && !f['title'].valid) {
+          <small class="text-danger">
+            @if (f['title'].errors?.['required']) {
+              Title is required.
+            } @else if (f['title'].errors?.['minlength']) {
+              Title must be at least 5 characters.
+            } @else if (f['title'].errors?.['maxlength']) {
+              Title cannot exceed 100 characters.
+            }
+          </small>
+        }
+      </div>
+      <div class="d-flex flex-column gap-1 w-100">
+        <input
+          class="form-control-light w-100"
+          type="url"
+          placeholder="Link URL (optional)"
+          formControlName="url"
+        />
+        @if (f['url'].errors?.['pattern'] && f['url'].touched) {
+          <small class="text-danger"> Please enter a valid URL. </small>
+        }
+      </div>
+      <div class="d-flex flex-column gap-1 w-100">
+        <textarea
+          class="form-control-light w-100"
+          rows="3"
+          placeholder="Write a description — what's this about? Why should developers read it?"
+          formControlName="description"
+        ></textarea>
+        <small class="text-danger">
+          @if (f['description'].touched && !f['description'].valid) {
+            @if (f['description'].errors?.['required']) {
+              Description is required.
+            } @else if (f['description'].errors?.['minlength']) {
+              Description must be at least 10 characters.
+            } @else if (f['description'].errors?.['maxlength']) {
+              Description cannot exceed 200 characters.
+            }
           }
-        </select>
-        <input class="form-control-light" type="file" accept="image/*" title="Cover image" />
+        </small>
+      </div>
+
+      <div class="form-row gap-1">
+        <div class="d-flex gap-2 flex-grow-1">
+          <select class="form-control-light w-100" formControlName="category">
+            <option value="" disabled selected>Select category</option>
+            @for (category of categories; track $index) {
+              <option [value]="category">
+                {{ category }}
+              </option>
+            }
+          </select>
+          <input
+            class="form-control-light form-control w-100"
+            type="file"
+            accept="image/*"
+            title="Cover image"
+            formControlName="image"
+          />
+        </div>
+        @if (f['category'].errors?.['required'] && f['category'].touched) {
+          <small class="text-danger"> Category is required. </small>
+        }
       </div>
 
       <div class="form-footer-row d-flex justify-content-between align-items-center mt-2">
         <button class="btn-cancel" (click)="cancel()">Cancel</button>
-        <button class="btn-submit" (click)="publish()">Publish Post</button>
+        <button class="btn-submit text-white fw-bold">Publish Post</button>
       </div>
     </div>
   </div>
-</div>
+</form>

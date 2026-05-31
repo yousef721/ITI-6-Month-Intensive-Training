@@ -1,24 +1,27 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Post } from '../post-card/post-card';
 
-interface FormData {
-  title: string;
-  url: string;
-  description: string;
-  category: string;
-  image?: string;
-}
 @Component({
   selector: 'app-form',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './form.html',
   styleUrls: ['./form.css'],
 })
 export class Form {
   @Output() postCreated = new EventEmitter<Post>();
+
+  get f() {
+    return this.postForm.controls;
+  }
 
   expanded = false;
 
@@ -33,14 +36,6 @@ export class Form {
     'Databases',
     'Career & Productivity',
   ];
-
-  formData: FormData = {
-    title: '',
-    url: '',
-    description: '',
-    category: '',
-    image: '',
-  };
 
   onTriggerFocus() {
     this.expanded = true;
@@ -69,54 +64,55 @@ export class Form {
     return times[Math.floor(Math.random() * times.length)];
   }
 
-  private randomSourceName(): string {
-    const sources = ['You', 'Dev Blog', 'Tech Weekly', 'Angular Hub', 'Code Times'];
-    return sources[Math.floor(Math.random() * sources.length)];
-  }
+  postForm: FormGroup = new FormGroup({
+    sourceName: new FormControl('', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(50),
+    ]),
 
-  private randomInitial(name: string): string {
-    return name.charAt(0).toUpperCase();
-  }
+    title: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(100),
+    ]),
+
+    url: new FormControl('', [Validators.pattern(/^(https?:\/\/)?([\w\-])+(\.[\w\-]+)+[/#?]?.*$/)]),
+
+    description: new FormControl('', [
+      Validators.required,
+      Validators.minLength(10),
+      Validators.maxLength(200),
+    ]),
+
+    category: new FormControl('', [Validators.required]),
+  });
 
   publish() {
-    if (!this.formData.title.trim()) return;
+    if (this.postForm.invalid) {
+      this.postForm.markAllAsTouched();
+      return;
+    }
 
-    const sourceName = this.randomSourceName();
+    const value = this.postForm.value;
 
     const newPost: Post = {
       voted: false,
-
       upvotes: this.randomUpvotes(),
-
       sourceColor: this.randomColor(),
-
-      sourceName: sourceName,
-
-      sourceInitial: this.randomInitial(sourceName),
-
+      sourceName: value.sourceName || 'You',
+      sourceInitial: value.sourceName?.charAt(0).toUpperCase() || 'Y',
       time: this.randomTime(),
-
       readTime: this.randomReadTime(),
-
-      title: this.formData.title,
-
-      description: this.formData.description,
-
+      title: value.title,
+      description: value.description,
       comments: this.randomComments(),
-
-      images: this.formData.image || 'https://picsum.photos/160/128?random=99',
+      images: value.image || 'https://picsum.photos/160/128?random=99',
     };
 
     this.postCreated.emit(newPost);
 
-    this.formData = {
-      title: '',
-      url: '',
-      description: '',
-      category: '',
-      image: '',
-    };
-
+    this.postForm.reset(); 
     this.expanded = false;
   }
 

@@ -1,18 +1,8 @@
 .feed-header {
-  padding: 0.75rem 0;
   border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 .feed-title {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  font-weight: 600;
-  text-transform: uppercase;
   letter-spacing: 0.3px;
 }
 
@@ -20,10 +10,7 @@
   background: var(--bg-input);
   border: 1px solid var(--border);
   color: var(--text-secondary);
-  padding: 0.4rem 1rem;
   border-radius: var(--r);
-  font-size: 0.8rem;
-  font-weight: 500;
   cursor: pointer;
   font-family: inherit;
   transition: all var(--transition-fast);
