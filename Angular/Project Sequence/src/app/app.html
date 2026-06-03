@@ -1,15 +1,19 @@
 <app-navbar></app-navbar>
 
-<div class="app-body d-flex my-0 mx-auto position-relative">
+<router-outlet></router-outlet>
 
-  <!-- Sidebar -->
-  <app-sidebar></app-sidebar>
+<app-footer></app-footer>
 
-  <!-- Main Feed -->
-  <main class="main-feed flex-grow-1 px-3 py-2">
-    
-    <app-main-feed></app-main-feed>
+<!-- <div class="container-fluid">
+  <div class="app-body row g-0">
 
-  </main>
+    <aside class="col-lg-3 col-xl-2">
+      <app-sidebar></app-sidebar>
+    </aside>
 
-</div>
+    <main class="col-lg-9 col-xl-10 px-3 py-3">
+      <app-main-feed></app-main-feed>
+    </main>
+
+  </div>
+</div> -->

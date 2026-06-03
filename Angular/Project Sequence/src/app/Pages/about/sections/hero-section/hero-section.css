@@ -1,0 +1,42 @@
+.about-hero {
+  background: linear-gradient(135deg, var(--accent-soft) 0%, var(--accent-subtle) 100%);
+  border-radius: var(--r-xl);
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: -120px;
+  right: -120px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.about-hero::after {
+  content: '';
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  bottom: -100px;
+  left: -80px;
+  border-radius: 50%;
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.about-icon {
+  font-size: 3.5rem;
+}
+
+.about-title {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  color: var(--text-primary);
+  letter-spacing: -1px;
+}
+
+.about-description {
+  max-width: 620px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}

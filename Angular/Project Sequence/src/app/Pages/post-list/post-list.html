@@ -1,0 +1,11 @@
+<div class="post-list-container">
+  <app-topic-chips></app-topic-chips>
+
+  <app-create-post (postCreated)="addPost($event)"></app-create-post>
+
+  <app-feed-header></app-feed-header>
+
+  <div class="posts-list mt-2">
+    <app-post-card-horizontal [post]="post"></app-post-card-horizontal>
+  </div>
+</div>

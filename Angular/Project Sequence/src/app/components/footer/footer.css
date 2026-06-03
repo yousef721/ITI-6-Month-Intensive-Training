@@ -1,0 +1,13 @@
+/* src/app/components/footer/footer.component.scss */
+.site-footer {
+  background: var(--text-primary);
+  font-size: 0.82rem;
+}
+.footer-link {
+  color: rgba(255, 255, 255, 0.5);
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer-link:hover {
+  color: var(--accent);
+}

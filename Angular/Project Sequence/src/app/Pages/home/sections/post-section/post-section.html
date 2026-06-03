@@ -1,0 +1,27 @@
+<section class="py-5">
+  <div class="container">
+    <app-topic-chips></app-topic-chips>
+    <div class="mb-4">
+      <div class="section-label">Latest Content</div>
+      <div class="section-title">Today's top picks</div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-4">
+        <app-post-card-vertical></app-post-card-vertical>
+      </div>
+      <div class="col-md-4">
+        <app-post-card-vertical></app-post-card-vertical>
+      </div>
+      <div class="col-md-4">
+        <app-post-card-vertical></app-post-card-vertical>
+      </div>
+    </div>
+
+    <div class="text-center mt-5">
+      <button class="btn btn-outline px-4 py-3" routerLink="/posts">
+        Show More Posts <i class="bi bi-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </div>
+</section>

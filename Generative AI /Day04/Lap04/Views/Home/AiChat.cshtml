@@ -1,0 +1,39 @@
+@model Lap04.ViewModel.ChatViewModel
+
+<div class="container py-4">
+
+    @if (!string.IsNullOrEmpty(Model?.Question))
+    {
+        <div class="chat-container mb-4">
+
+            <div class="user-message">
+                <div class="message-bubble user">
+                    @Model.Question
+                </div>
+            </div>
+
+            <div class="ai-message">
+                <div class="message-bubble ai">
+                    @Model.Answer
+                </div>
+            </div>
+
+        </div>
+    }
+
+    <form asp-action="AiChat" method="post">
+        <div class="input-group">
+            <input
+                type="text"
+                name="question"
+                class="form-control"
+                placeholder="Ask anything..."
+                required />
+
+            <button type="submit" class="btn btn-primary">
+                Send
+            </button>
+        </div>
+    </form>
+
+</div>

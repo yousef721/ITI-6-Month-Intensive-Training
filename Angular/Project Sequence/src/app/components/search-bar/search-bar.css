@@ -1,0 +1,22 @@
+.nav-search {
+  max-width: 560px;
+  width: 100%;
+}
+
+.search-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  color: var(--text-primary);
+  padding: 0.45rem 1.2rem;
+  font-size: 0.85rem;
+  outline: none;
+  transition: all var(--transition-base);
+  width: 100%;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-focus);
+  background: var(--surface);
+}

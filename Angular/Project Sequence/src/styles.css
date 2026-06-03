@@ -5,39 +5,41 @@
   --surface2: #f0f2f7;
   --border: #e2e6f0;
   --border-light: #eef2f6;
-  
+
   /* Accent gradients */
   --accent: #7c3aed;
+  --accent-light: #a78bfa;
+  --accent-dark: #5b21b6;
   --accent2: #3d73ff;
   --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
   --accent-subtle: #ede9fe;
   --accent-soft: #f5f3ff;
-  
+
   /* Text colors (unified) */
   --text-primary: #111827;
   --text-secondary: #4b5563;
   --text-muted: #6b7280;
   --text-muted-light: #9ca3af;
-  
+
   /* Surface layers */
   --bg-card: #ffffff;
   --bg-input: #f9fafb;
   --bg-hover: #f3f4f6;
   --bg-active: #e5e7eb;
-  
+
   /* Spacing & radius */
   --r-sm: 6px;
   --r: 10px;
   --r-lg: 16px;
   --r-xl: 20px;
   --f: 'Inter', sans-serif;
-  
+
   /* Shadows (layered) */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
   --shadow-focus: 0 0 0 3px rgba(124, 58, 237, 0.2);
-  
+
   /* Transitions */
   --transition-fast: 0.12s ease;
   --transition-base: 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
@@ -55,11 +57,70 @@ body {
   font-family: var(--f);
   background: var(--bg);
   color: var(--text-primary);
-  font-size: 14px;
-  line-height: 1.5;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+}
+/* ── SECTION TITLES ── */
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.section-sub {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 0.45rem 1.2rem;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+
+.btn-primary {
+  background: var(--accent-gradient);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.btn-outline:hover {
+  background: var(--accent-subtle);
 }
 
 /* Custom scrollbar (modern & subtle) */

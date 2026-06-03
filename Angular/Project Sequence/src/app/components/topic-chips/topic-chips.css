@@ -1,0 +1,31 @@
+.topic-chips {
+  border-bottom: 1px solid var(--border);
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.topic-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.chip {
+  font-size: 0.8rem;
+  scroll-snap-align: start;
+  border: 1px solid var(--text-muted);
+  color: var(--text-secondary);
+}
+
+.chip:hover {
+  transform: translateY(-1px);
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+
+.chip.active {
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
