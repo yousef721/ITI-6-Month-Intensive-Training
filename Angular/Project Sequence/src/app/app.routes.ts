@@ -9,41 +9,41 @@ export const routes: Routes = [
 
   {
     path: 'home',
-    loadComponent: () => import('./Pages/home/home').then((m) => m.Home),
+    loadComponent: () => import('./pages/home/home').then((m) => m.Home),
   },
 
   {
     path: 'about',
-    loadComponent: () => import('./Pages/about/about').then((m) => m.About),
+    loadComponent: () => import('./pages/about/about').then((m) => m.About),
   },
 
   {
     path: 'profile',
-    loadComponent: () => import('./Pages/profile/profile').then((m) => m.Profile),
+    loadComponent: () => import('./pages/profile/profile').then((m) => m.Profile),
   },
 
   {
     path: 'posts',
-    loadComponent: () => import('./Pages/post-list/post-list').then((m) => m.PostList),
+    loadComponent: () => import('./pages/post-list/post-list').then((m) => m.PostList),
   },
 
   {
     path: 'posts/:id',
-    loadComponent: () => import('./Pages/post-details/post-details').then((m) => m.PostDetails),
+    loadComponent: () => import('./pages/post-details/post-details').then((m) => m.PostDetails),
   },
 
   {
     path: 'login',
-    loadComponent: () => import('./Pages/login/login').then((m) => m.Login),
+    loadComponent: () => import('./pages/login/login').then((m) => m.Login),
   },
 
   {
     path: 'signup',
-    loadComponent: () => import('./Pages/signup/signup').then((m) => m.Signup),
+    loadComponent: () => import('./pages/signup/signup').then((m) => m.Signup),
   },
 
   {
     path: '**',
-    loadComponent: () => import('./Pages/not-found/not-found').then((m) => m.NotFound),
+    loadComponent: () => import('./pages/not-found/not-found').then((m) => m.NotFound),
   },
 ];

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'app-left-sidebar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './sidebar.html',
-  styleUrls: ['./sidebar.css'],
+  templateUrl: './left-sidebar.html',
+  styleUrls: ['./left-sidebar.css'],
 })
-export class Sidebar {
+export class LeftSidebar {
   menuItems = [
     { name: 'My Feed', icon: '🏠', count: 12 },
     { name: 'Popular', icon: '🔥' },

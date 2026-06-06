@@ -1,1 +1,185 @@
-<p>post-details works!</p>
+<div class="post-details-page">
+  <div class="container py-4 py-md-5">
+    <div class="row g-4">
+      <!-- Main Content -->
+      <main class="col-lg-8">
+        <!-- Post Header -->
+        <article class="post-details-card mb-4">
+          <img
+            class="post-details-image w-100 mb-3"
+            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1200&q=80"
+            alt="Post"
+          />
+          <div class="post-details-body">
+            <div class="post-meta d-flex align-items-center gap-3 mb-3">
+              <div class="source-avatar">V</div>
+              <div>
+                <div class="source-name fw-semibold">Vercel Blog</div>
+                <div class="source-date small text-muted">Published 2 hours ago</div>
+              </div>
+              <button class="btn btn-outline ms-auto">
+                <i class="bi bi-bookmark"></i>
+              </button>
+            </div>
+
+            <h1 class="post-details-title mb-3">Next.js 15.3 Released — Major Performance Improvements</h1>
+
+            <div class="post-categories mb-3">
+              <span class="category-tag">#nextjs</span>
+              <span class="category-tag">#frontend</span>
+              <span class="category-tag">#performance</span>
+            </div>
+
+            <div class="post-excerpt text-muted mb-4">
+              <p>
+                We're excited to announce the release of Next.js 15.3, featuring significant
+                performance improvements, better DX, and production-ready Turbopack integration.
+              </p>
+            </div>
+
+            <div class="post-actions d-flex gap-3 mb-4 py-3 border-top border-bottom">
+              <span class="action-btn">
+                <i class="bi bi-triangle"></i> 342 Upvotes
+              </span>
+              <span class="action-btn">
+                <i class="bi bi-chat"></i> 48 Comments
+              </span>
+              <span class="action-btn ms-auto">
+                <i class="bi bi-share"></i> Share
+              </span>
+            </div>
+
+            <a href="#" class="btn btn-primary w-100 py-2">Read Full Article</a>
+          </div>
+        </article>
+
+        <!-- Comments Section -->
+        <section class="comments-section">
+          <h2 class="section-title mb-3">Comments (12)</h2>
+
+          <!-- Comment Form -->
+          <div class="comment-form mb-4">
+            <div class="comment-author d-flex gap-2 mb-2">
+              <div class="comment-avatar">Y</div>
+              <div class="flex-grow-1">
+                <textarea
+                  class="form-control"
+                  placeholder="Share your thoughts..."
+                  rows="3"
+                ></textarea>
+              </div>
+            </div>
+            <button class="btn btn-primary float-end">Post Comment</button>
+            <div style="clear: both;"></div>
+          </div>
+
+          <!-- Comments List -->
+          <div class="comments-list">
+            <!-- Comment 1 -->
+            <div class="comment-item mb-3">
+              <div class="comment-header d-flex align-items-center gap-2 mb-2">
+                <div class="comment-avatar">J</div>
+                <div class="flex-grow-1">
+                  <div class="comment-author-name fw-semibold">John Developer</div>
+                  <div class="comment-time small text-muted">1 hour ago</div>
+                </div>
+              </div>
+              <p class="comment-text text-secondary">
+                Great release! The performance improvements are impressive. Looking forward to
+                upgrading my projects.
+              </p>
+              <div class="comment-actions small">
+                <span class="action">
+                  <i class="bi bi-hand-thumbs-up"></i> Like
+                </span>
+                <span class="action ms-2">
+                  <i class="bi bi-reply"></i> Reply
+                </span>
+              </div>
+            </div>
+
+            <!-- Comment 2 -->
+            <div class="comment-item mb-3">
+              <div class="comment-header d-flex align-items-center gap-2 mb-2">
+                <div class="comment-avatar">S</div>
+                <div class="flex-grow-1">
+                  <div class="comment-author-name fw-semibold">Sarah Code</div>
+                  <div class="comment-time small text-muted">45 minutes ago</div>
+                </div>
+              </div>
+              <p class="comment-text text-secondary">
+                Turbopack is finally production-ready! This is huge for the Next.js ecosystem.
+              </p>
+              <div class="comment-actions small">
+                <span class="action">
+                  <i class="bi bi-hand-thumbs-up"></i> Like (3)
+                </span>
+                <span class="action ms-2">
+                  <i class="bi bi-reply"></i> Reply
+                </span>
+              </div>
+            </div>
+
+            <!-- Comment 3 -->
+            <div class="comment-item mb-3">
+              <div class="comment-header d-flex align-items-center gap-2 mb-2">
+                <div class="comment-avatar">M</div>
+                <div class="flex-grow-1">
+                  <div class="comment-author-name fw-semibold">Mike Frontend</div>
+                  <div class="comment-time small text-muted">30 minutes ago</div>
+                </div>
+              </div>
+              <p class="comment-text text-secondary">
+                Any migration guide for existing projects? Would love to know the upgrade path.
+              </p>
+              <div class="comment-actions small">
+                <span class="action">
+                  <i class="bi bi-hand-thumbs-up"></i> Like (1)
+                </span>
+                <span class="action ms-2">
+                  <i class="bi bi-reply"></i> Reply
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-outline w-100 py-2 mt-3">Load More Comments</button>
+        </section>
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="col-lg-4">
+        <!-- Related Posts -->
+        <div class="sidebar-card mb-4">
+          <h3 class="section-title mb-3">Related Posts</h3>
+          <div class="related-post mb-3">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=200&q=80" alt="Related" />
+            <h4 class="related-post-title">TypeScript 5.5 Features</h4>
+            <div class="related-meta text-muted small">2 days ago</div>
+          </div>
+          <div class="related-post mb-3">
+            <img src="https://images.unsplash.com/photo-1618194671884-5ca7b98a6f6c?w=200&q=80" alt="Related" />
+            <h4 class="related-post-title">React 18 Optimization Tips</h4>
+            <div class="related-meta text-muted small">1 week ago</div>
+          </div>
+          <div class="related-post">
+            <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=200&q=80" alt="Related" />
+            <h4 class="related-post-title">Web Performance Best Practices</h4>
+            <div class="related-meta text-muted small">2 weeks ago</div>
+          </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="sidebar-card">
+          <h3 class="section-title mb-3">Categories</h3>
+          <div class="category-list">
+            <a href="#" class="category-link">Frontend Development</a>
+            <a href="#" class="category-link">Backend Development</a>
+            <a href="#" class="category-link">DevOps</a>
+            <a href="#" class="category-link">Mobile Dev</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

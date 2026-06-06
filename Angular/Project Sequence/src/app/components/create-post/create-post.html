@@ -1,112 +1,192 @@
-<form (ngSubmit)="publish()" [formGroup]="postForm" class="post-form-wrap pb-3 py-3">
-  <div class="post-form-box p-3">
-    <!-- Collapsed trigger row -->
-    <div class="form-header d-flex gap-3">
-      <div
-        class="user-avatar rounded-circle text-white fw-bold d-flex align-items-center justify-content-center flex-shrink-0"
-      >
-        D
-      </div>
+<form (ngSubmit)="publish()" [formGroup]="postForm" class="post-form-wrap w-100">
+  <div class="post-form-box" [class.published]="justPublished">
+
+    <div class="form-header d-flex align-items-center gap-3">
+      <div class="user-avatar fw-bold text-white d-flex align-items-center justify-content-center">D</div>
       <div class="d-flex flex-column gap-1 w-100">
         <input
-          class="form-trigger w-100"
+          class="form-trigger"
           type="text"
           placeholder="Share an article, tutorial, or project…"
           formControlName="sourceName"
           (focus)="onTriggerFocus()"
         />
-        @if (f['sourceName'].touched && !f['sourceName'].valid) {
-          <small class="text-danger">
+        @if (f['sourceName'].touched && f['sourceName'].invalid) {
+          <div class="field-error">
+            <i class="bi bi-exclamation-circle-fill"></i>
             @if (f['sourceName'].errors?.['required']) {
               Source name is required.
             } @else if (f['sourceName'].errors?.['minlength']) {
-              Source name must be at least 3 characters.
+              At least 3 characters.
             } @else if (f['sourceName'].errors?.['maxlength']) {
-              Source name cannot exceed 50 characters.
+              Max 50 characters.
             }
-          </small>
+          </div>
         }
       </div>
     </div>
 
-    <!-- Expanded fields -->
+    <!-- Animated divider -->
+    <div class="form-divider" [class.visible]="expanded"></div>
+
+    <!-- ── Expanded fields ── -->
     <div class="form-fields d-flex flex-column gap-3" [class.open]="expanded">
-      <div class="d-flex flex-column gap-1 w-100">
+      <!-- Title -->
+      <div class="d-flex flex-column">
         <input
-          class="form-control-light w-100"
+          class="form-control-light"
           type="text"
           placeholder="Post title *"
           formControlName="title"
         />
-        @if (f['title'].touched && !f['title'].valid) {
-          <small class="text-danger">
-            @if (f['title'].errors?.['required']) {
-              Title is required.
-            } @else if (f['title'].errors?.['minlength']) {
-              Title must be at least 5 characters.
-            } @else if (f['title'].errors?.['maxlength']) {
-              Title cannot exceed 100 characters.
-            }
-          </small>
-        }
-      </div>
-      <div class="d-flex flex-column gap-1 w-100">
-        <input
-          class="form-control-light w-100"
-          type="url"
-          placeholder="Link URL (optional)"
-          formControlName="url"
-        />
-        @if (f['url'].errors?.['pattern'] && f['url'].touched) {
-          <small class="text-danger"> Please enter a valid URL. </small>
-        }
-      </div>
-      <div class="d-flex flex-column gap-1 w-100">
-        <textarea
-          class="form-control-light w-100"
-          rows="3"
-          placeholder="Write a description — what's this about? Why should developers read it?"
-          formControlName="description"
-        ></textarea>
-        <small class="text-danger">
-          @if (f['description'].touched && !f['description'].valid) {
-            @if (f['description'].errors?.['required']) {
-              Description is required.
-            } @else if (f['description'].errors?.['minlength']) {
-              Description must be at least 10 characters.
-            } @else if (f['description'].errors?.['maxlength']) {
-              Description cannot exceed 200 characters.
-            }
+        <div class="d-flex justify-content-between align-items-start">
+          @if (f['title'].touched && f['title'].invalid) {
+            <div class="field-error">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              @if (f['title'].errors?.['required']) {
+                Title is required.
+              } @else if (f['title'].errors?.['minlength']) {
+                At least 5 characters.
+              } @else if (f['title'].errors?.['maxlength']) {
+                Max 100 characters.
+              }
+            </div>
+          } @else {
+            <span></span>
           }
-        </small>
+          <span
+            class="field-hint"
+            [class.warn]="(f['title'].value?.length ?? 0) > 80"
+            [class.error]="(f['title'].value?.length ?? 0) > 100"
+          >
+            {{ f['title'].value?.length ?? 0 }}/100
+          </span>
+        </div>
       </div>
 
-      <div class="form-row gap-1">
-        <div class="d-flex gap-2 flex-grow-1">
-          <select class="form-control-light w-100" formControlName="category">
-            <option value="" disabled selected>Select category</option>
-            @for (category of categories; track $index) {
-              <option [value]="category">
-                {{ category }}
-              </option>
-            }
-          </select>
+      <!-- URL -->
+      <div class="d-flex flex-column">
+        <div class="input-with-icon position-relative">
+          <i
+            class="bi bi-link-45deg position-absolute"
+            style="
+              left: 0.75rem;
+              top: 50%;
+              transform: translateY(-50%);
+              color: var(--text-muted);
+              pointer-events: none;
+            "
+          ></i>
           <input
-            class="form-control-light form-control w-100"
-            type="file"
-            accept="image/*"
-            title="Cover image"
-            formControlName="image"
+            class="form-control-light"
+            style="padding-left: 2.1rem"
+            type="url"
+            placeholder="Link URL (optional)"
+            formControlName="url"
           />
         </div>
-        @if (f['category'].errors?.['required'] && f['category'].touched) {
-          <small class="text-danger"> Category is required. </small>
+        @if (f['url'].errors?.['pattern'] && f['url'].touched) {
+          <div class="field-error">
+            <i class="bi bi-exclamation-circle-fill"></i>
+            Please enter a valid URL (https://…)
+          </div>
         }
       </div>
 
-      <div class="form-footer-row d-flex justify-content-between align-items-center mt-2">
-        <button class="btn-cancel" (click)="cancel()">Cancel</button>
-        <button class="btn-submit text-white fw-bold">Publish Post</button>
+      <!-- Description -->
+      <div class="d-flex flex-column">
+        <textarea
+          class="form-control-light"
+          rows="3"
+          placeholder="Describe this post — what's it about? Why should developers read it?"
+          formControlName="description"
+        ></textarea>
+        <div class="d-flex justify-content-between align-items-start">
+          @if (f['description'].touched && f['description'].invalid) {
+            <div class="field-error">
+              <i class="bi bi-exclamation-circle-fill"></i>
+              @if (f['description'].errors?.['required']) {
+                Description is required.
+              } @else if (f['description'].errors?.['minlength']) {
+                At least 10 characters.
+              } @else if (f['description'].errors?.['maxlength']) {
+                Max 200 characters.
+              }
+            </div>
+          } @else {
+            <span></span>
+          }
+          <span
+            class="field-hint"
+            [class.warn]="(f['description'].value?.length ?? 0) > 160"
+            [class.error]="(f['description'].value?.length ?? 0) > 200"
+          >
+            {{ f['description'].value?.length ?? 0 }}/200
+          </span>
+        </div>
+      </div>
+
+      <!-- Category + Image row -->
+      <div class="d-flex gap-2 align-items-start flex-wrap">
+        <!-- Category select -->
+        <div class="d-flex flex-column flex-grow-1" style="min-width: 140px">
+          <select class="form-control-light" formControlName="category">
+            <option [ngValue]="null" disabled>Select category</option>
+            @for (category of categories; track $index) {
+              <option [value]="category">{{ category }}</option>
+            }
+          </select>
+          @if (f['category'].errors?.['required'] && f['category'].touched) {
+            <div class="field-error">
+              <i class="bi bi-exclamation-circle-fill"></i> Category is required.
+            </div>
+          }
+        </div>
+
+        <!-- Custom file upload -->
+        <div class="d-flex flex-column flex-grow-1" style="min-width: 140px">
+          <div class="d-flex align-items-center gap-2">
+            <label
+              class="file-upload-label"
+              [class.has-file]="!!selectedImage"
+              [class.has-error]="imageError && !selectedImage"
+              [for]="'coverImg'"
+            >
+              <i
+                class="bi"
+                [class.bi-image]="!selectedImage"
+                [class.bi-check-circle-fill]="!!selectedImage"
+              ></i>
+              <span class="text-truncate">{{
+                selectedImage ? 'Image selected' : 'Cover image *'
+              }}</span>
+            </label>
+            <input
+              [id]="'coverImg'"
+              class="file-upload-input"
+              type="file"
+              accept="image/*"
+              (change)="onImageSelected($event)"
+            />
+            @if (selectedImage) {
+              <img class="img-preview visible" [src]="selectedImage" alt="Preview" />
+            }
+          </div>
+          @if (imageError && !selectedImage) {
+            <div class="field-error">
+              <i class="bi bi-exclamation-circle-fill"></i> Cover image is required.
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="form-footer-row mt-1">
+        <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn-submit" [disabled]="postForm.invalid">
+          <i class="bi bi-send-fill me-1" style="font-size: 0.8rem"></i>
+          Publish Post
+        </button>
       </div>
     </div>
   </div>

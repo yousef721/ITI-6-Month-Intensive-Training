@@ -1,3 +1,4 @@
 .app-body {
   background: var(--bg);
+  min-height: 100vh;
 }

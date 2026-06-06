@@ -1,30 +1,37 @@
 .feature-card {
   background: var(--bg-card);
   border: 1.5px solid var(--border);
-  border-radius: var(--r-xl);
-  padding: 1.5rem;
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
+  border-radius: var(--r-lg);
+  padding: 2rem 1.5rem;
+  transition: all var(--transition-slow);
 }
 
 .feature-card:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: var(--accent-light);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
 }
 
 .feature-icon {
-  width: 50px;
-  height: 50px;
-  background: var(--accent-subtle);
-  border-radius: var(--r-xl);
-  font-size: 1.4rem;
+  width: var(--fs-8xl);
+  height: var(--fs-8xl);
+  background: var(--accent-soft);
+  font-size: var(--fs-3xl);
+  transition: all var(--transition-slow);
+}
+
+.feature-card:hover .feature-icon {
+  background: var(--accent);
+  color: white;
+  transform: scale(1.1);
 }
 
 .feature-title {
-  font-size: 0.95rem;
+  font-size: var(--fs-xl);
+  color: var(--text-primary);
 }
 
 .feature-desc {
-  line-height: 1.6;
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
 }

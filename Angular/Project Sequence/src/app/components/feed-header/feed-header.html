@@ -1,4 +1,15 @@
-<div class="feed-header py-3 d-flex align-items-center justify-content-between flex-wrap gap-3">
-  <span class="feed-title medium text-muted fw-semibold text-uppercase">{{ articleCount }} articles today</span>
-  <button class="sort-btn medium fw-medium px-3 py-2" (click)="cycleSort()">⚙️ Sort: {{ currentSort }}</button>
+<div class="feed-header d-flex align-items-center justify-content-between gap-4 mb-2 flex-wrap">
+  <div class="col-12 col-md-6">
+    <app-search-bar></app-search-bar>
+  </div>
+  <div class="d-none d-md-flex align-content-center">
+    <button
+      class="sort-btn fw-medium d-flex align-items-center gap-2"
+      (click)="cycleSort()"
+      title="Change sort order"
+    >
+      <i class="bi bi-arrow-down-up"></i>
+      Sort: {{ currentSort }}
+    </button>
+  </div>
 </div>

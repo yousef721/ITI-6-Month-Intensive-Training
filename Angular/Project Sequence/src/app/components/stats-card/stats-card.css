@@ -1,21 +1,16 @@
-.stat-card {
-  font-size: 0.9rem;
-  border-radius: var(--r-lg);
-  transition: all 0.25s ease;
-  box-shadow: var(--shadow-sm);
+.stats-card {
+  background: var(--bg-card);
+  border-radius: var(--r-sm);
+  padding: var(--space-4) var(--space-3);
+  transition: all var(--transition-slow);
 }
 
-.stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.stat-number {
-  font-size: 2rem;
+.stats-number {
+  font-size: var(--fs-3xl);
   color: var(--accent);
 }
 
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--text-muted);
+.stats-label {
+  font-size: var(--fs-sm);
 }
+

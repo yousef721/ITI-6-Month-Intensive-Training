@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IStatsCard } from '../../interfaces/IStatsCard';
 
 @Component({
   selector: 'app-stats-card',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './stats-card.css',
 })
 export class StatsCard {
-
+  @Input() stat!: IStatsCard;
 }

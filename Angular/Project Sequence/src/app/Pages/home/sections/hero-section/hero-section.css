@@ -1,6 +1,6 @@
 .hero-section {
   background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 50%, #eff6ff 100%);
-  padding: 5rem 0 4rem;
+  padding: var(--space-20) 0 var(--space-16);
 }
 
 .hero-section::before,
@@ -17,6 +17,7 @@
   top: -100px;
   right: -100px;
 }
+
 .hero-section::after {
   width: 300px;
   height: 300px;
@@ -28,12 +29,11 @@
 .hero-badge {
   background: var(--accent-subtle);
   color: var(--accent);
-  font-size: 0.78rem;
+  font-size: var(--fs-sm);
 }
 
 .hero-title {
-  font-size: clamp(2rem, 5vw, 3.2rem);
-  letter-spacing: -1.5px;
+  font-size: clamp(var(--fs-4xl), 5vw, var(--fs-7xl));
   color: var(--text-primary);
 }
 
@@ -42,17 +42,14 @@
 }
 
 .hero-desc {
-  color: var(--text-muted);
   max-width: 450px;
 }
 
 .hero-stat-num {
-  font-size: 1.4rem;
-  font-weight: 800;
+  font-size: var(--fs-2xl);
   color: var(--accent);
 }
 
 .hero-stat-label {
-  font-size: 0.78rem;
-  color: var(--text-muted);
+  font-size: var(--fs-sm);
 }

@@ -1,0 +1,76 @@
+<aside class="left-sidebar d-flex flex-column gap-3">
+  <section class="profile-card sidebar-panel">
+    <div class="profile-cover"></div>
+    <div class="profile-head d-flex align-items-center gap-3">
+      <div class="profile-avatar">D</div>
+      <div class="min-w-0">
+        <div class="profile-name text-truncate">Daily Dev</div>
+        <div class="profile-handle text-truncate">@dailydev</div>
+      </div>
+    </div>
+    <p class="profile-bio mb-0">
+      Fresh developer stories, product launches, and practical ideas for the modern web.
+    </p>
+    <div class="profile-stats d-flex gap-2">
+      <div class="profile-stat">
+        <span class="profile-stat-value">128</span>
+        <span class="profile-stat-label">Posts</span>
+      </div>
+      <div class="profile-stat">
+        <span class="profile-stat-value">42k</span>
+        <span class="profile-stat-label">Followers</span>
+      </div>
+      <div class="profile-stat">
+        <span class="profile-stat-value">18</span>
+        <span class="profile-stat-label">Topics</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sidebar-panel">
+    <div class="sidebar-label text-uppercase fw-bold">Navigation</div>
+
+    <div class="sidebar-list d-flex flex-column gap-1">
+      @for (item of menuItems; track $index) {
+        <button
+          type="button"
+          class="sidebar-link d-flex align-items-center gap-2 w-100"
+          (click)="setActive(item.name)"
+          [class.active]="activeItem === item.name"
+        >
+          <span class="sidebar-icon text-center">{{ item.icon }}</span>
+          <span class="sidebar-text flex-grow-1 text-start">{{ item.name }}</span>
+          @if (item.count) {
+            <span class="sidebar-count">
+              {{ item.count }}
+            </span>
+          }
+        </button>
+      }
+    </div>
+  </section>
+
+  <section class="sidebar-panel">
+    <div class="sidebar-label text-uppercase fw-bold">Topics</div>
+
+    <div class="sidebar-list d-flex flex-column gap-1">
+      @for (topic of topics; track $index) {
+        <button
+          type="button"
+          class="sidebar-link d-flex align-items-center gap-2 w-100"
+          (click)="setActive(topic.name)"
+          [class.active]="activeItem === topic.name"
+        >
+          <span class="sidebar-icon text-center">{{ topic.icon }}</span>
+          <span class="sidebar-text flex-grow-1 text-start">{{ topic.name }}</span>
+          @if (topic.count) {
+            <span class="sidebar-count">
+              {{ topic.count }}
+            </span>
+          }
+        </button>
+      }
+    </div>
+  </section>
+  
+</aside>

@@ -1,1 +1,108 @@
-<p>profile works!</p>
+<div class="profile-page">
+  <div class="container py-4 py-md-5">
+    <!-- Profile Header -->
+    <div class="profile-header mb-4 mb-md-5">
+      <div class="profile-cover"></div>
+      <div class="profile-info d-flex flex-column flex-md-row gap-3 gap-md-4">
+        <div class="profile-avatar">
+          <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=John" alt="Profile" />
+        </div>
+        <div class="profile-details flex-grow-1">
+          <div class="d-flex justify-content-between align-items-start gap-2 mb-2">
+            <div>
+              <h1 class="profile-name mb-1">John Doe</h1>
+              <p class="profile-handle text-muted">@johndoe</p>
+            </div>
+            <button class="btn btn-outline">Edit Profile</button>
+          </div>
+          <p class="profile-bio text-muted mb-3">
+            Full-stack developer | JavaScript enthusiast | Open source contributor
+          </p>
+          <div class="profile-meta d-flex flex-wrap gap-3 gap-md-4">
+            <div class="profile-meta-item">
+              <div class="meta-value">45</div>
+              <div class="meta-label">Posts</div>
+            </div>
+            <div class="profile-meta-item">
+              <div class="meta-value">3.2K</div>
+              <div class="meta-label">Followers</div>
+            </div>
+            <div class="profile-meta-item">
+              <div class="meta-value">892</div>
+              <div class="meta-label">Following</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="profile-tabs mb-4">
+      <button class="tab-btn active" >
+        <span>My Posts</span>
+        <span class="badge">12</span>
+      </button>
+      <button class="tab-btn">
+        <span>Saved</span>
+        <span class="badge">8</span>
+      </button>
+      <button class="tab-btn">
+        <span>Activity</span>
+      </button>
+    </div>
+
+    <!-- Posts Grid -->
+    <div *ngIf="activeTab === 'posts'" class="posts-grid">
+      <div class="row g-3 g-md-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="post-card-profile">
+            <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80" alt="Post" />
+            <div class="post-overlay d-flex align-items-end">
+              <div class="post-info">
+                <h3>Building Modern Web Apps with Angular</h3>
+                <div class="post-stats d-flex gap-3">
+                  <span><i class="bi bi-eye"></i> 342</span>
+                  <span><i class="bi bi-chat"></i> 28</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="post-card-profile">
+            <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80" alt="Post" />
+            <div class="post-overlay d-flex align-items-end">
+              <div class="post-info">
+                <h3>TypeScript Best Practices</h3>
+                <div class="post-stats d-flex gap-3">
+                  <span><i class="bi bi-eye"></i> 512</span>
+                  <span><i class="bi bi-chat"></i> 45</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="post-card-profile">
+            <img src="https://images.unsplash.com/photo-1618194671884-5ca7b98a6f6c?w=600&q=80" alt="Post" />
+            <div class="post-overlay d-flex align-items-end">
+              <div class="post-info">
+                <h3>React Performance Tips</h3>
+                <div class="post-stats d-flex gap-3">
+                  <span><i class="bi bi-eye"></i> 789</span>
+                  <span><i class="bi bi-chat"></i> 62</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="activeTab !== 'posts'" class="empty-state text-center py-5">
+      <i class="bi bi-inbox" style="font-size: 3rem; color: var(--text-muted-light);"></i>
+      <p class="text-muted mt-3">No items yet</p>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SearchBar } from '../search-bar/search-bar';
 
 @Component({
   selector: 'app-feed-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SearchBar],
   templateUrl: './feed-header.html',
   styleUrls: ['./feed-header.css'],
 })

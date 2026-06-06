@@ -1,24 +1,34 @@
 .feed-header {
-  border-bottom: 1px solid var(--border);
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
 }
 
-.feed-title {
-  letter-spacing: 0.3px;
-}
 
 .sort-btn {
-  background: var(--bg-input);
+  background: var(--bg-hover);
   border: 1px solid var(--border);
   color: var(--text-secondary);
+  padding: var(--space-2) var(--space-4);
   border-radius: var(--r);
+  font-size: var(--fs-xs);
   cursor: pointer;
-  font-family: inherit;
   transition: all var(--transition-fast);
+  white-space: nowrap;
 }
 
 .sort-btn:hover {
+  background: var(--accent-subtle);
   border-color: var(--accent);
   color: var(--accent);
-  background: var(--accent-subtle);
-  transform: translateY(-1px);
+}
+
+.sort-btn:active {
+  transform: translateY(2px);
+}
+
+.sort-btn i {
+  font-size: var(--space-4);
 }

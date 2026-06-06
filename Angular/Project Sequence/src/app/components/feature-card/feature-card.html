@@ -1,8 +1,9 @@
-<div class="feature-card p-4 text-center h-100">
-  <div class="feature-icon d-flex align-items-center justify-content-center mx-auto mb-3">🔍</div>
-  <div class="feature-title fw-bold mb-2">Smart Discovery</div>
-  <div class="feature-desc small text-muted mb-0">
-    Our algorithm surfaces the most relevant content based on your interests, reading history, and
-    community votes.
+<div class="feature-card d-flex flex-column gap-2 text-center h-100">
+  <div
+    class="feature-icon d-flex align-items-center justify-content-center mx-auto mb-2 rounded-circle"
+  >
+    {{ feature.icon }}
   </div>
+  <div class="feature-title fw-bold">{{ feature.title }}</div>
+  <div class="feature-desc small text-muted">{{ feature.description }}</div>
 </div>

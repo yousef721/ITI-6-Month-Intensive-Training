@@ -9,7 +9,7 @@
 }
 
 .chip {
-  font-size: 0.8rem;
+  font-size: var(--fs-xxs);
   scroll-snap-align: start;
   border: 1px solid var(--text-muted);
   color: var(--text-secondary);

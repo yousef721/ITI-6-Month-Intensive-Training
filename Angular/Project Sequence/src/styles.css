@@ -1,6 +1,6 @@
 :root {
   /* Base colors */
-  --bg: #f4f5f8;
+  --bg: #f8f7ff;
   --surface: #ffffff;
   --surface2: #f0f2f7;
   --border: #e2e6f0;
@@ -10,7 +10,6 @@
   --accent: #7c3aed;
   --accent-light: #a78bfa;
   --accent-dark: #5b21b6;
-  --accent2: #3d73ff;
   --accent-gradient: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
   --accent-subtle: #ede9fe;
   --accent-soft: #f5f3ff;
@@ -20,9 +19,11 @@
   --text-secondary: #4b5563;
   --text-muted: #6b7280;
   --text-muted-light: #9ca3af;
+  --text-light: var(--text-muted);
 
   /* Surface layers */
   --bg-card: #ffffff;
+  --card-bg: var(--bg-card);
   --bg-input: #f9fafb;
   --bg-hover: #f3f4f6;
   --bg-active: #e5e7eb;
@@ -40,8 +41,49 @@
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
   --shadow-focus: 0 0 0 3px rgba(124, 58, 237, 0.2);
 
+  /* Typography scale */
+  --fs-xxs: 0.7rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 2.625rem;
+  --fs-6xl: 3rem;
+  --fs-7xl: 3.375rem;
+  --fs-8xl: 3.75rem;
+  --fs-9xl: 4.125rem;
+  --fs-10xl: 4.5rem;
+
+  /* Spacing scale */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-9: 2.25rem;
+  --space-10: 2.5rem;
+  --space-11: 2.75rem;
+  --space-12: 3rem;
+  --space-13: 3.25rem;
+  --space-14: 3.5rem;
+  --space-15: 3.75rem;
+  --space-16: 4rem;
+  --space-17: 4.25rem;
+  --space-18: 4.5rem;
+  --space-19: 4.75rem;
+  --space-20: 5rem;
+
   /* Transitions */
   --transition-fast: 0.12s ease;
+  --transition-medium: 0.2s ease;
+  --transition-slow: 0.3s ease;
   --transition-base: 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
   --transition-smooth: 0.25s cubic-bezier(0.2, 0.95, 0.4, 1.05);
 }
@@ -58,13 +100,15 @@ body {
   background: var(--bg);
   color: var(--text-primary);
   min-height: 100vh;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
 }
+
 /* ── SECTION TITLES ── */
 .section-label {
-  font-size: 0.75rem;
+  font-size: var(--fs-sm);
   font-weight: 700;
   color: var(--accent);
   letter-spacing: 1.5px;
@@ -73,7 +117,7 @@ body {
 }
 
 .section-title {
-  font-size: 1.6rem;
+  font-size: var(--fs-3xl);
   font-weight: 800;
   color: var(--text-primary);
   letter-spacing: -0.5px;
@@ -81,8 +125,9 @@ body {
 }
 
 .section-sub {
-  font-size: 0.9rem;
+  font-size: var(--fs-md);
   color: var(--text-muted);
+  margin-bottom: 2rem;
 }
 
 /* ── BUTTONS ── */
@@ -157,4 +202,101 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* ── RESPONSIVE UTILITIES ── */
+/* Hide/Show based on screen size */
+@media (max-width: 991px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .show-mobile {
+    display: none !important;
+  }
+}
+
+/* Better touch targets on mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+  }
+}
+
+/* Improved text readability */
+@media (max-width: 575px) {
+  body {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  h1 {
+    font-size: clamp(1.3rem, 4vw, 2rem);
+  }
+
+  h2 {
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
+  }
+
+  h3 {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+  }
+
+  p {
+    font-size: clamp(0.875rem, 1.5vw, 1rem);
+  }
+}
+
+/* ── PERFORMANCE OPTIMIZATIONS ── */
+/* Smooth scroll behavior */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── ACCESSIBILITY IMPROVEMENTS ── */
+/* Better focus visibility */
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-sm);
+}
+
+/* Improved link focus */
+a:focus-visible {
+  outline: 2px dashed var(--accent);
+  outline-offset: 2px;
+}
+
+/* Keyboard focus for buttons */
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a,
+input,
+textarea,
+select {
+  transition: all var(--transition-fast);
 }

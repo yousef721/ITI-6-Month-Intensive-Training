@@ -1,11 +1,49 @@
-<div class="post-list-container">
-  <app-topic-chips></app-topic-chips>
+<div class="post-list-page overflow-hidden">
+  <div class="container-fluid p-4">
+    <div class="row g-3 g-lg-4 align-items-start">
+      <!-- LEFT SIDEBAR -->
+      <div class="col-12 col-lg-3 order-2 order-lg-1 sidebar-column d-none d-lg-block">
+        <div>
+          <app-left-sidebar></app-left-sidebar>
+        </div>
+      </div>
 
-  <app-create-post (postCreated)="addPost($event)"></app-create-post>
+      <!-- MAIN FEED -->
+      <div class="col-12 col-lg-6 order-1 order-lg-2">
+        <!-- Topic Filter Chips -->
+        <div class="mb-4">
+          <app-topic-chips></app-topic-chips>
+        </div>
 
-  <app-feed-header></app-feed-header>
+        <!-- Create Post Form -->
+        <div class="mb-4">
+          <app-create-post (postCreated)="addPost($event)"></app-create-post>
+        </div>
 
-  <div class="posts-list mt-2">
-    <app-post-card-horizontal [post]="post"></app-post-card-horizontal>
+        <!-- Feed Header -->
+        <div class="mb-4">
+          <app-feed-header></app-feed-header>
+        </div>
+
+        <!-- Posts List -->
+        <div class="d-flex flex-column gap-4">
+          @for (post of posts; track post.id) {
+            <app-post-card [post]="post" layout="horizontal"> </app-post-card>
+          }
+        </div>
+
+        <!-- Load More Button -->
+        <div class="text-center py-4">
+          <button class="btn btn-outline px-4 py-2">Load More Posts</button>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDEBAR -->
+      <div class="col-12 col-lg-3 order-3 order-lg-3 sidebar-column d-none d-lg-block">
+        <div class="sidebar-wrapper">
+          <app-right-sidebar></app-right-sidebar>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

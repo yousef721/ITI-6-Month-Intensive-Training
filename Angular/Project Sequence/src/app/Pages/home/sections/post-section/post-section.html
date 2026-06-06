@@ -1,21 +1,16 @@
 <section class="py-5">
   <div class="container">
-    <app-topic-chips></app-topic-chips>
     <div class="mb-4">
       <div class="section-label">Latest Content</div>
       <div class="section-title">Today's top picks</div>
     </div>
 
     <div class="row g-4">
-      <div class="col-md-4">
-        <app-post-card-vertical></app-post-card-vertical>
-      </div>
-      <div class="col-md-4">
-        <app-post-card-vertical></app-post-card-vertical>
-      </div>
-      <div class="col-md-4">
-        <app-post-card-vertical></app-post-card-vertical>
-      </div>
+      @for (post of posts; track post.id) {
+        <div class="col-md-4">
+          <app-post-card [post]="post" layout="vertical"> </app-post-card>
+        </div>
+      }
     </div>
 
     <div class="text-center mt-5">

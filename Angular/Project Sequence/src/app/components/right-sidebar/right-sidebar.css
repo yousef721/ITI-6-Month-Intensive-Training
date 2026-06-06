@@ -1,0 +1,146 @@
+.right-sidebar {
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.sidebar-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.sidebar-label {
+  padding: 0.95rem 1rem 0.7rem;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+.tags-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 0 1rem 1rem;
+}
+
+.tag-hashtag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  background: var(--accent-subtle);
+  border: 1px solid transparent;
+  color: var(--accent);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.tag-hashtag:hover {
+  background: var(--surface2);
+  border-color: var(--border);
+  transform: translateY(-1px);
+}
+
+.leaders-list {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.leader-item {
+  border: 1px solid transparent;
+  border-radius: var(--r);
+  padding: 0.75rem;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.leader-item:hover {
+  background: var(--bg-hover);
+  border-color: var(--border);
+}
+
+.leader-avatar {
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-gradient);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.leader-details {
+  min-width: 0;
+}
+
+.leader-name {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.leader-stats {
+  margin-top: 0.25rem;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.trend-up {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.upvote-count {
+  flex-shrink: 0;
+  align-self: center;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-subtle);
+  border-radius: 999px;
+  padding: 0.25rem 0.55rem;
+}
+
+@media (max-width: 767.98px) {
+  .right-sidebar {
+    gap: 0.75rem;
+  }
+
+  .sidebar-panel {
+    border-radius: var(--r);
+  }
+
+  .sidebar-label {
+    padding-inline: 0.9rem;
+  }
+
+  .tags-cloud,
+  .leaders-list {
+    padding-inline: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .leader-item {
+    padding: 0.65rem;
+  }
+
+  .leader-avatar {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+}

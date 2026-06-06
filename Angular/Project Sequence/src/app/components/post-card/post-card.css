@@ -1,0 +1,52 @@
+.post-card {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  border: 1.5px solid var(--border);
+  transition:
+    box-shadow var(--transition-slow),
+    transform var(--transition-slow),
+    border-color var(--transition-slow);
+  cursor: pointer;
+  display: flex;
+  overflow: hidden;
+  height: 100%;
+}
+
+.post-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent-light);
+}
+
+/* ── Layouts ── */
+.post-card.vertical {
+  flex-direction: column;
+}
+
+.post-card.horizontal {
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/* The content+actions wrapper stretches to fill */
+.post-card.horizontal > div:last-child {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.post-card.vertical > div:last-child {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ── Tablet / mobile: horizontal → column ── */
+@media (max-width: 992px) {
+  .post-card.horizontal {
+    flex-direction: column;
+  }
+}

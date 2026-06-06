@@ -1,0 +1,56 @@
+@if (layout === 'horizontal') {
+  <div class="post-row-footer d-flex align-items-center flex-wrap gap-2">
+    <button
+      type="button"
+      class="post-action-btn post-vote-btn d-inline-flex align-items-center gap-1 fw-semibold"
+      [class.is-voted]="post.voted"
+      (click)="toggleVote()"
+    >
+      <i class="bi" [class.bi-triangle-fill]="post.voted" [class.bi-triangle]="!post.voted"></i>
+      <span>{{ post.upvotes }}</span>
+    </button>
+
+    <button
+      type="button"
+      class="post-action-btn d-inline-flex align-items-center gap-1 fw-semibold"
+    >
+      <i class="bi bi-chat"></i>
+      <span>{{ post.commentsCount }}</span>
+    </button>
+
+    <button
+      type="button"
+      class="post-action-btn d-inline-flex align-items-center gap-1 fw-semibold"
+      [class.active]="post.saved"
+      (click)="toggleSave()"
+    >
+      <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
+      <span>{{ post.saved ? 'Saved' : 'Save' }}</span>
+    </button>
+
+    <button
+      type="button"
+      class="post-action-btn d-inline-flex align-items-center gap-1 fw-semibold"
+    >
+      <i class="bi bi-share"></i>
+      <span class="share-label">Share</span>
+    </button>
+  </div>
+} @else {
+  <div class="d-flex align-items-center gap-3 border-top py-2 px-3 small text-secondary">
+    <span class="d-flex align-items-center gap-1">
+      <i class="bi bi-triangle"></i>
+      {{ post.upvotes }}
+    </span>
+
+    <span class="d-flex align-items-center gap-1">
+      <i class="bi bi-chat"></i>
+      {{ post.commentsCount }}
+    </span>
+
+    <span class="ms-auto d-flex align-items-center gap-1">
+      <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
+      Save
+    </span>
+  </div>
+}
