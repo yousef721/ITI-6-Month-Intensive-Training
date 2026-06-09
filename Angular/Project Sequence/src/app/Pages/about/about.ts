@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { HeroSection } from './sections/hero-section/hero-section';
-import { CommunitySection } from './sections/community-section/community-section';
 import { FeatureSection } from './sections/feature-section/feature-section';
+import { CommunitySection } from './sections/community-section/community-section';
 
 @Component({
+  standalone: true,
   selector: 'app-about',
-  imports: [HeroSection, CommunitySection, FeatureSection],
+  imports: [HeroSection, FeatureSection, CommunitySection],
   templateUrl: './about.html',
-  styleUrl: './about.css',
+  styleUrl: './about.scss',
 })
 export class About {}

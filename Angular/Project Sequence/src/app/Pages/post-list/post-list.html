@@ -2,47 +2,47 @@
   <div class="container-fluid p-4">
     <div class="row g-3 g-lg-4 align-items-start">
       <!-- LEFT SIDEBAR -->
-      <div class="col-12 col-lg-3 order-2 order-lg-1 sidebar-column d-none d-lg-block">
-        <div>
-          <app-left-sidebar></app-left-sidebar>
-        </div>
+      <div class="col-12 col-lg-3 order-2 order-lg-1 d-none d-lg-block">
+        <app-left-sidebar></app-left-sidebar>
       </div>
 
       <!-- MAIN FEED -->
       <div class="col-12 col-lg-6 order-1 order-lg-2">
-        <!-- Topic Filter Chips -->
         <div class="mb-4">
           <app-topic-chips></app-topic-chips>
         </div>
 
-        <!-- Create Post Form -->
         <div class="mb-4">
           <app-create-post (postCreated)="addPost($event)"></app-create-post>
         </div>
 
-        <!-- Feed Header -->
         <div class="mb-4">
-          <app-feed-header></app-feed-header>
+          <app-feed-header
+            (searchChange)="onSearch($event)"
+            (sortChange)="onSort($event)"
+          ></app-feed-header>
         </div>
 
-        <!-- Posts List -->
+        <!-- Posts -->
         <div class="d-flex flex-column gap-4">
           @for (post of posts; track post.id) {
-            <app-post-card [post]="post" layout="horizontal"> </app-post-card>
+            <app-post-card [post]="post" layout="horizontal"></app-post-card>
+          } @empty {
+            <div class="text-center py-5 text-muted">
+              <i class="bi bi-search" style="font-size: 2.5rem; opacity: 0.3"></i>
+              <p class="mt-3">No posts found for "{{ searchQuery }}"</p>
+            </div>
           }
         </div>
 
-        <!-- Load More Button -->
         <div class="text-center py-4">
           <button class="btn btn-outline px-4 py-2">Load More Posts</button>
         </div>
       </div>
 
       <!-- RIGHT SIDEBAR -->
-      <div class="col-12 col-lg-3 order-3 order-lg-3 sidebar-column d-none d-lg-block">
-        <div class="sidebar-wrapper">
-          <app-right-sidebar></app-right-sidebar>
-        </div>
+      <div class="col-12 col-lg-3 order-3 d-none d-lg-block">
+        <app-right-sidebar></app-right-sidebar>
       </div>
     </div>
   </div>

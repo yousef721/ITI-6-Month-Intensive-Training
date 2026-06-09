@@ -1,76 +1,117 @@
-<div class="signup-page">
-  <div class="signup-container">
-    <div class="signup-card">
+<div class="auth-shell d-flex align-items-center justify-content-center p-3">
+  <div class="auth-container">
+    <div class="auth-card p-4 p-sm-5">
       <!-- Header -->
-      <div class="signup-header text-center mb-4">
-        <div class="signup-logo d-inline-flex align-items-center gap-2 mb-3">
-          <span class="brand-dot rounded-circle d-inline-block"></span>
-          <span class="fw-bold">DevFeed</span>
-        </div>
-        <h1 class="signup-title mb-1">Join DevFeed</h1>
-        <p class="signup-subtitle">Create an account and start discovering amazing developer content</p>
+      <div class="text-center mb-4">
+        <h1 class="auth-title mb-1">Join DevFeed</h1>
+        <p class="auth-subtitle mb-0">
+          Create an account and start discovering amazing developer content
+        </p>
       </div>
 
       <!-- Form -->
-      <form class="signup-form">
-        <!-- Name Field -->
-        <div class="form-group mb-3">
+       <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+        <div class="mb-3">
           <label for="name" class="form-label">Full Name</label>
           <input
             type="text"
             class="form-control"
             id="name"
             placeholder="John Doe"
-            required
+            formControlName="name"
+            [class.is-invalid]="submitted && name.invalid"
           />
+          @if (submitted && name.errors?.['required']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> Full name is required
+            </div>
+          }
+          @if (submitted && name.errors?.['minlength']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> At least 2 characters
+            </div>
+          }
         </div>
 
-        <!-- Email Field -->
-        <div class="form-group mb-3">
+        <div class="mb-3">
           <label for="email" class="form-label">Email Address</label>
           <input
             type="email"
             class="form-control"
             id="email"
             placeholder="you@example.com"
-            required
+            formControlName="email"
+            [class.is-invalid]="submitted && email.invalid"
           />
+          @if (submitted && email.errors?.['required']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> Email is required
+            </div>
+          }
+          @if (submitted && email.errors?.['email']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> Enter a valid email address
+            </div>
+          }
         </div>
 
-        <!-- Password Field -->
-        <div class="form-group mb-3">
+        <div class="mb-3">
           <label for="password" class="form-label">Password</label>
           <input
             type="password"
             class="form-control"
             id="password"
             placeholder="••••••••"
-            required
+            formControlName="password"
+            [class.is-invalid]="submitted && password.invalid"
           />
-          <small class="text-muted">At least 8 characters with uppercase and numbers</small>
+          <small class="text-muted">At least 8 characters with uppercase and a number</small>
+          @if (submitted && password.errors?.['required']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> Password is required
+            </div>
+          }
+          @if (submitted && password.errors?.['minlength']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> At least 8 characters
+            </div>
+          }
+          @if (submitted && password.errors?.['pattern']) {
+            <div class="field-error mt-1">
+              <i class="bi bi-exclamation-circle"></i> Must include uppercase letter and a number
+            </div>
+          }
         </div>
 
-        <!-- Terms -->
-        <div class="form-check mb-4 d-flex align-items-flex-start gap-2">
-          <input type="checkbox" class="form-check-input mt-1" id="terms" required />
+        <div class="form-check mb-4 d-flex align-items-start gap-2">
+          <input
+            type="checkbox"
+            class="form-check-input mt-1"
+            id="terms"
+            formControlName="terms"
+            [class.is-invalid]="submitted && terms.invalid"
+          />
           <label for="terms" class="form-check-label text-muted small">
-            I agree to the <a href="#" class="text-accent">Terms of Service</a> and
-            <a href="#" class="text-accent">Privacy Policy</a>
+            I agree to the
+            <a class="text-accent">Terms of Service</a> and
+            <a class="text-accent">Privacy Policy</a>
           </label>
         </div>
+        @if (submitted && terms.errors?.['required']) {
+          <div class="field-error mb-3">
+            <i class="bi bi-exclamation-circle"></i> You must accept the terms
+          </div>
+        }
 
-        <!-- Sign Up Button -->
         <button type="submit" class="btn btn-primary w-100 py-2 fw-bold mb-3">
           Create Account
         </button>
 
-        <!-- Divider -->
-        <div class="divider-line text-center mb-3">
-          <span>or sign up with</span>
+        <div class="divider-line text-center my-4">
+          <span class="px-3">or sign up with</span>
         </div>
 
-        <!-- Social Signup -->
-        <div class="social-signup d-flex gap-2 mb-4">
+        <div class="d-flex flex-column flex-sm-row gap-2 mb-4">
           <button type="button" class="btn btn-outline flex-grow-1">
             <i class="bi bi-github"></i> GitHub
           </button>
@@ -79,12 +120,11 @@
           </button>
         </div>
 
-        <!-- Sign In Link -->
-        <p class="text-center small text-muted">
+        <p class="text-center small text-muted mb-0">
           Already have an account?
-          <a routerLink="/login" class="text-decoration-none text-accent fw-semibold">Sign in</a>
+          <a routerLink="/login" class="text-decoration-none text-accent fw-semibold"> Sign in </a>
         </p>
-      </form>
+      </form> 
     </div>
   </div>
 </div>

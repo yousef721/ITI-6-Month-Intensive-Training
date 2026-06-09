@@ -1,0 +1,65 @@
+// ==============================================
+// _layout.scss — Page wrappers, cards, panels, rows
+// ==============================================
+
+// Pages
+.app-page {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+.app-soft-page {
+  min-height: 100vh;
+  background: var(--gradient-soft);
+}
+
+// Cards
+.app-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.app-card-hover {
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+
+  &:hover {
+    border-color: var(--accent-light);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+  }
+}
+
+// Panels
+.app-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+// Link row (sidebar navigation items, etc.)
+.app-link-row {
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+
+  &:hover,
+  &.active {
+    background: var(--surface-soft);
+    border-color: rgba(79, 70, 229, 0.14);
+    color: var(--primary-color);
+  }
+}

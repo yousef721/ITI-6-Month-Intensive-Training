@@ -1,0 +1,88 @@
+// ==============================================
+// _components.scss — Avatars & badges
+// ==============================================
+
+// ── Avatar ──────────────────────────────────────
+.app-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+}
+
+.app-avatar-sm {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--font-size-xs);
+}
+.app-avatar-md {
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: var(--font-size-sm);
+}
+.app-avatar-lg {
+  width: 3.5rem;
+  height: 3.5rem;
+  font-size: var(--font-size-lg);
+}
+.app-avatar-xl {
+  width: 5rem;
+  height: 5rem;
+  font-size: var(--font-size-3xl);
+}
+
+// Source-based avatar backgrounds
+.app-avatar-source-vercel {
+  background: #111827;
+}
+.app-avatar-source-google {
+  background: #4285f4;
+}
+
+// Palette-based avatar backgrounds
+.app-avatar-palette-0 {
+  background: #111827;
+}
+.app-avatar-palette-1 {
+  background: #2563eb;
+}
+.app-avatar-palette-2 {
+  background: #059669;
+}
+.app-avatar-palette-3 {
+  background: #db2777;
+}
+.app-avatar-palette-4 {
+  background: #7c3aed;
+}
+.app-avatar-palette-5 {
+  background: #ea580c;
+}
+
+// ── Badge ────────────────────────────────────────
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-pill);
+  background: var(--surface-soft);
+  color: var(--primary-color);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.app-badge-sm {
+  padding: 0.2rem 0.5rem;
+}
+.app-badge-md {
+  padding: 0.35rem 0.75rem;
+}

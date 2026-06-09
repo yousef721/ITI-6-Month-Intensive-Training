@@ -1,32 +1,19 @@
 import { Component } from '@angular/core';
-import { FeatureCard } from '../../../../components/feature-card/feature-card';
-import { IFeatureCard } from '../../../../interfaces/IFeatureCard';
+import { FeatureCard } from '../../../../shared/components/feature-card/feature-card';
+import { IFeatureCard } from '../../../../core/interfaces/IFeatureCard';
+import { FeatureService } from '../../../../core/services/feature.service';
 
 @Component({
+  standalone: true,
   selector: 'app-feature-section',
   imports: [FeatureCard],
   templateUrl: './feature-section.html',
-  styleUrl: './feature-section.css',
+  styleUrl: './feature-section.scss',
 })
 export class FeatureSection {
-  features: IFeatureCard[] = [
-    {
-      icon: '🔍',
-      title: 'Smart Discovery',
-      description:
-        'Our algorithm surfaces the most relevant content based on your interests, reading history, and community votes.',
-    },
-    {
-      icon: '🌍',
-      title: 'Global Community',
-      description:
-        '14,000+ developers from 80+ countries reading, discussing, and contributing to the platform every day.',
-    },
-    {
-      icon: '⚡',
-      title: 'Always Fresh',
-      description:
-        '128+ new articles indexed daily from top engineering blogs, open-source projects, and community contributors.',
-    },
-  ];
+  features: IFeatureCard[];
+
+  constructor(private featureService: FeatureService) {
+    this.features = this.featureService.getFeatures();
+  }
 }

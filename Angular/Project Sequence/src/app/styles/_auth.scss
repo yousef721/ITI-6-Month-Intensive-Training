@@ -1,0 +1,60 @@
+// ==============================================
+// _auth.scss — Login, register & auth shell styles
+// ==============================================
+
+.auth-shell {
+  min-height: 100vh;
+  background: var(--gradient-soft);
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.auth-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-title {
+  color: var(--text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.auth-subtitle {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+// Divider "— or —"
+.divider-line {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 50% 0 auto;
+    height: 1px;
+    background: var(--border);
+  }
+
+  span {
+    position: relative;
+    display: inline-block;
+    background: var(--surface);
+    color: var(--text-muted);
+    font-size: var(--font-size-xs);
+  }
+}
+
+// Responsive
+@media (max-width: 575.98px) {
+  .auth-title {
+    font-size: var(--font-size-2xl);
+  }
+}

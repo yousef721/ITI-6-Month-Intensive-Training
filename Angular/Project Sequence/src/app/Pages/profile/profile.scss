@@ -1,0 +1,235 @@
+// .profile-page {
+//   background: var(--bg);
+//   min-height: 100vh;
+// }
+
+// .container {
+//   max-width: 1200px;
+//   margin: 0 auto;
+// }
+
+// /* STATS ROW */
+// .stats-row {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   gap: 1rem;
+// }
+
+// .stat-card {
+//   background: var(--bg-card);
+//   border: 1px solid var(--border);
+//   border-radius: var(--r);
+//   padding: 1rem;
+//   text-align: center;
+//   transition: all 0.2s ease;
+// }
+
+// .stat-card:hover {
+//   border-color: var(--accent-light);
+// }
+
+// .stat-value {
+//   font-size: 1.5rem;
+//   font-weight: 700;
+//   color: var(--primary-color);
+// }
+
+// .stat-label {
+//   font-size: 0.75rem;
+//   color: var(--text-muted);
+//   text-transform: uppercase;
+//   letter-spacing: 0.5px;
+//   margin-top: 0.25rem;
+// }
+
+// /* SIMPLE TABS */
+// .tabs {
+//   display: flex;
+//   gap: 0.5rem;
+//   border-bottom: 1px solid var(--border);
+//   padding-bottom: 0.5rem;
+// }
+
+// .tab {
+//   background: none;
+//   border: none;
+//   padding: 0.5rem 1rem;
+//   font-weight: 600;
+//   color: var(--text-muted);
+//   cursor: pointer;
+//   border-radius: var(--r);
+//   transition: all 0.2s;
+// }
+
+// .tab:hover {
+//   color: var(--primary-color);
+//   background: rgba(var(--primary-rgb), 0.05);
+// }
+
+// .tab.active {
+//   color: var(--primary-color);
+//   border-bottom: 2px solid var(--primary-color);
+//   border-radius: 0;
+// }
+
+// /* POSTS GRID */
+// .posts-grid {
+//   display: grid;
+//   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+//   gap: 1.5rem;
+// }
+
+// /* EMPTY STATE */
+// .empty-state {
+//   text-align: center;
+//   padding: 3rem;
+//   color: var(--text-muted);
+//   background: var(--bg-card);
+//   border-radius: var(--r);
+//   border: 1px solid var(--border);
+// }
+
+// /* RESPONSIVE */
+// @media (max-width: 768px) {
+//   .stats-row {
+//     gap: 0.75rem;
+//   }
+
+//   .stat-value {
+//     font-size: 1.2rem;
+//   }
+
+//   .posts-grid {
+//     gap: 1rem;
+//   }
+// }
+
+// @media (max-width: 576px) {
+//   .stats-row {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
+
+// Stat cards
+.profile-stat-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.2s;
+
+  &:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.profile-stat-num {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary-color);
+}
+
+.profile-stat-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+// Sidebar cards (Saved posts & Settings)
+.sidebar-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.sidebar-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  border-left: 3px solid var(--primary-color);
+  padding-left: 0.75rem;
+}
+
+// Saved post row
+.post-row-card {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background: #f8fafc;
+  }
+}
+
+.post-row-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.post-row-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-source {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.source-avatar {
+  width: 22px;
+  height: 22px;
+  background: #000;
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.source-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.source-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.post-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0.25rem 0 0.5rem;
+}
+
+.post-row-actions {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+
+  i {
+    margin-right: 0.25rem;
+  }
+}

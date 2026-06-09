@@ -1,0 +1,42 @@
+.cta-card {
+  background: var(--accent-gradient);
+  box-shadow: var(--shadow-lg);
+  border-radius: var(--r-xl);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  &::before {
+    width: 280px;
+    height: 280px;
+    top: -120px;
+    right: -120px;
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &::after {
+    width: 220px;
+    height: 220px;
+    bottom: -100px;
+    left: -80px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+.cta-title {
+  font-size: clamp(var(--fs-3xl), 3vw, var(--fs-7xl));
+}
+
+.cta-btn {
+  font-weight: 700;
+  transition: all var(--transition-slow);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}

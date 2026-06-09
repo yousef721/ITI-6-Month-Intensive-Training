@@ -1,0 +1,59 @@
+// ==============================================
+// _typography.scss — Text styles & utility helpers
+// ==============================================
+
+// Utility — color
+.text-accent {
+  color: var(--primary-color) !important;
+}
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+// Utility — layout
+.min-w-0 {
+  min-width: 0;
+}
+.max-w-readable {
+  max-width: 42rem;
+}
+
+// Section labels
+.section-label {
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  color: var(--text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  font-size: var(--font-size-md);
+}
+
+// Panel label
+.panel-label {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+// Responsive overrides
+@media (max-width: 575.98px) {
+  body {
+    font-size: 16px;
+  }
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+}

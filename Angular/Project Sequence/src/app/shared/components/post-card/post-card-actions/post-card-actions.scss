@@ -1,0 +1,15 @@
+.post-row-footer {
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-action-btn {
+  font-size: var(--font-size-xs);
+  white-space: nowrap;
+}
+
+@media (max-width: 575.98px) {
+  .share-label {
+    display: none;
+  }
+}

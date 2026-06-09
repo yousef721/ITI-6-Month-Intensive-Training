@@ -1,0 +1,52 @@
+.profile-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: all var(--transition-base);
+}
+
+/* Avatar */
+.profile-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+/* Name */
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Email */
+.profile-email {
+  font-size: 0.85rem;
+}
+
+/* Bio */
+.profile-bio {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Badges */
+.profile-badge {
+  background: var(--surface-muted);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--r);
+  transition: all var(--transition-fast);
+
+  &:hover {
+    background: var(--accent-subtle);
+    color: var(--accent);
+    transform: translateY(-1px);
+  }
+}

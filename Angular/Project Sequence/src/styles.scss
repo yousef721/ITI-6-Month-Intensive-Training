@@ -1,0 +1,29 @@
+// ==============================================
+// styles.scss — Main entry point
+// Import order matters: variables first, then base,
+// then components. Angular reads this via angular.json.
+// ==============================================
+
+// 1. Design tokens (must be first — everything else depends on these)
+@use './app/styles/variables';
+
+// 2. Base reset & global rules
+@use './app/styles/base';
+
+// 3. Typography & text utilities
+@use './app/styles/typography';
+
+// 4. Layout — pages, cards, panels
+@use './app/styles/layout';
+
+// 5. Buttons & action elements
+@use './app/styles/buttons';
+
+// 6. Forms & inputs
+@use './app/styles/forms';
+
+// 7. Avatars & badges
+@use './app/styles/components';
+
+// 8. Auth pages
+@use './app/styles/auth';

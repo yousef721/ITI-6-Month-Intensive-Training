@@ -1,7 +1,9 @@
-<div class="row g-4 mb-5">
-  @for (feature of features; track feature.title) {
-    <div class="col-md-4">
-      <app-feature-card [feature]="feature"></app-feature-card>
-    </div>
-  }
-</div>
+<section class="container">
+  <div class="row g-4 mb-5">
+    @for (feature of features; track feature.title) {
+      <div class="col-md-4">
+        <app-feature-card [feature]="feature"></app-feature-card>
+      </div>
+    }
+  </div>
+</section>

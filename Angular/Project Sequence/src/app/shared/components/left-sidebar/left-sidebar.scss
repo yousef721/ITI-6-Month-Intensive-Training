@@ -1,0 +1,60 @@
+.profile-cover {
+  height: 4.5rem;
+  margin: -1rem -1rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--gradient-cover);
+}
+
+.profile-head {
+  position: relative;
+  z-index: 1;
+  margin-top: -2.1rem;
+}
+
+.profile-head .app-avatar {
+  border: 3px solid var(--surface);
+}
+
+.profile-name {
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.profile-handle,
+.profile-stat-label {
+  color: var(--text-muted);
+  font-size: var(--font-size-xs);
+}
+
+.profile-bio {
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+  line-height: 1.55;
+}
+
+.profile-stats {
+  border-top: 1px solid var(--border);
+  padding-top: 0.9rem;
+}
+
+.profile-stat {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-stat-value {
+  color: var(--text-primary);
+  font-size: var(--font-size-md);
+  font-weight: 700;
+}
+
+.sidebar-list {
+  padding: 0 0.75rem 0.75rem;
+}
+
+.sidebar-icon {
+  width: 1.375rem;
+  min-width: 1.375rem;
+}
