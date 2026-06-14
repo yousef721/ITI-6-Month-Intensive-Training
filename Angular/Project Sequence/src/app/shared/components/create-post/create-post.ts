@@ -31,6 +31,7 @@ export class CreatePost implements OnInit {
   selectedImage = '';
   justPublished = false;
   imageError = false;
+  publishError = '';
   fileInputRef: HTMLInputElement | null = null;
 
   constructor(
@@ -88,14 +89,57 @@ export class CreatePost implements OnInit {
 
     if (!input.files?.length) return;
 
-    const reader = new FileReader();
+    const file = input.files[0];
 
-    reader.onload = () => {
-      this.selectedImage = reader.result as string;
-      this.imageError = false;
-    };
+    this.compressImage(file)
+      .then((dataUrl) => {
+        this.selectedImage = dataUrl;
+        this.imageError = false;
+        this.publishError = '';
+      })
+      .catch(() => {
+        this.selectedImage = '';
+        this.imageError = true;
+        this.publishError = 'Could not process the selected image. Try another file.';
+      });
+  }
 
-    reader.readAsDataURL(input.files[0]);
+  private compressImage(file: File, maxWidth = 640, quality = 0.65): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        const img = new Image();
+
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          let { width, height } = img;
+
+          if (width > maxWidth) {
+            height = Math.round((height * maxWidth) / width);
+            width = maxWidth;
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            reject(new Error('Canvas not supported'));
+            return;
+          }
+
+          ctx.drawImage(img, 0, 0, width, height);
+          resolve(canvas.toDataURL('image/jpeg', quality));
+        };
+
+        img.onerror = () => reject(new Error('Image load failed'));
+        img.src = reader.result as string;
+      };
+
+      reader.onerror = () => reject(new Error('File read failed'));
+      reader.readAsDataURL(file);
+    });
   }
 
   private randomUpvotes = () => Math.floor(Math.random() * 500);
@@ -112,6 +156,7 @@ export class CreatePost implements OnInit {
 
     this.selectedImage = '';
     this.imageError = false;
+    this.publishError = '';
     this.expanded = false;
 
     if (this.fileInputRef) {
@@ -139,7 +184,7 @@ export class CreatePost implements OnInit {
     const value = this.postForm.value;
 
     const selectedCategory = this.categories.find(
-      (c) => c.id === value.category
+      (c) => String(c.id) === String(value.category)
     );
 
     const newPost: Post = {
@@ -168,6 +213,8 @@ export class CreatePost implements OnInit {
       image: this.selectedImage,
     };
 
+    this.publishError = '';
+
     this.postService.addPost(newPost).subscribe({
       next: () => {
         this.justPublished = true;
@@ -179,9 +226,10 @@ export class CreatePost implements OnInit {
         this.resetForm();
         this.postCreated.emit();
       },
-      error: (err) => {
-        console.error('Failed to create post', err);
-      }
+      error: () => {
+        this.publishError =
+          'Failed to publish post. Make sure json-server is running (npm run server) and try again.';
+      },
     });
   }
   cancel() {
