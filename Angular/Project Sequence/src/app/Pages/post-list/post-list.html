@@ -1,49 +1,39 @@
-<div class="post-list-page overflow-hidden">
-  <div class="container-fluid p-4">
-    <div class="row g-3 g-lg-4 align-items-start">
-      <!-- LEFT SIDEBAR -->
-      <div class="col-12 col-lg-3 order-2 order-lg-1 d-none d-lg-block">
-        <app-left-sidebar></app-left-sidebar>
+<div class="container py-5">
+  <div class="row g-2 g-lg-4 align-items-start">
+
+    <div class="col-12 col-lg-8 order-1">
+      <div class="mb-4">
+        <app-topic-chips></app-topic-chips>
       </div>
 
-      <!-- MAIN FEED -->
-      <div class="col-12 col-lg-6 order-1 order-lg-2">
-        <div class="mb-4">
-          <app-topic-chips></app-topic-chips>
-        </div>
-
-        <div class="mb-4">
-          <app-create-post (postCreated)="addPost($event)"></app-create-post>
-        </div>
-
-        <div class="mb-4">
-          <app-feed-header
-            (searchChange)="onSearch($event)"
-            (sortChange)="onSort($event)"
-          ></app-feed-header>
-        </div>
-
-        <!-- Posts -->
-        <div class="d-flex flex-column gap-4">
-          @for (post of posts; track post.id) {
-            <app-post-card [post]="post" layout="horizontal"></app-post-card>
-          } @empty {
-            <div class="text-center py-5 text-muted">
-              <i class="bi bi-search" style="font-size: 2.5rem; opacity: 0.3"></i>
-              <p class="mt-3">No posts found for "{{ searchQuery }}"</p>
-            </div>
-          }
-        </div>
-
-        <div class="text-center py-4">
-          <button class="btn btn-outline px-4 py-2">Load More Posts</button>
-        </div>
+      <div class="mb-4">
+        <app-create-post></app-create-post>
       </div>
 
-      <!-- RIGHT SIDEBAR -->
-      <div class="col-12 col-lg-3 order-3 d-none d-lg-block">
-        <app-right-sidebar></app-right-sidebar>
+      <div class="mb-4 position-relative z-1">
+        <app-feed-header (searchChange)="onSearch($event)" (sortChange)="onSort($event)"></app-feed-header>
+      </div>
+
+      <!-- Posts -->
+      <div class="d-flex flex-column gap-4">
+        @for (post of posts; track post.id) {
+        <app-post-card class="position-relative z-1" [post]="post" layout="horizontal"></app-post-card>
+        } @empty {
+        <div class="notfound text-center">
+          <i class="bi bi-search mb-3"></i>
+          <p>No posts found for "{{ searchQuery }}"</p>
+        </div>
+        }
+      </div>
+
+      <div class="text-center mt-5">
+        <button class="btn btn-outline px-4 py-3">Load More Posts</button>
       </div>
     </div>
+
+    <div class="col-lg-4 order-2 d-none d-lg-block">
+      <app-right-sidebar></app-right-sidebar>
+    </div>
+
   </div>
 </div>

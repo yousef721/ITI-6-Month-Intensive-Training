@@ -1,25 +1,21 @@
 .post-content {
-  padding: 1rem 1.1rem 0.75rem;
-  flex: 1;
+  padding: var(--font-size-lg) var(--font-size-lg) var(--font-size-sm);
 }
 
 .source-name {
-  font-size: var(--fs-sm);
+  font-size: var(--font-size-sm);
   color: var(--text-muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  font-weight: 600;
 }
 
 .source-meta {
-  font-size: var(--fs-xs);
+  font-size: var(--font-size-xs);
   color: var(--text-muted);
 }
 
 .post-title {
-  font-size: var(--fs-md);
+  font-size: var(--font-size-md);
   color: var(--text-primary);
-  line-height: 1.35;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -27,26 +23,10 @@
 }
 
 .post-excerpt {
-  font-size: var(--fs-sm);
+  font-size: var(--font-size-sm);
   color: var(--text-secondary);
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  line-height: 1.55;
-}
-
-@media (max-width: 576px) {
-  .post-content {
-    padding: 0.85rem 0.9rem 0.6rem;
-  }
-
-  .post-title {
-    font-size: var(--fs-sm);
-  }
-
-  .post-excerpt {
-    -webkit-line-clamp: 2;
-    font-size: var(--fs-xs);
-  }
 }

@@ -1,35 +1,35 @@
-<div class="profile-card text-center p-4">
-  <!-- Avatar -->
-  <div class="profile-avatar mx-auto mb-3 d-flex align-items-center justify-content-center">
+<div class="app-card app-card-hover text-center p-4">
+  <div class="app-avatar mx-auto mb-3 d-flex align-items-center justify-content-center">
     {{ user.avatarInitial }}
   </div>
 
-  <!-- Name / Email -->
   <div class="profile-name mb-1">
     {{ user.name }}
   </div>
 
-  <div class="profile-email text-muted mb-3">
+  <div class="profile-email mb-3">
     {{ user.email }}
   </div>
 
-  <!-- Badges -->
-  <div class="d-flex justify-content-center gap-2 flex-wrap mb-3">
-    @for (badge of user.badges; track badge) {
-      <span class="profile-badge">
-        {{ badge }}
-      </span>
-    }
-  </div>
-
-  <!-- Bio -->
   <div class="profile-bio mb-4">
     {{ user.bio }}
   </div>
 
-  <!-- Actions -->
   <div class="d-grid gap-2">
-    <button class="btn btn-primary">Edit Profile</button>
-    <button class="btn btn-outline">Share Profile</button>
+    <a href="https://github.com/yousef721" target="_blank" rel="noopener noreferrer" class="btn btn-github">
+      <i class="bi bi-github me-2"></i>
+      GitHub
+    </a>
+
+    <a href="https://www.linkedin.com/in/yousef-abdullah-076ba0249/" target="_blank" rel="noopener noreferrer"
+      class="btn btn-linkedin">
+      <i class="bi bi-linkedin me-2"></i>
+      LinkedIn
+    </a>
+
+    <button class="btn btn-outline-secondary">
+      <i class="bi bi-share me-2"></i>
+      Share Profile
+    </button>
   </div>
 </div>

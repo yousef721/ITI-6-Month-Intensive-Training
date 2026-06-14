@@ -3,8 +3,8 @@
     <div class="panel-label px-3 pt-3 pb-2">Trending Tags</div>
     <div class="tags-cloud d-flex flex-wrap gap-2 px-3 pb-3">
       @for (tag of trendingTags; track $index) {
-        <span class="app-badge app-badge-md tag-hashtag">{{
-          tag
+      <span class="app-badge app-badge-md tag-hashtag">{{
+        tag
         }}</span>
       }
     </div>
@@ -12,23 +12,21 @@
 
   <section class="app-panel">
     <div class="panel-label px-3 pt-3 pb-2">Weekly Leaders</div>
-    <div class="leaders-list d-flex flex-column gap-2">
+    <div class="d-flex flex-column gap-2 p-1">
       @for (leader of weeklyLeaders; track $index) {
-        <div
-          class="app-link-row leader-item d-flex align-items-start justify-content-between gap-3 p-3"
-        >
-          <div class="leader-info d-flex align-items-start gap-3 min-w-0">
-            <div class="app-avatar app-avatar-md">{{ leader.initial }}</div>
-            <div class="leader-details min-w-0">
-              <div class="leader-name text-truncate">{{ leader.name }}</div>
-              <div class="leader-stats d-flex flex-wrap gap-2">
-                <span>{{ leader.posts }} posts</span>
-                <span class="trend-up">{{ leader.upvotes }} upvotes</span>
-              </div>
+      <div class="app-link-row d-flex align-items-start justify-content-between gap-3 p-3">
+        <div class="leader-info d-flex align-items-start gap-3">
+          <div class="app-avatar app-avatar-md">{{ leader.initial }}</div>
+          <div>
+            <div class="leader-name">{{ leader.name }}</div>
+            <div class="leader-stats d-flex flex-wrap gap-2">
+              <span>{{ leader.posts }} posts</span>
+              <span class="trend-up">{{ leader.upvotes }} upvotes</span>
             </div>
           </div>
-          <div class="app-badge app-badge-sm">{{ leader.upvotes }}</div>
         </div>
+        <div class="app-badge app-badge-sm">{{ leader.upvotes }}</div>
+      </div>
       }
     </div>
   </section>

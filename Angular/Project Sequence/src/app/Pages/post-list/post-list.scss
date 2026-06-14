@@ -1,3 +1,12 @@
-.post-list-page {
-  min-height: 100vh;
+.notfound {
+    color: var(--text-muted);
+
+    i {
+        font-size: var(--font-size-6xl);
+    }
+
+    p {
+        font-size: var(--font-size-2xl);
+        font-weight: 600;
+    }
 }

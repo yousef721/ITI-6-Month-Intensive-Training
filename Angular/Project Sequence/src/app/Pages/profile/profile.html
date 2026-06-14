@@ -1,68 +1,52 @@
 <div class="container py-4 py-lg-5">
   <div class="row g-4">
-    <!-- User Card -->
     <div class="col-lg-4">
       <app-user-card [user]="currentUser"></app-user-card>
     </div>
 
-    <!-- Content -->
     <div class="col-lg-8">
-      <!-- Stats -->
       <div class="row g-3 mb-4">
         <div class="col-md-4">
-          <div class="app-card text-center p-3 h-100">
-            <h3 class="mb-1 text-accent fw-bold">
-              {{ stats.postsSaved }}
-            </h3>
-            <small class="text-muted"> Posts Saved </small>
-          </div>
+          <app-stats-card [number]="stats.postsSaved" label="Posts Saved">
+          </app-stats-card>
         </div>
 
         <div class="col-md-4">
-          <div class="app-card text-center p-3 h-100">
-            <h3 class="mb-1 text-accent fw-bold">
-              {{ stats.upvotesGiven | number: '1.0-0' }}
-            </h3>
-            <small class="text-muted"> Upvotes Given </small>
-          </div>
+          <app-stats-card [number]="stats.upvotesGiven" label="Upvotes Given">
+          </app-stats-card>
         </div>
 
         <div class="col-md-4">
-          <div class="app-card text-center p-3 h-100">
-            <h3 class="mb-1 text-accent fw-bold">
-              {{ stats.comments }}
-            </h3>
-            <small class="text-muted"> Comments </small>
-          </div>
+          <app-stats-card [number]="stats.comments" label="Comments">
+          </app-stats-card>
         </div>
       </div>
 
-      <!-- Saved Posts -->
       <div class="app-panel p-4 mb-4">
         <div class="d-flex align-items-center justify-content-between mb-3">
           <h5 class="mb-0 fw-bold">Saved Posts</h5>
         </div>
-
         @for (post of myPosts; track post.id) {
-          @if (post.saved) {
-            <div class="d-flex gap-3 py-3 border-bottom">
-              <img [src]="post.image" [alt]="post.title" class="rounded" width="90" height="70" />
+        @if (post.saved) {
 
-              <div class="flex-grow-1">
-                <div class="fw-bold mb-1">
-                  {{ post.title }}
-                </div>
+        <div class="d-flex gap-3 py-3 border-bottom clickable-post" (click)="goToDetails(post.id)">
+          <img [src]="post.image" [alt]="post.title" class="rounded" width="90" height="70" />
 
-                <div class="text-muted small mb-2">
-                  {{ post.description }}
-                </div>
-              </div>
+          <div class="flex-grow-1">
+            <div class="post-title fw-bold mb-1">
+              {{ post.title }}
             </div>
-          }
+
+            <div class="post-description text-muted small mb-2">
+              {{ post.description }}
+            </div>
+          </div>
+        </div>
+
+        }
         }
       </div>
 
-      <!-- Settings -->
       <div class="app-panel p-4">
         <h5 class="fw-bold mb-4">Account Settings</h5>
 

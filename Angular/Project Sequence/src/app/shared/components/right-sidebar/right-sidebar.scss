@@ -12,11 +12,6 @@
   }
 }
 
-/* Leaders */
-.leaders-list {
-  padding: 0 0.75rem 0.75rem;
-}
-
 .leader {
   &-name {
     color: var(--text-primary);
@@ -31,8 +26,7 @@
   }
 }
 
-/* Trend */
 .trend-up {
-  color: var(--primary-color);
+  color: var(--success-color);
   font-weight: 600;
 }

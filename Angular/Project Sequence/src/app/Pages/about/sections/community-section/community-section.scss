@@ -1,19 +1,14 @@
 .community-section {
-  padding: 3rem 0;
-  background: linear-gradient(135deg, var(--accent-subtle) 0%, #eff6ff 100%);
-}
-
-.community-content {
-  padding: 2rem;
+  background: var(--gradient-soft);
 }
 
 .mission-text {
-  font-size: var(--fs-md);
+  font-size: var(--font-size-md);
+  color: var(--text-muted);
   line-height: 1.7;
 }
 
 .stats-wrapper {
   background: var(--gradient-primary);
-  border-radius: var(--r-lg);
-  padding: 2rem;
+  border-radius: var(--radius-lg);
 }

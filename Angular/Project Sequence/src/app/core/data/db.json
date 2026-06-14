@@ -1,0 +1,382 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Admin",
+      "email": "admin@test.com",
+      "password": "Admin123@",
+      "bio": "Admin user"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "AI & Machine Learning"
+    },
+    {
+      "id": "2",
+      "name": "DevOps & Cloud"
+    },
+    {
+      "id": "3",
+      "name": "Frontend Development"
+    },
+    {
+      "id": "4",
+      "name": "Backend & APIs"
+    },
+    {
+      "id": "5",
+      "name": "Security"
+    },
+    {
+      "id": "6",
+      "name": "Open Source"
+    },
+    {
+      "id": "7",
+      "name": "Mobile Development"
+    },
+    {
+      "id": "8",
+      "name": "Databases"
+    },
+    {
+      "id": "9",
+      "name": "Career & Productivity"
+    }
+  ],
+  "features": [
+    {
+      "id": "1",
+      "icon": "🔍",
+      "title": "Smart Discovery",
+      "description": "Our algorithm surfaces the most relevant content based on your interests, reading history, and community votes."
+    },
+    {
+      "id": "2",
+      "icon": "🌍",
+      "title": "Global Community",
+      "description": "14,000+ developers from 80+ countries reading, discussing, and contributing to the platform every day."
+    },
+    {
+      "id": "3",
+      "icon": "⚡",
+      "title": "Always Fresh",
+      "description": "128+ new articles indexed daily from top engineering blogs, open-source projects, and community contributors."
+    },
+    {
+      "id": "4",
+      "icon": "🚀",
+      "title": "Career Growth",
+      "description": "Follow curated learning paths and discover resources to accelerate your engineering career."
+    },
+    {
+      "id": "5",
+      "icon": "🤝",
+      "title": "Peer Reviews",
+      "description": "Get valuable feedback from experienced developers and community maintainers."
+    },
+    {
+      "id": "6",
+      "icon": "📚",
+      "title": "Learning Hub",
+      "description": "Access thousands of tutorials, case studies, and practical engineering guides."
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "voted": true,
+      "saved": true,
+      "upvotes": 343,
+      "sourceInitial": "V",
+      "sourceName": "Vercel Blog",
+      "time": "2h ago",
+      "readTime": "4 min read",
+      "title": "Next.js 15.3 Released",
+      "description": "Turbopack is now production-ready, bringing massive build speed improvements.",
+      "commentsCount": 2,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Ahmed",
+          "content": "Amazing update!",
+          "createdAt": "1 hour ago"
+        },
+        {
+          "id": 2,
+          "author": "Sara",
+          "content": "Build speed is crazy now.",
+          "createdAt": "45 min ago"
+        }
+      ],
+      "image": "images/post-1.jpeg",
+      "hashtags": [
+        "webdev",
+        "nextjs",
+        "frontend"
+      ],
+      "categoryId": 3
+    },
+    {
+      "id": "2",
+      "voted": true,
+      "saved": false,
+      "upvotes": 218,
+      "sourceInitial": "G",
+      "sourceName": "Google Engineering",
+      "time": "4h ago",
+      "readTime": "6 min read",
+      "title": "Kubernetes Optimization Guide",
+      "description": "Google reduced latency by 40% using new scheduling algorithms.",
+      "commentsCount": 2,
+      "comments": [
+        {
+          "id": 1781461476658,
+          "author": "You",
+          "content": "asdads",
+          "createdAt": "Just now"
+        },
+        {
+          "id": 1,
+          "author": "Mohamed",
+          "content": "Very useful article.",
+          "createdAt": "30 min ago"
+        }
+      ],
+      "image": "images/post-2.jpeg",
+      "hashtags": [
+        "kubernetes",
+        "cloud",
+        "devops"
+      ],
+      "categoryId": 2
+    },
+    {
+      "id": "3",
+      "voted": true,
+      "saved": false,
+      "upvotes": 488,
+      "sourceInitial": "O",
+      "sourceName": "OpenAI",
+      "time": "6h ago",
+      "readTime": "8 min read",
+      "title": "Building Reliable AI Agents",
+      "description": "Best practices for creating autonomous AI systems that can reason, plan, and execute tasks safely.",
+      "commentsCount": 3,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Ali",
+          "content": "Very insightful article.",
+          "createdAt": "2 hours ago"
+        },
+        {
+          "id": 2,
+          "author": "Mona",
+          "content": "The examples are excellent.",
+          "createdAt": "1 hour ago"
+        },
+        {
+          "id": 3,
+          "author": "Youssef",
+          "content": "Loved the section on planning loops.",
+          "createdAt": "40 min ago"
+        }
+      ],
+      "image": "images/post-3.jpeg",
+      "hashtags": [
+        "ai",
+        "llm",
+        "agents"
+      ],
+      "categoryId": 1
+    },
+    {
+      "id": "4",
+      "voted": true,
+      "saved": false,
+      "upvotes": 391,
+      "sourceInitial": "M",
+      "sourceName": "Microsoft DevBlogs",
+      "time": "8h ago",
+      "readTime": "5 min read",
+      "title": ".NET 10 Performance Improvements",
+      "description": "ASP.NET Core and runtime enhancements deliver significant throughput gains.",
+      "commentsCount": 2,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Omar",
+          "content": "Can't wait to benchmark this.",
+          "createdAt": "3 hours ago"
+        },
+        {
+          "id": 2,
+          "author": "Nour",
+          "content": "The memory optimizations look promising.",
+          "createdAt": "2 hours ago"
+        }
+      ],
+      "image": "images/post-4.jpeg",
+      "hashtags": [
+        "dotnet",
+        "csharp",
+        "backend"
+      ],
+      "categoryId": 4
+    },
+    {
+      "id": "5",
+      "voted": false,
+      "saved": false,
+      "upvotes": 267,
+      "sourceInitial": "F",
+      "sourceName": "Figma Engineering",
+      "time": "10h ago",
+      "readTime": "7 min read",
+      "title": "Scaling Frontend Design Systems",
+      "description": "Lessons learned from maintaining a large-scale component library used by millions.",
+      "commentsCount": 4,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Aya",
+          "content": "Design systems are hard!",
+          "createdAt": "4 hours ago"
+        },
+        {
+          "id": 2,
+          "author": "Khaled",
+          "content": "Great examples.",
+          "createdAt": "3 hours ago"
+        }
+      ],
+      "image": "images/post-5.jpeg",
+      "hashtags": [
+        "frontend",
+        "design-system",
+        "ui"
+      ],
+      "categoryId": 3
+    },
+    {
+      "id": "6",
+      "voted": true,
+      "saved": true,
+      "upvotes": 529,
+      "sourceInitial": "C",
+      "sourceName": "CNCF",
+      "time": "12h ago",
+      "readTime": "9 min read",
+      "title": "Cloud Native Trends in 2026",
+      "description": "Platform engineering, internal developer portals, and GitOps continue to gain momentum.",
+      "commentsCount": 5,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Hassan",
+          "content": "GitOps everywhere.",
+          "createdAt": "5 hours ago"
+        }
+      ],
+      "image": "images/post-6.jpeg",
+      "hashtags": [
+        "cloud",
+        "kubernetes",
+        "platform-engineering"
+      ],
+      "categoryId": 2
+    },
+    {
+      "id": "7",
+      "voted": false,
+      "saved": false,
+      "upvotes": 188,
+      "sourceInitial": "X",
+      "sourceName": "X Engineering",
+      "time": "15h ago",
+      "readTime": "4 min read",
+      "title": "Database Indexing Explained",
+      "description": "A practical guide to understanding indexes and improving query performance.",
+      "commentsCount": 2,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Mahmoud",
+          "content": "Very beginner friendly.",
+          "createdAt": "7 hours ago"
+        }
+      ],
+      "image": "images/post-7.jpeg",
+      "hashtags": [
+        "sql",
+        "database",
+        "performance"
+      ],
+      "categoryId": 8
+    },
+    {
+      "id": "8",
+      "voted": true,
+      "saved": false,
+      "upvotes": 612,
+      "sourceInitial": "A",
+      "sourceName": "Android Developers",
+      "time": "18h ago",
+      "readTime": "6 min read",
+      "title": "Jetpack Compose Best Practices",
+      "description": "Improve maintainability and performance in modern Android applications.",
+      "commentsCount": 3,
+      "comments": [
+        {
+          "id": 1,
+          "author": "Fatma",
+          "content": "Compose keeps getting better.",
+          "createdAt": "8 hours ago"
+        }
+      ],
+      "image": "images/post-8.jpeg",
+      "hashtags": [
+        "android",
+        "kotlin",
+        "mobile"
+      ],
+      "categoryId": 7
+    }
+  ],
+  "stats": [
+    {
+      "id": "1",
+      "title": "14K+",
+      "value": "Developers"
+    },
+    {
+      "id": "2",
+      "title": "128",
+      "value": "Articles/day"
+    },
+    {
+      "id": "3",
+      "title": "50+",
+      "value": "Topics"
+    },
+    {
+      "id": "4",
+      "title": "2021",
+      "value": "Founded"
+    },
+    {
+      "id": "5",
+      "title": "80+",
+      "value": "Countries"
+    },
+    {
+      "id": "6",
+      "title": "3.2M",
+      "value": "Monthly Reads"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

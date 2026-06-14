@@ -1,56 +1,44 @@
 @if (layout === 'horizontal') {
-  <div class="post-row-footer d-flex align-items-center flex-wrap gap-2 px-3 py-2">
-    <button
-      type="button"
-      class="app-action post-action-btn d-inline-flex align-items-center gap-1 px-2 py-1"
-      [class.is-voted]="post.voted"
-      (click)="toggleVote(); $event.stopPropagation()"
-    >
-      <i class="bi" [class.bi-triangle-fill]="post.voted" [class.bi-triangle]="!post.voted"></i>
-      <span>{{ post.upvotes }}</span>
-    </button>
+<div class="post-row-footer d-flex align-items-center flex-nowrap shrink-0 gap-2">
+  <button type="button" class="app-action post-action-btn d-inline-flex align-items-center gap-1"
+    [class.is-voted]="post.voted" (click)="toggleVote(); $event.stopPropagation()">
+    <i class="bi" [class.bi-triangle-fill]="post.voted" [class.bi-triangle]="!post.voted"></i>
+    <span>{{ post.upvotes }}</span>
+  </button>
 
-    <button
-      type="button"
-      class="app-action post-action-btn d-inline-flex align-items-center gap-1 px-2 py-1"
-    >
-      <i class="bi bi-chat"></i>
-      <span>{{ post.commentsCount }}</span>
-    </button>
+  <button type="button" class="app-action post-action-btn d-inline-flex align-items-center gap-1">
+    <i class="bi bi-chat"></i>
+    <span>{{ post.commentsCount }}</span>
+  </button>
 
-    <button
-      type="button"
-      class="app-action post-action-btn d-inline-flex align-items-center gap-1 px-2 py-1"
-      [class.active]="post.saved"
-      (click)="toggleSave(); $event.stopPropagation()"
-    >
-      <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
-      <span>{{ post.saved ? 'Saved' : 'Save' }}</span>
-    </button>
+  <button type="button" class="app-action post-action-btn d-inline-flex align-items-center gap-1"
+    [class.active]="post.saved" (click)="toggleSave(); $event.stopPropagation()">
+    <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
+    <span>{{ post.saved ? 'Saved' : 'Save' }}</span>
+  </button>
 
-    <button
-      type="button"
-      class="app-action post-action-btn d-inline-flex align-items-center gap-1 px-2 py-1"
-    >
-      <i class="bi bi-share"></i>
-      <span class="share-label">Share</span>
-    </button>
-  </div>
+  <button type="button" class="app-action post-action-btn d-inline-flex align-items-center gap-1">
+    <i class="bi bi-share"></i>
+    <span>Share</span>
+  </button>
+</div>
 } @else {
-  <div class="d-flex align-items-center gap-3 border-top py-2 px-3 small text-secondary">
-    <span class="app-action d-inline-flex align-items-center gap-1 px-2 py-1">
-      <i class="bi bi-triangle"></i>
-      {{ post.upvotes }}
-    </span>
+<div class="post-row-footer d-flex align-items-center gap-3 small text-secondary">
+  <button type="button" class="app-action post-action-btn d-inline-flex align-items-center gap-1"
+    [class.is-voted]="post.voted" (click)="toggleVote(); $event.stopPropagation()">
+    <i class="bi" [class.bi-triangle-fill]="post.voted" [class.bi-triangle]="!post.voted"></i>
+    <span>{{ post.upvotes }}</span>
+  </button>
 
-    <span class="app-action d-inline-flex align-items-center gap-1 px-2 py-1">
-      <i class="bi bi-chat"></i>
-      {{ post.commentsCount }}
-    </span>
+  <button type="button" class="app-action post-action-btn d-inline-flex align-items-center gap-1">
+    <i class="bi bi-chat"></i>
+    <span>{{ post.commentsCount }}</span>
+  </button>
 
-    <span class="app-action ms-auto d-inline-flex align-items-center gap-1 px-2 py-1">
-      <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
-      Save
-    </span>
-  </div>
+  <button type="button" class="app-action post-action-btn ms-auto d-inline-flex align-items-center gap-1"
+    [class.active]="post.saved" (click)="toggleSave(); $event.stopPropagation()">
+    <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
+    <span>{{ post.saved ? 'Saved' : 'Save' }}</span>
+  </button>
+</div>
 }

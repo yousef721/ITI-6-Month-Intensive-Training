@@ -1,0 +1,15 @@
+.section-label {
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-title,
+.section-subtitle {
+  color: var(--text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  line-height: 1.2;
+}

@@ -1,54 +1,49 @@
-import { Injectable } from '@angular/core';
-import { POSTS } from '../data/posts.data';
+import { inject, Injectable } from '@angular/core';
 import { Post } from '../interfaces/IPostCard';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class PostService {
-  private readonly STORAGE_KEY = 'posts';
+  private http = inject(HttpClient)
+  private apiUrl = 'http://localhost:3000/posts';
 
-  private posts: Post[] = [];
-
-  constructor() {
-    const storedPosts = localStorage.getItem(this.STORAGE_KEY);
-
-    if (storedPosts) {
-      this.posts = JSON.parse(storedPosts);
-    } else {
-      this.posts = POSTS;
-      this.savePosts();
-    }
-  }
-
-  getPosts(): Post[] {
-    return this.posts;
+  getPosts() {
+    return this.http.get<Post[]>(this.apiUrl);
   }
 
   addPost(post: Post) {
-    const newPost: Post = {
-      ...post,
-      id: Date.now(),
-    };
+    return this.http.post<Post>(this.apiUrl, post);
+  }
 
-    this.posts.unshift(newPost);
-    this.savePosts();
+  updatePost(post: Post) {
+    return this.http.put<Post>(`${this.apiUrl}/${post.id}`, post);
   }
 
   toggleVote(post: Post) {
-    post.voted = !post.voted;
-    post.upvotes += post.voted ? 1 : -1;
+    const updatedPost = {
+      ...post,
+      voted: !post.voted,
+      upvotes: post.voted
+        ? post.upvotes - 1
+        : post.upvotes + 1,
+    };
 
-    this.savePosts();
+    return this.http.put<Post>(`${this.apiUrl}/${post.id}`, updatedPost);
   }
 
   toggleSave(post: Post) {
-    post.saved = !post.saved;
+    const updatedPost = {
+      ...post,
+      saved: !post.saved,
+    };
 
-    this.savePosts();
+    return this.http.put<Post>(`${this.apiUrl}/${post.id}`, updatedPost);
   }
 
-  private savePosts() {
-    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(this.posts));
+  deletePost(id: number) {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

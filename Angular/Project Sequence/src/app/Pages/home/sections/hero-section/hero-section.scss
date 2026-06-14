@@ -1,6 +1,8 @@
 .hero-section {
-  background: linear-gradient(135deg, #ede9fe 0%, #f5f3ff 50%, #eff6ff 100%);
+  background: var(--gradient-soft);
   padding: 5rem 0 4rem;
+  position: relative;
+  overflow: hidden;
 
   &::before,
   &::after {
@@ -27,27 +29,43 @@
 }
 
 .hero-badge {
-  background: var(--accent-subtle);
-  color: var(--accent);
-  font-size: var(--fs-sm);
+  background: var(--surface-soft);
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-pill);
+  padding: var(--radius-md) var(--radius-lg);
+  margin-bottom: 1rem;
+  font-weight: 600;
+  width: fit-content;
 }
 
 .hero-title {
-  font-size: clamp(var(--fs-4xl), 5vw, var(--fs-7xl));
+  font-size: clamp(var(--font-size-4xl), 5vw, var(--font-size-7xl));
   color: var(--text-primary);
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 1rem;
 
-  span { color: var(--accent); }
+  span {
+    color: var(--primary-color);
+  }
 }
 
 .hero-desc {
   max-width: 450px;
+  font-size: var(--font-size-sm);
+  line-height: 1.2;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
 }
 
 .hero-stat-num {
-  font-size: var(--fs-2xl);
-  color: var(--accent);
+  font-size: var(--font-size-2xl);
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .hero-stat-label {
-  font-size: var(--fs-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
 }

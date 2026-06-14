@@ -12,9 +12,4 @@ import { Post } from '../../../../core/interfaces/IPostCard';
 export class PostCardContent {
   @Input({ required: true }) post!: Post;
 
-  get sourceAvatarClass(): string {
-    const seed = this.post.sourceName || this.post.sourceInitial || '';
-    const index = Array.from(seed).reduce((sum, c) => sum + c.charCodeAt(0), 0) % 6;
-    return `app-avatar-palette-${index}`;
-  }
 }

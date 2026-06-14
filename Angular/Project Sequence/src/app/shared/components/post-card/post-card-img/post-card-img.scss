@@ -3,36 +3,34 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  overflow: hidden;
 }
 
-/* ── VERTICAL layout ── */
 .post-image-wrapper.vertical {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: var(--r-lg) var(--r-lg) 0 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
-/* ── HORIZONTAL layout — desktop ── */
 .post-image-wrapper.horizontal {
   width: 200px;
   min-width: 200px;
   max-height: 100%;
-  border-radius: var(--r-lg) 0 0 var(--r-lg);
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
 }
 
-/* ── HORIZONTAL → stacks to vertical on tablet/mobile ── */
 @media (max-width: 992px) {
   .post-image-wrapper.horizontal {
     width: 100%;
     min-width: unset;
     aspect-ratio: 16 / 9;
     max-height: unset;
-    border-radius: var(--r-lg) var(--r-lg) 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   }
 }
 
-/* ── Tighter image on small mobile ── */
 @media (max-width: 576px) {
+
   .post-image-wrapper.vertical,
   .post-image-wrapper.horizontal {
     aspect-ratio: 2 / 1;

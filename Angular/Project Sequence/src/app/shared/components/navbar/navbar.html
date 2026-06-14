@@ -1,45 +1,40 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand fs-5 fw-bold d-flex align-items-center gap-2" routerLink="/home">
-      <span class="brand-dot rounded-circle d-inline-block"></span>
+    <a class="navbar-brand d-flex align-items-center gap-2" routerLink="/home">
+      <span class="brand-dot"></span>
       DevFeed
     </a>
 
-    <button
-      class="navbar-toggler p-0 border-0 shadow-none"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarMain"
-    >
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="navbar-collapse collapse" id="navbarMain">
       <ul class="navbar-nav mx-auto gap-1">
         <li class="nav-item">
-          <a class="nav-link fw-bold" routerLink="/home" routerLinkActive="active-nav"> Home </a>
+          <a class="nav-link" routerLink="/home" routerLinkActive="active-nav"> Home </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link fw-bold" routerLink="/posts" routerLinkActive="active-nav"> Posts </a>
+          <a class="nav-link" routerLink="/posts" routerLinkActive="active-nav"> Posts </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link fw-bold" routerLink="/about" routerLinkActive="active-nav"> About </a>
+          <a class="nav-link" routerLink="/about" routerLinkActive="active-nav"> About </a>
         </li>
       </ul>
 
       <div class="d-flex gap-2 mt-2 mt-lg-0">
         @if (user) {
-          <a routerLink="/profile" class="btn btn-outline">
-            {{ user.name }}
-          </a>
+        <a routerLink="/profile" class="btn btn-outline">
+          {{ user.name }}
+        </a>
 
-          <button class="btn btn-primary" (click)="logout()">Logout</button>
+        <button class="btn btn-primary" (click)="logout()">Logout</button>
         } @else {
-          <a routerLink="/login" class="btn btn-outline"> Login </a>
+        <a routerLink="/login" class="btn btn-outline"> Login </a>
 
-          <a routerLink="/signup" class="btn btn-primary"> Sign Up </a>
+        <a routerLink="/signup" class="btn btn-primary"> Sign Up </a>
         }
       </div>
     </div>

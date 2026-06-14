@@ -1,15 +1,12 @@
-.stats-card {
-  background: var(--bg-card);
-  border-radius: var(--r-sm);
-  padding: 1rem 0.75rem;
-  transition: all var(--transition-slow);
-}
-
 .stats-number {
-  font-size: var(--fs-3xl);
-  color: var(--accent);
+  font-size: var(--font-size-3xl);
+  color: var(--primary-color);
+  font-weight: bold;
 }
 
 .stats-label {
-  font-size: var(--fs-sm);
+  font-size: var(--font-size-sm);
+  font-weight: medium;
+  color: var(--text-muted);
+  line-height: 1;
 }

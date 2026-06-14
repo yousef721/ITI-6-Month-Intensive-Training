@@ -1,15 +1,12 @@
 <section class="py-5">
   <div class="container">
-    <div class="mb-4">
-      <div class="section-label">Latest Content</div>
-      <div class="section-title">Today's top picks</div>
-    </div>
+    <app-section-title label="Latest Content" title="Today's top picks"></app-section-title>
 
     <div class="row g-4">
       @for (post of posts; track post.id) {
-        <div class="col-md-4">
-          <app-post-card [post]="post" layout="vertical"></app-post-card>
-        </div>
+      <div class="col-md-4">
+        <app-post-card [post]="post" layout="vertical"></app-post-card>
+      </div>
       }
     </div>
 

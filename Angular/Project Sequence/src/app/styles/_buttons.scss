@@ -2,7 +2,6 @@
 // _buttons.scss — Buttons & action components
 // ==============================================
 
-// Base button
 .btn {
   display: inline-flex;
   align-items: center;
@@ -17,9 +16,9 @@
     color var(--transition-fast),
     box-shadow var(--transition-fast),
     transform var(--transition-fast);
+
 }
 
-// Primary
 .btn-primary {
   border-color: transparent;
   background: var(--gradient-primary);
@@ -36,7 +35,6 @@
   }
 }
 
-// Outline
 .btn-outline,
 .btn-outline-primary {
   border-color: var(--primary-color);
@@ -51,7 +49,6 @@
   }
 }
 
-// Soft
 .btn-soft {
   border-color: transparent;
   background: var(--surface-soft);
@@ -64,7 +61,6 @@
   }
 }
 
-// Action (icon buttons, vote, like, etc.)
 .app-action {
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
@@ -90,4 +86,40 @@
   &.is-voted {
     border-color: var(--primary-color);
   }
+}
+
+.btn-github {
+  background-color: #24292f;
+  border-color: #24292f;
+  color: var(--text-inverse)
+}
+
+.btn-github:hover {
+  background-color: #1b1f23;
+  border-color: #1b1f23;
+  color: var(--text-inverse)
+}
+
+.btn-google {
+  background-color: #DB4437;
+  border-color: #DB4437;
+  color: var(--text-inverse)
+}
+
+.btn-google:hover {
+  background-color: #C53929;
+  border-color: #C53929;
+  color: var(--text-inverse)
+}
+
+.btn-linkedin {
+  background-color: #0A66C2;
+  border-color: #0A66C2;
+  color: var(--text-inverse)
+}
+
+.btn-linkedin:hover {
+  background-color: #004182;
+  border-color: #004182;
+  color: var(--text-inverse)
 }

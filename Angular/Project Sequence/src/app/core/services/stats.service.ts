@@ -1,12 +1,16 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { IStats } from '../interfaces/IStats';
-import { STATS } from '../data/stats.data';
 
 @Injectable({
   providedIn: 'root',
 })
 export class StatsService {
-  getStats(): IStats[] {
-    return STATS;
+  private http = inject(HttpClient);
+
+  private apiUrl = 'http://localhost:3000/stats';
+
+  getStats() {
+    return this.http.get<IStats[]>(this.apiUrl);
   }
 }

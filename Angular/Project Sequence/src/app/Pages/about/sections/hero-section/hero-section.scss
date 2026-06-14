@@ -1,6 +1,10 @@
 .about-hero {
-  background: linear-gradient(135deg, var(--accent-subtle) 0%, var(--accent-subtle) 100%);
-  border-radius: var(--r-xl);
+  background: var(--gradient-primary);
+  border-radius: var(--radius-xl);
+  color: var(--text-inverse);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
 
   &::before,
   &::after {
@@ -14,7 +18,7 @@
     height: 320px;
     top: -120px;
     right: -120px;
-    background: rgba(124, 58, 237, 0.08);
+    background: rgba(255, 255, 255, 0.08);
   }
 
   &::after {
@@ -22,18 +26,19 @@
     height: 220px;
     bottom: -100px;
     left: -80px;
-    background: rgba(124, 58, 237, 0.05);
+    background: rgba(255, 255, 255, 0.05);
   }
 }
 
-.about-icon { font-size: var(--fs-7xl); }
+.about-icon {
+  font-size: var(--font-size-7xl);
+}
 
 .about-title {
-  font-size: clamp(var(--fs-4xl), 4vw, var(--fs-5xl));
-  color: var(--text-primary);
+  font-size: clamp(var(--font-size-4xl), 4vw, var(--font-size-5xl));
+  font-weight: bold;
 }
 
 .about-description {
   max-width: 620px;
-  color: var(--text-secondary);
 }

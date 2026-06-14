@@ -1,8 +1,8 @@
 // ==============================================
-// _layout.scss — Page wrappers, cards, panels, rows
+// _layout.scss — Page wrappers, cards, panels
+// Components reuse these classes instead of repeating styles
 // ==============================================
 
-// Pages
 .app-page {
   min-height: 100vh;
   background: var(--bg);
@@ -13,7 +13,8 @@
   background: var(--gradient-soft);
 }
 
-// Cards
+// ── Cards ────────────────────────────────────────
+// Use .app-card for any white box with border + shadow
 .app-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -21,6 +22,7 @@
   box-shadow: var(--shadow-sm);
 }
 
+// Add .app-card-hover for lift-on-hover effect (replaces per-component duplicates)
 .app-card-hover {
   transition:
     border-color var(--transition-base),
@@ -28,13 +30,27 @@
     transform var(--transition-base);
 
   &:hover {
-    border-color: var(--accent-light);
+    border-color: #818cf8;
     box-shadow: var(--shadow-lg);
     transform: translateY(-4px);
   }
 }
 
-// Panels
+// Stronger hover — used by feature-card (translateY -8px)
+.app-card-hover-lg {
+  transition:
+    border-color var(--transition-slow),
+    box-shadow var(--transition-slow),
+    transform var(--transition-slow);
+
+  &:hover {
+    border-color: #818cf8;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+  }
+}
+
+// ── Panels (overflow: hidden variant) ────────────
 .app-panel {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -43,7 +59,7 @@
   overflow: hidden;
 }
 
-// Link row (sidebar navigation items, etc.)
+// ── Link row (sidebar nav items) ─────────────────
 .app-link-row {
   border: 1px solid transparent;
   border-radius: var(--radius-md);

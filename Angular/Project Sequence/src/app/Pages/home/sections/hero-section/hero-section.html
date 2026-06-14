@@ -1,20 +1,18 @@
-<section class="hero-section position-relative overflow-hidden">
+<section class="hero-section">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-7">
-        <div
-          class="hero-badge d-inline-flex align-items-center gap-1 rounded-pill px-3 py-1 fw-semibold mb-3"
-        >
+        <div class="hero-badge">
           <i class="bi bi-lightning-charge-fill"></i> The Dev Community Hub
         </div>
 
-        <h1 class="hero-title fw-bold lh-sm mb-3">
+        <h1 class="hero-title">
           Discover the best<br />
           <span>developer content</span><br />
           every day
         </h1>
 
-        <p class="hero-desc text-muted fs-6 lh-sm mb-4">
+        <p class="hero-desc">
           Curated articles, tutorials, and projects from the top engineering teams across the globe
           — all in one place for modern developers.
         </p>
@@ -25,19 +23,22 @@
           </button>
           <button class="btn btn-outline px-4 py-3" routerLink="/signup">Join for Free</button>
         </div>
-        
+
         <div class="d-flex flex-wrap gap-4 mt-5">
           @for (stat of stats; track stat.title) {
-            <div>
-              <div class="hero-stat-num fw-bold">
-                {{ stat.title }}
-              </div>
-              <div class="hero-stat-label text-muted">
-                {{ stat.value }}
-              </div>
+          <div>
+            <div class="hero-stat-num">
+              {{ stat.title }}
             </div>
+            <div class="hero-stat-label">
+              {{ stat.value }}
+            </div>
+          </div>
           }
         </div>
+      </div>
+      <div class="d-none d-lg-block col-lg-5">
+        <img src="/images/developer_community_hero_transparent.png" class="img-fluid" alt="" />
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 // ==============================================
-// _auth.scss — Login, register & auth shell styles
+// _auth.scss — Login & signup pages
+// Responsive font handled in _typography.scss
 // ==============================================
 
 .auth-shell {
@@ -12,6 +13,7 @@
   max-width: 28rem;
 }
 
+// Reuses .app-card from _layout — only adds shadow-lg override
 .auth-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -52,9 +54,13 @@
   }
 }
 
-// Responsive
-@media (max-width: 575.98px) {
-  .auth-title {
-    font-size: var(--font-size-2xl);
+.have-account {
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+
+  a {
+    font-weight: 700;
+    text-decoration: none;
   }
 }

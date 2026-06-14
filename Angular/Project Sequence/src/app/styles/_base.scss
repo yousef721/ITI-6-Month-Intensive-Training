@@ -27,13 +27,12 @@ img {
   max-width: 100%;
 }
 
-// Focus ring
 :focus-visible {
   outline: 2px solid var(--primary-color);
   outline-offset: 2px;
 }
 
-// Custom scrollbar
+// Scrollbar
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -52,8 +51,8 @@ img {
   background: var(--text-muted-light);
 }
 
-// Reduced motion
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

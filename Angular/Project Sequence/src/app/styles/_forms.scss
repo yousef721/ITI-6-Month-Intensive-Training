@@ -1,5 +1,6 @@
 // ==============================================
 // _forms.scss — Inputs, labels, selects, validation
+// search-bar.scss focus state was a duplicate — removed there
 // ==============================================
 
 .form-label {
@@ -8,14 +9,13 @@
   font-weight: 600;
 }
 
-// Shared input/select/app-input styles
 .form-control,
 .form-select,
 .app-input {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background-color: var(--bg-input);
+  background-color: var(--input-bg);
   color: var(--text-primary);
   font-family: inherit;
   font-size: var(--font-size-sm);
@@ -25,24 +25,21 @@
     box-shadow var(--transition-fast);
 }
 
-// Padding — Bootstrap controls
 .form-control,
 .form-select {
   padding: 0.75rem 1rem;
 }
 
-// Padding — custom app input
 .app-input {
   padding: 0.6rem 0.95rem;
 }
 
-// Placeholder
 .form-control::placeholder,
 .app-input::placeholder {
   color: var(--text-muted-light);
 }
 
-// Focus state
+// ── Focus — defined ONCE here, not repeated in components ──
 .form-control:focus,
 .form-select:focus,
 .app-input:focus {
@@ -53,13 +50,11 @@
   outline: none;
 }
 
-// Textarea
 textarea.form-control,
 textarea.app-input {
   resize: vertical;
 }
 
-// Checkbox / radio
 .form-check-input {
   border-color: var(--border-strong);
 
@@ -69,7 +64,6 @@ textarea.app-input {
   }
 }
 
-// Validation messages
 .field-error {
   display: flex;
   align-items: center;
@@ -87,12 +81,12 @@ textarea.app-input {
   &.warn {
     color: var(--warning-color);
   }
+
   &.error {
     color: var(--danger-color);
   }
 }
 
-// Icon inside input
 .icon-input {
   padding-left: 2.25rem;
 }
@@ -103,4 +97,5 @@ textarea.app-input {
   color: var(--text-muted);
   pointer-events: none;
   transform: translateY(-50%);
+  position: absolute;
 }

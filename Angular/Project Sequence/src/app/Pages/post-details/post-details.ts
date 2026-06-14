@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 import { Post } from '../../core/interfaces/IPostCard';
 import { PostService } from '../../core/services/post.service';
-import { FormsModule } from '@angular/forms';
+import { CategoryService } from '../../core/services/category.service';
+import { ICategory } from '../../core/interfaces/ICategory';
 
 @Component({
   standalone: true,
@@ -14,38 +17,81 @@ import { FormsModule } from '@angular/forms';
 export class PostDetails implements OnInit {
   post: Post | undefined;
   relatedPosts: Post[] = [];
+  categories: ICategory[] = [];
   newComment = '';
 
   constructor(
     private route: ActivatedRoute,
     private postService: PostService,
-  ) {}
+    private categoryService: CategoryService,
+  ) { }
 
   ngOnInit() {
-    const id = Number(this.route.snapshot.paramMap.get('id'));
-    const allPosts = this.postService.getPosts();
-    this.post = allPosts.find((p) => p.id === id) ?? allPosts[0];
-    // Related = other posts, max 3
-    this.relatedPosts = allPosts.filter((p) => p.id !== this.post?.id).slice(0, 3);
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+
+      this.postService.getPosts().subscribe({
+        next: (posts) => {
+          this.post = posts.find(p => String(p.id) === String(id));
+
+          if (!this.post) return;
+
+          this.relatedPosts = posts
+            .filter(p => String(p.id) !== String(this.post!.id))
+            .slice(0, 3);
+        }
+      });
+    });
+
+    this.categoryService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      }
+    });
   }
 
   toggleVote() {
-    if (this.post) this.postService.toggleVote(this.post);
+    if (!this.post) return;
+
+    this.postService.toggleVote(this.post).subscribe({
+      next: (updated) => {
+        this.post = updated;
+      }
+    });
   }
 
   toggleSave() {
-    if (this.post) this.postService.toggleSave(this.post);
+    if (!this.post) return;
+
+    this.postService.toggleSave(this.post).subscribe({
+      next: (updated) => {
+        this.post = updated;
+      }
+    });
   }
 
   submitComment() {
     if (!this.newComment.trim() || !this.post) return;
-    this.post.comments.unshift({
-      id: Date.now(),
-      author: 'You',
-      content: this.newComment.trim(),
-      createdAt: 'Just now',
+
+    const updatedPost: Post = {
+      ...this.post,
+      comments: [
+        {
+          id: Date.now(),
+          author: 'You',
+          content: this.newComment.trim(),
+          createdAt: 'Just now',
+        },
+        ...this.post.comments,
+      ],
+      commentsCount: this.post.commentsCount + 1,
+    };
+
+    this.postService.updatePost(updatedPost).subscribe({
+      next: (updated) => {
+        this.post = updated;
+        this.newComment = '';
+      }
     });
-    this.post.commentsCount++;
-    this.newComment = '';
   }
 }

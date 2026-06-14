@@ -6,12 +6,13 @@ import { Router } from '@angular/router';
 import { IUser } from '../../core/interfaces/IUser';
 import { AuthService } from '../../core/services/auth.service';
 import { UserCard } from '../../shared/components/user-card/user-card';
-import { POSTS } from '../../core/data/posts.data';
+import { StatsCard } from '../../shared/components/stats-card/stats-card';
+import { PostService } from '../../core/services/post.service';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [CommonModule, FormsModule, UserCard],
+  imports: [CommonModule, FormsModule, UserCard, StatsCard],
   templateUrl: './profile.html',
   styleUrls: ['./profile.scss'],
 })
@@ -19,12 +20,19 @@ import { POSTS } from '../../core/data/posts.data';
 export class Profile implements OnInit {
   currentUser!: IUser;
 
-  myPosts = POSTS;
+  settings = {
+    displayName: '',
+    email: '',
+    bio: '',
+  };
+
+  myPosts: any[] = [];
 
   constructor(
     private authService: AuthService,
-    private router: Router,
-  ) {}
+    private postService: PostService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     const user = this.authService.getLoggedInUser();
@@ -41,19 +49,45 @@ export class Profile implements OnInit {
       email: user.email,
       bio: user.bio,
     };
+    this.postService.getPosts().subscribe({
+      next: (posts) => {
+        this.myPosts = posts.filter(
+          (post) => post.userId === this.currentUser.id
+        );
+
+        this.calculateStats();
+      },
+    });
+  }
+  stats = {
+    postsSaved: '0',
+    upvotesGiven: '0',
+    comments: '0',
+  };
+
+  calculateStats() {
+    this.stats = {
+      postsSaved: this.myPosts
+        .filter((p) => p.saved)
+        .length
+        .toString(),
+
+      upvotesGiven: this.myPosts
+        .filter((p) => p.voted)
+        .length
+        .toString(),
+
+      comments: this.myPosts
+        .reduce((sum, p) => sum + p.commentsCount, 0)
+        .toString(),
+    };
   }
 
-  stats = {
-    postsSaved: POSTS.filter((p) => p.saved).length,
-    upvotesGiven: POSTS.reduce((sum, p) => sum + p.upvotes, 0),
-    comments: POSTS.reduce((sum, p) => sum + p.commentsCount, 0),
-  };
+  goToDetails(postId?: number) {
+    if (!postId) return;
 
-  settings = {
-    displayName: '',
-    email: '',
-    bio: '',
-  };
+    this.router.navigate(['/post', postId]);
+  }
 
   saveProfile() {
     const updatedUser = {
@@ -62,19 +96,11 @@ export class Profile implements OnInit {
       email: this.settings.email,
       bio: this.settings.bio,
     };
-  
-    localStorage.setItem(
-      'loggedInUser',
-      JSON.stringify(updatedUser)
-    );
-  
-    localStorage.setItem(
-      'user',
-      JSON.stringify(updatedUser)
-    );
-  
+
+    this.authService.updateUser(updatedUser);
+
     this.currentUser = updatedUser;
-  
+
     alert('Profile updated successfully');
   }
 }

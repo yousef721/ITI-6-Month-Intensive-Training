@@ -2,30 +2,30 @@
   border-bottom: 1px solid var(--border);
   scroll-snap-type: x proximity;
   scrollbar-width: none;
-}
 
-.topic-chips::-webkit-scrollbar {
-  display: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .chip {
-  font-size: var(--fs-xxs);
+  font-size: var(--font-size-xs);
   scroll-snap-align: start;
   border: 1px solid var(--text-muted);
   color: var(--text-secondary);
-}
 
-.chip:hover {
-  transform: translateY(-1px);
-  background: var(--accent-subtle);
-  border: 1px solid var(--accent);
-  color: var(--accent);
-}
+  &:hover {
+    transform: translateY(-1px);
+    background: var(--surface-soft);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+  }
 
-.chip.active {
-  background: var(--accent-subtle);
-  color: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-sm);
+  &.active {
+    background: var(--surface-soft);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-sm);
+  }
 }

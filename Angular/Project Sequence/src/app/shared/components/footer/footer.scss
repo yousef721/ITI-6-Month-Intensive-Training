@@ -1,45 +1,28 @@
 .site-footer {
-  background: var(--text-primary);
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.82rem;
-  margin-top: 3rem;
-  padding: 2rem 0;
+  background: var(--surface-primary);
+  color: var(--text-muted-light);
+  font-size: var(--font-size-xs);
+  padding: var(--radius-3xl) 0;
 }
 
-.site-footer .text-white {
-  font-size: 1rem;
-  letter-spacing: -0.3px;
+.logo {
+  font-size: var(--font-size-md);
+  color: var(--text-inverse);
+  font-weight: bold;
+}
+
+.description {
+  font-size: var(--font-size-sm);
+  margin-top: 0.1rem;
 }
 
 .footer-link {
-  color: rgba(255, 255, 255, 0.5);
-  transition: color 0.2s;
   cursor: pointer;
   text-decoration: none;
-}
+  transition: color var(--transition-fast);
+  color: var(--text-muted-light);
 
-.footer-link:hover {
-  color: var(--accent);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .site-footer {
-    padding: 1.5rem 0;
-  }
-
-  .site-footer .row > div {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  .site-footer .row > div:last-child {
-    margin-bottom: 0;
-  }
-
-  .footer-link {
-    display: inline-block;
-    margin: 0 0.5rem;
-    font-size: 0.75rem;
+  &:hover {
+    color: var(--primary-color);
   }
 }

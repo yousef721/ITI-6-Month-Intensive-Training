@@ -1,45 +1,86 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { IUser } from '../interfaces/IUser';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private USER_KEY = 'user';
-  private LOGGED_IN_USER = 'loggedInUser';
+  private http = inject(HttpClient);
 
-  saveUser(user: IUser): void {
-    localStorage.setItem(this.USER_KEY, JSON.stringify(user));
+  private apiUrl = 'http://localhost:3000/users';
+
+  private users: IUser[] = [];
+
+  private loggedUser: IUser | null = null;
+
+  constructor() {
+    this.loadUsers();
   }
 
-  getUser(): IUser | null {
-    const data = localStorage.getItem(this.USER_KEY);
-    return data ? JSON.parse(data) : null;
+  loadUsers(): void {
+    this.http.get<IUser[]>(this.apiUrl).subscribe({
+      next: (data) => {
+        this.users = data;
+      },
+    });
+
+    const stored = localStorage.getItem('loggedInUser');
+    if (stored) {
+      this.loggedUser = JSON.parse(stored);
+    }
   }
 
-  login(email: string, password: string): IUser | null {
-    const user = this.getUser();
+  register(user: IUser): IUser | null {
+    const newUser = {
+      ...user,
+      id: Date.now(),
+    };
+
+    this.http.post<IUser>(this.apiUrl, newUser).subscribe({
+      next: (created) => {
+        this.users.push(created);
+        this.loggedUser = created;
+
+        localStorage.setItem(
+          'loggedInUser',
+          JSON.stringify(created)
+        );
+      },
+    });
+
+    return newUser;
+  }
+
+  login(email: string, password: string) {
+    const user = this.users.find(
+      (u) => u.email === email && u.password === password
+    );
 
     if (!user) return null;
 
-    if (user.email === email && user.password === password) {
-      localStorage.setItem(this.LOGGED_IN_USER, JSON.stringify(user));
-      return user;
-    }
+    this.loggedUser = user;
 
-    return null;
+    localStorage.setItem('loggedInUser', JSON.stringify(user));
+
+    return user;
   }
 
-  getLoggedInUser(): IUser | null {
-    const data = localStorage.getItem(this.LOGGED_IN_USER);
-    return data ? JSON.parse(data) : null;
-  }
-
-  isLoggedIn(): boolean {
-    return !!this.getLoggedInUser();
+  getLoggedInUser() {
+    return this.loggedUser;
   }
 
   logout(): void {
-    localStorage.removeItem(this.LOGGED_IN_USER);
+    this.loggedUser = null;
+    localStorage.removeItem('loggedInUser');
+  }
+
+  updateUser(user: IUser) {
+    this.loggedUser = user;
+
+    localStorage.setItem(
+      'loggedInUser',
+      JSON.stringify(user)
+    );
   }
 }

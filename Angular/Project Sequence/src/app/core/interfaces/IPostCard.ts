@@ -1,19 +1,18 @@
 export interface Comment {
-  id: number;
+  id?: number;
   author: string;
   content: string;
   createdAt: string;
 }
 
 export interface Post {
-  id: number;
-
+  id?: number;
+  userId?: number,
   voted: boolean;
   saved: boolean;
 
   upvotes: number;
 
-  sourceColor: string;
   sourceInitial: string;
   sourceName: string;
 
@@ -29,4 +28,6 @@ export interface Post {
   image: string;
 
   hashtags: string[];
+
+  categoryId: number;
 }

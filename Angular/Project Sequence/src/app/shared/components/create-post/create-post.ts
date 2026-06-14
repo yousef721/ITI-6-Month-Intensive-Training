@@ -10,8 +10,10 @@ import {
 import { Router } from '@angular/router';
 
 import { Post } from '../../../core/interfaces/IPostCard';
-import { CATEGORIES } from '../../../core/data/categories.data';
 import { AuthService } from '../../../core/services/auth.service';
+import { ICategory } from '../../../core/interfaces/ICategory';
+import { CategoryService } from '../../../core/services/category.service';
+import { PostService } from '../../../core/services/post.service';
 
 @Component({
   selector: 'app-create-post',
@@ -20,10 +22,10 @@ import { AuthService } from '../../../core/services/auth.service';
   templateUrl: './create-post.html',
   styleUrls: ['./create-post.scss'],
 })
-export class CreatePost {
-  @Output() postCreated = new EventEmitter<Post>();
 
-  categories = CATEGORIES;
+export class CreatePost implements OnInit {
+
+  categories: ICategory[] = [];
   expanded = false;
   selectedImage = '';
   justPublished = false;
@@ -32,8 +34,18 @@ export class CreatePost {
 
   constructor(
     private authService: AuthService,
+    private categoryService: CategoryService,
+    private postService: PostService,
     private router: Router,
-  ) {}
+  ) { }
+
+  ngOnInit() {
+    this.categoryService.getCategories().subscribe({
+      next: (categories) => {
+        this.categories = categories;
+      },
+    });
+  }
 
   get f() {
     return this.postForm.controls;
@@ -56,15 +68,15 @@ export class CreatePost {
       Validators.minLength(10),
       Validators.maxLength(200),
     ]),
-    category: new FormControl(null, Validators.required),
+    category: new FormControl<number | null>(null, Validators.required),
   });
 
   onTriggerFocus() {
-    if (!this.authService.isLoggedIn()) {
+    if (!this.authService.getLoggedInUser()) {
       this.router.navigate(['/login']);
       return;
     }
-  
+
     this.expanded = true;
   }
 
@@ -85,12 +97,6 @@ export class CreatePost {
     reader.readAsDataURL(input.files[0]);
   }
 
-  private randomColor(): string {
-    const colors = ['#000000', '#4285F4', '#FF5722', '#9C27B0', '#4CAF50', '#FF9800'];
-
-    return colors[Math.floor(Math.random() * colors.length)];
-  }
-
   private randomUpvotes = () => Math.floor(Math.random() * 500);
 
   private randomComments = () => Math.floor(Math.random() * 100);
@@ -100,12 +106,26 @@ export class CreatePost {
   private randomTime = () =>
     ['just now', '5m ago', '10m ago', '1h ago', '3h ago'][Math.floor(Math.random() * 5)];
 
+  private resetForm() {
+    this.postForm.reset({ category: null });
+
+    this.selectedImage = '';
+    this.imageError = false;
+    this.expanded = false;
+
+    if (this.fileInputRef) {
+      this.fileInputRef.value = '';
+      this.fileInputRef = null;
+    }
+  }
   publish() {
-    if (!this.authService.isLoggedIn()) {
+    const currentUser = this.authService.getLoggedInUser();
+
+    if (!currentUser) {
       this.router.navigate(['/login']);
       return;
     }
-    
+
     if (!this.selectedImage) {
       this.imageError = true;
     }
@@ -117,19 +137,18 @@ export class CreatePost {
 
     const value = this.postForm.value;
 
-    const currentUser = this.authService.getUser();
+    const selectedCategory = this.categories.find(
+      (c) => c.id === value.category
+    );
 
     const newPost: Post = {
-      id: Date.now(),
       voted: false,
       saved: false,
       upvotes: this.randomUpvotes(),
 
-      sourceColor: this.randomColor(),
-
-      sourceName: currentUser?.name || value.sourceName || 'Anonymous',
-
-      sourceInitial: currentUser?.avatarInitial || value.sourceName?.charAt(0).toUpperCase() || '?',
+      sourceName: value.sourceName,
+      sourceInitial:
+        (value.sourceName || currentUser.name)?.charAt(0).toUpperCase() || '?',
 
       time: this.randomTime(),
       readTime: this.randomReadTime(),
@@ -140,12 +159,27 @@ export class CreatePost {
       commentsCount: this.randomComments(),
       comments: [],
 
-      hashtags: value.category ? [value.category] : [],
+      hashtags: selectedCategory ? [selectedCategory.name] : [],
+
+      categoryId: value.category!,
 
       image: this.selectedImage,
     };
 
-    this.postCreated.emit(newPost);
+    this.postService.addPost(newPost).subscribe({
+      next: () => {
+        this.justPublished = true;
+
+        setTimeout(() => {
+          this.justPublished = false;
+        }, 600);
+
+        this.resetForm();
+      },
+      error: (err) => {
+        console.error('Failed to create post', err);
+      }
+    });
 
     this.justPublished = true;
 
@@ -153,32 +187,9 @@ export class CreatePost {
       this.justPublished = false;
     }, 600);
 
-    this.postForm.reset({
-      category: null,
-    });
-
-    this.selectedImage = '';
-    this.imageError = false;
-    this.expanded = false;
-
-    if (this.fileInputRef) {
-      this.fileInputRef.value = '';
-      this.fileInputRef = null;
-    }
+    this.resetForm();
   }
-
   cancel() {
-    this.expanded = false;
-    this.selectedImage = '';
-    this.imageError = false;
-
-    this.postForm.reset({
-      category: null,
-    });
-
-    if (this.fileInputRef) {
-      this.fileInputRef.value = '';
-      this.fileInputRef = null;
-    }
+    this.resetForm();
   }
 }

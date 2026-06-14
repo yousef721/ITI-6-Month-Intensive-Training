@@ -64,13 +64,17 @@ export class Signup {
       password: value.password,
       avatarInitial: value.name.charAt(0).toUpperCase(),
       bio: 'New member',
-      badges: ['🚀 New User'],
     };
 
-    this.authService.saveUser(user);
+    const registeredUser = this.authService.register(user);
 
-    this.authService.login(value.email, value.password);
+    if (registeredUser) {
+      const { password, ...safeUser } = registeredUser;
 
-    this.router.navigate(['/home']);
+      localStorage.setItem('loggedInUser', JSON.stringify(safeUser));
+
+      this.router.navigate(['/home']);
+    }
   }
+
 }

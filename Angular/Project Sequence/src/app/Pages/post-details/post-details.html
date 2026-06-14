@@ -1,154 +1,128 @@
 @if (post) {
-  <div class="post-details-page">
-    <div class="container py-4 py-md-5">
-      <div class="row g-4">
+<div class="post-details-page">
+  <div class="container py-4 py-md-5">
+    <div class="row g-4">
 
-        <!-- ── Main Content ── -->
-        <main class="col-lg-8">
+      <main class="col-lg-8">
 
-          <!-- Post Card -->
-          <article class="post-details-card mb-4">
-            <img
-              class="post-details-image w-100"
-              [src]="post.image"
-              [alt]="post.title"
-            />
+        <article class="post-details-card mb-4">
+          <img class="post-details-image w-100" [src]="post.image" [alt]="post.title" />
 
-            <div class="post-details-body">
-              <!-- Meta -->
-              <div class="post-meta d-flex align-items-center gap-3 mb-3">
-                <div class="source-avatar">{{ post.sourceInitial }}</div>
-                <div>
-                  <div class="source-name fw-semibold">{{ post.sourceName }}</div>
-                  <div class="source-date small text-muted">{{ post.time }}</div>
-                </div>
-                <button
-                  class="btn ms-auto"
-                  [class.btn-primary]="post.saved"
-                  [class.btn-outline]="!post.saved"
-                  (click)="toggleSave()"
-                >
-                  <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
-                </button>
+          <div class="post-details-body">
+            <div class="post-meta d-flex align-items-center gap-3 mb-3">
+              <div class="source-avatar">{{ post.sourceInitial }}</div>
+              <div>
+                <div class="source-name fw-semibold">{{ post.sourceName }}</div>
+                <div class="source-date small text-muted">{{ post.time }}</div>
               </div>
-
-              <!-- Title -->
-              <h1 class="post-details-title mb-3">{{ post.title }}</h1>
-
-              <!-- Tags -->
-              <div class="post-categories mb-3">
-                @for (tag of post.hashtags; track tag) {
-                  <span class="category-tag">#{{ tag }}</span>
-                }
-              </div>
-
-              <!-- Excerpt -->
-              <p class="post-excerpt text-muted mb-4">{{ post.description }}</p>
-
-              <!-- Actions -->
-              <div class="post-actions d-flex gap-3 mb-4 py-3 border-top border-bottom">
-                <button class="action-btn btn p-0" (click)="toggleVote()">
-                  <i class="bi" [class.bi-triangle-fill]="post.voted" [class.bi-triangle]="!post.voted"></i>
-                  {{ post.upvotes }} Upvotes
-                </button>
-                <span class="action-btn">
-                  <i class="bi bi-chat"></i> {{ post.commentsCount }} Comments
-                </span>
-                <span class="action-btn ms-auto">
-                  <i class="bi bi-share"></i> Share
-                </span>
-              </div>
-
-              <a href="#" class="btn btn-primary w-100 py-2">Read Full Article</a>
+              <button class="btn ms-auto" [class.btn-primary]="post.saved" [class.btn-outline]="!post.saved"
+                (click)="toggleSave()">
+                <i class="bi" [class.bi-bookmark-fill]="post.saved" [class.bi-bookmark]="!post.saved"></i>
+              </button>
             </div>
-          </article>
 
-          <!-- ── Comments Section ── -->
-          <section class="comments-section">
-            <h2 class="comments-title mb-3">
-              Comments ({{ post.commentsCount }})
-            </h2>
+            <h1 class="post-details-title mb-3">{{ post.title }}</h1>
 
-            <!-- Comment Form -->
-            <div class="comment-form mb-4">
-              <div class="d-flex gap-2 mb-2">
-                <div class="comment-avatar">Y</div>
+            <div class="post-categories mb-3">
+              @for (tag of post.hashtags; track tag) {
+              <span class="category-tag">#{{ tag }}</span>
+              }
+            </div>
+
+            <p class="post-excerpt text-muted mb-4">{{ post.description }}</p>
+
+            <div class="post-actions d-flex gap-3 mb-4 py-3 border-top border-bottom">
+              <button class="action-btn btn p-0" (click)="toggleVote()">
+                <i class="bi" [class.bi-triangle-fill]="post.voted" [class.bi-triangle]="!post.voted"></i>
+                {{ post.upvotes }} Upvotes
+              </button>
+              <span class="action-btn">
+                <i class="bi bi-chat"></i> {{ post.commentsCount }} Comments
+              </span>
+              <span class="action-btn ms-auto">
+                <i class="bi bi-share"></i> Share
+              </span>
+            </div>
+
+            <a href="#" class="btn btn-primary w-100 py-2">Read Full Article</a>
+          </div>
+        </article>
+
+        <section class="comments-section">
+          <h2 class="comments-title mb-3">
+            Comments ({{ post.commentsCount }})
+          </h2>
+
+          <div class="comment-form mb-4">
+            <div class="d-flex gap-2 mb-2">
+              <div class="comment-avatar">Y</div>
+              <div class="flex-grow-1">
+                <textarea class="form-control" placeholder="Share your thoughts..." rows="3"
+                  [(ngModel)]="newComment"></textarea>
+              </div>
+            </div>
+            <div class="text-end">
+              <button class="btn btn-primary" (click)="submitComment()">
+                Post Comment
+              </button>
+            </div>
+          </div>
+
+          <div class="comments-list">
+            @for (comment of post.comments; track comment.id) {
+            <div class="comment-item">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <div class="comment-avatar">{{ comment.author[0] }}</div>
                 <div class="flex-grow-1">
-                  <textarea
-                    class="form-control"
-                    placeholder="Share your thoughts..."
-                    rows="3"
-                    [(ngModel)]="newComment"
-                  ></textarea>
+                  <div class="comment-author-name fw-semibold">{{ comment.author }}</div>
+                  <div class="comment-time small text-muted">{{ comment.createdAt }}</div>
                 </div>
               </div>
-              <div class="text-end">
-                <button class="btn btn-primary" (click)="submitComment()">
-                  Post Comment
-                </button>
+              <p class="comment-text text-secondary">{{ comment.content }}</p>
+              <div class="comment-actions small">
+                <span class="action"><i class="bi bi-hand-thumbs-up"></i> Like</span>
+                <span class="action ms-2"><i class="bi bi-reply"></i> Reply</span>
               </div>
             </div>
-
-            <!-- Comments List -->
-            <div class="comments-list">
-              @for (comment of post.comments; track comment.id) {
-                <div class="comment-item">
-                  <div class="d-flex align-items-center gap-2 mb-2">
-                    <div class="comment-avatar">{{ comment.author[0] }}</div>
-                    <div class="flex-grow-1">
-                      <div class="comment-author-name fw-semibold">{{ comment.author }}</div>
-                      <div class="comment-time small text-muted">{{ comment.createdAt }}</div>
-                    </div>
-                  </div>
-                  <p class="comment-text text-secondary">{{ comment.content }}</p>
-                  <div class="comment-actions small">
-                    <span class="action"><i class="bi bi-hand-thumbs-up"></i> Like</span>
-                    <span class="action ms-2"><i class="bi bi-reply"></i> Reply</span>
-                  </div>
-                </div>
-              } @empty {
-                <p class="text-muted text-center py-3">No comments yet. Be the first!</p>
-              }
-            </div>
-
-            <button class="btn btn-outline w-100 py-2 mt-3">Load More Comments</button>
-          </section>
-
-        </main>
-
-        <!-- ── Sidebar ── -->
-        <aside class="col-lg-4">
-
-          <!-- Related Posts -->
-          <div class="sidebar-card mb-4">
-            <h3 class="sidebar-title mb-3">Related Posts</h3>
-            <div class="related-list">
-              @for (related of relatedPosts; track related.id) {
-                <div class="related-post">
-                  <img [src]="related.image" [alt]="related.title" />
-                  <div class="related-post-info">
-                    <div class="related-post-title">{{ related.title }}</div>
-                    <div class="related-meta text-muted small">{{ related.time }}</div>
-                  </div>
-                </div>
-              }
-            </div>
+            } @empty {
+            <p class="text-muted text-center py-3">No comments yet. Be the first!</p>
+            }
           </div>
 
-          <!-- Categories -->
-          <div class="sidebar-card">
-            <h3 class="sidebar-title mb-3">Categories</h3>
-            <div class="category-list">
-              <a routerLink="/posts" class="category-link">Frontend Development</a>
-              <a routerLink="/posts" class="category-link">Backend Development</a>
-              <a routerLink="/posts" class="category-link">DevOps</a>
-              <a routerLink="/posts" class="category-link">Mobile Dev</a>
+          <button class="btn btn-outline w-100 py-2 mt-3">Load More Comments</button>
+        </section>
+
+      </main>
+
+      <aside class="col-lg-4">
+
+        <div class="sidebar-card mb-4">
+          <h3 class="sidebar-title mb-3">Related Posts</h3>
+          <div class="related-list">
+            @for (related of relatedPosts; track related.id) {
+            <div class="related-post">
+              <img [src]="related.image" [alt]="related.title" />
+              <div class="related-post-info">
+                <div class="related-post-title">{{ related.title }}</div>
+                <div class="related-meta text-muted small">{{ related.time }}</div>
+              </div>
             </div>
+            }
           </div>
+        </div>
 
-        </aside>
+        <div class="sidebar-card">
+          <h3 class="sidebar-title mb-3">Categories</h3>
+          <div class="category-list">
+            @for (cat of categories; track cat.id) {
+            <a routerLink="/posts" class="category-link">{{ cat.name }}</a>
+            }
+          </div>
+        </div>
 
-      </div>
+      </aside>
+
     </div>
   </div>
+</div>
 }

@@ -1,25 +1,25 @@
 <div class="post-content">
   <div class="d-flex align-items-center gap-2 mb-2">
-    <div class="app-avatar app-avatar-sm source-avatar" [ngClass]="sourceAvatarClass">
+    <div class="app-avatar app-avatar-sm">
       {{ post.sourceInitial }}
     </div>
 
     <div>
-      <div class="source-name fw-semibold">
+      <div class="source-name">
         {{ post.sourceName }}
       </div>
 
       <div class="source-meta">
         {{ post.time }}
         ·
-        <span class="app-badge app-badge-sm read-badge">
+        <span class="app-badge app-badge-sm">
           {{ post.readTime }}
         </span>
       </div>
     </div>
   </div>
 
-  <div class="post-title mb-2 fw-bold lh-1">
+  <div class="post-title">
     {{ post.title }}
   </div>
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { StatsService } from '../../../../core/services/stats.service';
 import { IStats } from '../../../../core/interfaces/IStats';
@@ -13,7 +13,13 @@ import { IStats } from '../../../../core/interfaces/IStats';
 export class HeroSection {
   stats: IStats[] = [];
 
-  constructor(private statsService: StatsService) {
-    this.stats = this.statsService.getStats().slice(0, 3);
+  statsService = inject(StatsService);
+
+  ngOnInit() {
+    this.statsService.getStats().subscribe({
+      next: (stats: IStats[]) => {
+        this.stats = stats.slice(0, 3);
+      }
+    });
   }
 }
