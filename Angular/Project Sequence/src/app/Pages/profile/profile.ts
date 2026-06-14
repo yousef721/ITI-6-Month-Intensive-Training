@@ -8,6 +8,7 @@ import { AuthService } from '../../core/services/auth.service';
 import { UserCard } from '../../shared/components/user-card/user-card';
 import { StatsCard } from '../../shared/components/stats-card/stats-card';
 import { PostService } from '../../core/services/post.service';
+import { Post } from '../../core/interfaces/IPostCard';
 
 @Component({
   selector: 'app-profile',
@@ -26,7 +27,9 @@ export class Profile implements OnInit {
     bio: '',
   };
 
-  myPosts: any[] = [];
+  myPosts: Post[] = [];
+  savedPosts: Post[] = [];
+  allPosts: Post[] = [];
 
   constructor(
     private authService: AuthService,
@@ -51,10 +54,11 @@ export class Profile implements OnInit {
     };
     this.postService.getPosts().subscribe({
       next: (posts) => {
+        this.allPosts = posts;
         this.myPosts = posts.filter(
-          (post) => post.userId === this.currentUser.id
+          (post) => String(post.userId) === String(this.currentUser.id)
         );
-
+        this.savedPosts = posts.filter((post) => post.saved);
         this.calculateStats();
       },
     });
@@ -67,17 +71,17 @@ export class Profile implements OnInit {
 
   calculateStats() {
     this.stats = {
-      postsSaved: this.myPosts
+      postsSaved: this.allPosts
         .filter((p) => p.saved)
         .length
         .toString(),
 
-      upvotesGiven: this.myPosts
+      upvotesGiven: this.allPosts
         .filter((p) => p.voted)
         .length
         .toString(),
 
-      comments: this.myPosts
+      comments: this.allPosts
         .reduce((sum, p) => sum + p.commentsCount, 0)
         .toString(),
     };
@@ -86,7 +90,7 @@ export class Profile implements OnInit {
   goToDetails(postId?: number) {
     if (!postId) return;
 
-    this.router.navigate(['/post', postId]);
+    this.router.navigate(['/posts', postId]);
   }
 
   saveProfile() {

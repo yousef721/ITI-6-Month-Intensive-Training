@@ -28,6 +28,10 @@ export class PostList implements OnInit {
     this.loadPosts();
   }
 
+  onPostCreated() {
+    this.loadPosts();
+  }
+
   private loadPosts() {
     this.postService.getPosts().subscribe({
       next: (posts) => {

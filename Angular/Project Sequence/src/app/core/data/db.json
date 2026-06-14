@@ -87,6 +87,7 @@
   "posts": [
     {
       "id": "1",
+      "userId": "1",
       "voted": true,
       "saved": true,
       "upvotes": 343,
@@ -121,8 +122,9 @@
     },
     {
       "id": "2",
+      "userId": "1",
       "voted": true,
-      "saved": false,
+      "saved": true,
       "upvotes": 218,
       "sourceInitial": "G",
       "sourceName": "Google Engineering",
@@ -155,6 +157,7 @@
     },
     {
       "id": "3",
+      "userId": "1",
       "voted": true,
       "saved": false,
       "upvotes": 488,
@@ -195,6 +198,7 @@
     },
     {
       "id": "4",
+      "userId": "1",
       "voted": true,
       "saved": false,
       "upvotes": 391,
@@ -229,6 +233,7 @@
     },
     {
       "id": "5",
+      "userId": "1",
       "voted": false,
       "saved": false,
       "upvotes": 267,
@@ -263,6 +268,7 @@
     },
     {
       "id": "6",
+      "userId": "1",
       "voted": true,
       "saved": true,
       "upvotes": 529,
@@ -291,6 +297,7 @@
     },
     {
       "id": "7",
+      "userId": "1",
       "voted": false,
       "saved": false,
       "upvotes": 188,
@@ -319,6 +326,7 @@
     },
     {
       "id": "8",
+      "userId": "1",
       "voted": true,
       "saved": false,
       "upvotes": 612,

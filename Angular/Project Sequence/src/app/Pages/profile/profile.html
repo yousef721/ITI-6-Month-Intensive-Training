@@ -26,9 +26,7 @@
         <div class="d-flex align-items-center justify-content-between mb-3">
           <h5 class="mb-0 fw-bold">Saved Posts</h5>
         </div>
-        @for (post of myPosts; track post.id) {
-        @if (post.saved) {
-
+        @for (post of savedPosts; track post.id) {
         <div class="d-flex gap-3 py-3 border-bottom clickable-post" (click)="goToDetails(post.id)">
           <img [src]="post.image" [alt]="post.title" class="rounded" width="90" height="70" />
 
@@ -42,8 +40,8 @@
             </div>
           </div>
         </div>
-
-        }
+        } @empty {
+        <p class="text-muted mb-0">No saved posts yet.</p>
         }
       </div>
 

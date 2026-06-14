@@ -24,6 +24,7 @@ import { PostService } from '../../../core/services/post.service';
 })
 
 export class CreatePost implements OnInit {
+  @Output() postCreated = new EventEmitter<void>();
 
   categories: ICategory[] = [];
   expanded = false;
@@ -142,6 +143,7 @@ export class CreatePost implements OnInit {
     );
 
     const newPost: Post = {
+      userId: currentUser.id,
       voted: false,
       saved: false,
       upvotes: this.randomUpvotes(),
@@ -175,19 +177,12 @@ export class CreatePost implements OnInit {
         }, 600);
 
         this.resetForm();
+        this.postCreated.emit();
       },
       error: (err) => {
         console.error('Failed to create post', err);
       }
     });
-
-    this.justPublished = true;
-
-    setTimeout(() => {
-      this.justPublished = false;
-    }, 600);
-
-    this.resetForm();
   }
   cancel() {
     this.resetForm();
